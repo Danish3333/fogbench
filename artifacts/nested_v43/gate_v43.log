@@ -1,0 +1,636 @@
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[selection-policy v25.42.9] FROZEN DEVELOPMENT PROTOCOL for this run:
+  model-selection metric : windowF1
+  early-stop rule        : patience=25 min_epoch=20
+  calibration method     : temperature fit on calib only (gated first); T-grid [0.10,12]x240, boundary fits accepted (v25.43.0)
+  threshold objective    : windowF1 (variant) -> max-epF1 fallback on calib
+  postprocessing space   : confirm=auto>=3 cooldown=auto>=30 sustain/merge from calib
+  swa/ema policy         : aswa from epoch 25; variants raw/ema/swa selected on calib
+  ensemble rule          : 2-seed mean; non-final seeds EXCLUDED (v25.42.7)
+  split policy           : split_mode=shared_pooled n_repeats=10 (locked before first repeat)
+[manifest] {"code": "v25.57.0", "file_sha256": "7eb1b4caadd1eba1", "file_sha256_full": "7eb1b4caadd1eba1f7a6be91a688f96179c87af5f1f6b36c8c2e779d9218d831", "n_channels": 13, "seed": 42, "n_splits": 1, "n_seeds": 2, "model": "sequence", "device": "cuda", "device_requested": "cuda", "cuda_available": true, "epochs": 80, "families": ["defog"], "family_shared_val": true, "split_mode": "shared_pooled", "training_identity": "aef038a45e9d79ea05b771d0aa18ab7bdaa38357c5a3f18273c632c7ff028eb7", "env": {"NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_BOOTSTRAP_N": "50"}, "effective_config": {"NEUROMAMBA_SELECT_BY_WINDOW_F1": "1", "NEUROMAMBA_MAP_INCLUDE_THRESH": "0", "NEUROMAMBA_WF1_INCLUDE_THRESH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_SUBTYPE_FINETUNE": "0", "NEUROMAMBA_EP_LOSS_W": "0", "NEUROMAMBA_EP_LOSS_START": "3", "NEUROMAMBA_PCGRAD": "0", "NEUROMAMBA_GATE_SH_COND": "1", "NEUROMAMBA_GATE_SH_ETA": "0.2", "NEUROMAMBA_GATE_MASK_SH": "1", "NEUROMAMBA_DEPLOY_CONFORMAL": "0", "NEUROMAMBA_DEPLOY_CONFORMAL_BUDGET": "10", "NEUROMAMBA_SCORE_ANCHOR_W": "0", "NEUROMAMBA_SCORE_ANCHOR_START": "3", "NEUROMAMBA_SCORE_ANCHOR_TARGETS": "0.05,0.80", "NEUROMAMBA_HEAD_PRIOR_INIT": "1", "NEUROMAMBA_TURN_PLAIN": "1", "NEUROMAMBA_EPOCH_T_FIXED": "1", "NEUROMAMBA_SUBTYPE_TEMPERATURE": "0", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DEFOG_SH_WEAK": "0.05", "NEUROMAMBA_DEFOG_SH_SCALE_MODE": "term", "NEUROMAMBA_OPT_2NDPLACE": "0", "NEUROMAMBA_OPT_WD": "", "NEUROMAMBA_OPT_HEAD_WD0": "1", "NEUROMAMBA_GRAD_CLIP_MODE": "adaptive", "NEUROMAMBA_GRAD_CLIP": "1.0", "NEUROMAMBA_MIN_EPOCH_MAP_SEL": "10", "NEUROMAMBA_FOG_TOLERANCE": "0.85", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_CONFORMAL_SSBC": "0", "NEUROMAMBA_MIN_CALIB_SUBJ_POSTPROC": "15", "NEUROMAMBA_EVENT_BUDGET_CONFORMAL": "0", "NEUROMAMBA_BOOTSTRAP_N": "50", "NEUROMAMBA_SUBTYPE_FT_MONITOR": "1", "NEUROMAMBA_SUBTYPE_FT_RESTORE_BEST": "0", "NEUROMAMBA_PARETO_SELECT": "0", "NEUROMAMBA_PARETO_ALPHA": "0.95", "NEUROMAMBA_PARETO_MIN_SH_AP": "0.05", "NEUROMAMBA_EPOCH_RAW_TRIGGER": "1", "NEUROMAMBA_SEL_F1_GRID": "0.05,0.1,0.2,0.3", "NEUROMAMBA_CALIB_FRAC": "0.15", "NEUROMAMBA_THRESH_FRAC": "0.15", "NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_NOTYPE_PSEUDO": "0", "NEUROMAMBA_HARD_NEG_CROP_PROB": "0.15", "NEUROMAMBA_ADAM_BETA2": "0.999", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_SCORE_ANCHOR": "0", "NEUROMAMBA_GRAD_GUARD": "1", "NEUROMAMBA_GRAD_GUARD_CEILING": "1000", "NEUROMAMBA_GRAD_GUARD_DYN_CAP": "1000", "NEUROMAMBA_GRAD_GUARD_WARMUP_EPOCHS": "10", "NEUROMAMBA_GRAD_GUARD_MAX_ABORT_FRAC": "0.25", "NEUROMAMBA_GRAD_GUARD_BAD_EPOCH_PATIENCE": "4", "NEUROMAMBA_GRAD_GUARD_FROZEN_FLOOR": "700", "NEUROMAMBA_SUBTYPE_COND_LOSS": "0", "NEUROMAMBA_SUBJECT_FIRST_SAMPLER": "1", "NEUROMAMBA_SELECT_UTILITY": "0", "NEUROMAMBA_MIN_EPOCH_UTILITY": "2", "NEUROMAMBA_SUB_W_MAX": "1.0", "NEUROMAMBA_SAMPLER_QUOTA": "0.20,0.20,0.10,0.25,0.25", "NEUROMAMBA_NOTYPE_FOG_W": "1.0", "NEUROMAMBA_WARMUP_EPOCHS": "", "NEUROMAMBA_SUB_W_RAMP_EPOCHS": "", "NEUROMAMBA_EMA_EPOCH_EVAL": "1", "NEUROMAMBA_SH_CONTRASTIVE": "0", "NEUROMAMBA_SH_CONTRASTIVE_W": "0.15", "NEUROMAMBA_SH_CONTRASTIVE_NORM": "1", "NEUROMAMBA_CONTRAST_W_EFF_CAP": "5.0", "NEUROMAMBA_TOKEN_POS_WEIGHT_CAP": "8", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_TOKEN_PW_SOURCE": "patch", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_RARE_BOOST": "0", "NEUROMAMBA_WARM_REPLAY_REPEAT": "2", "NEUROMAMBA_WALK_HARDNEG_W": "2", "NEUROMAMBA_SH_HARDNEG_W": "1.0", "NEUROMAMBA_SMALL_CALIB_EP_F1_DEPLOY": "1", "NEUROMAMBA_PRIOR_CLAMP_DELTA": "0.15", "NEUROMAMBA_DEPLOY_FARH_SAFETY": "0.75", "NEUROMAMBA_SUB_CE_WEIGHTS": "5.0,2.0,5.0,1.0", "NEUROMAMBA_USE_AUGMENTATION": "1", "NEUROMAMBA_CROP_POS_PROB": "0.2", "NEUROMAMBA_SH_OVERSAMPLE": "5.0", "NEUROMAMBA_SH_CROP_PROB": "0.40", "NEUROMAMBA_WALK_CROP_PROB": "0.40", "NEUROMAMBA_EXTERNAL_PRIOR_MATCH": "1", "NEUROMAMBA_SH_SUBJECT_CAP": "0", "NEUROMAMBA_SUB_W_FLOOR": "0.35", "NEUROMAMBA_SUB_POS_WEIGHT": "1", "NEUROMAMBA_SUB_POS_WEIGHT_CAP": "20", "NEUROMAMBA_SUB_PW_SOURCE": "dataset", "NEUROMAMBA_POLY1_EPS": "1.0", "NEUROMAMBA_WARM_REPLAY": "1", "NEUROMAMBA_WARM_REPLAY_MAX": "150", "NEUROMAMBA_FINETUNE_LR_RESTART": "1", "NEUROMAMBA_FINETUNE_LR_SCALE": "0.5", "NEUROMAMBA_WARM_EXCLUDE_VAL": "1", "NEUROMAMBA_AXIS_FLIP_AUG": "1", "NEUROMAMBA_PAD_MASK": "0", "NEUROMAMBA_SAMPLER_EXPOSURE": "order", "NEUROMAMBA_GRU_HIDDEN": "128", "NEUROMAMBA_GRU_LAYERS": "2", "NEUROMAMBA_GRU_DROPOUT": "0.2", "NEUROMAMBA_DMODEL": "128", "NEUROMAMBA_NBLOCKS": "2", "NEUROMAMBA_WINNER_D": "128", "NEUROMAMBA_WINNER_HEADS": "6", "NEUROMAMBA_WINNER_DEPTH": "5", "NEUROMAMBA_WINNER_PATCH": "14", "NEUROMAMBA_WINNER_DROPOUT": "0.1", "NEUROMAMBA_LORA_RANK": "0", "NEUROMAMBA_LORA_ALPHA": "1.0", "NEUROMAMBA_LORA_DROPOUT": "0.1", "NEUROMAMBA_LORA_FREEZE_BACKBONE": "0", "NEUROMAMBA_DISABLE_WALKING_GATE": "0", "NEUROMAMBA_ROLL_WINDOW": "4000", "NEUROMAMBA_ROLL_STRIDE": "1000", "NEUROMAMBA_EMA_DECAY": "0.999", "NEUROMAMBA_EARLY_STOP_PATIENCE": "25", "NEUROMAMBA_EARLY_STOP_MIN_EPOCH": "20", "NEUROMAMBA_SWA_START": "25", "NEUROMAMBA_FOG_WARMUP_EPOCHS": "2", "NEUROMAMBA_RAMP_EPOCHS": "10", "NEUROMAMBA_WALKING_GATE_LOSS_WEIGHT": "0.3", "NEUROMAMBA_SEED_DIVERSITY": "0"}}
+[device] requested=cuda resolved=cuda cuda_available=True cuda_devices=1
+[tlvmc_loader] Loading CACHED sequences from /mnt/d/Installed/Datasets/tlvmc-parkinsons-freezing-gait-prediction/.neuromamba_v25_cache_200a2435600abf45.pkl
+[tlvmc_loader] Cache hit: 2719 sequences (skipped raw CSV processing; cfg verified)
+[daphnet] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_daphnet_57a09b5032d4696a.pkl
+[daphnet] Cache hit: 258 sequences (skipped raw file processing; cfg verified rev=57a09b5032d4696a)
+[xuanwu] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_xuanwu_bee21fa866869303.pkl
+[xuanwu] Cache hit: 135 sequences (skipped raw file processing; cfg verified rev=bee21fa866869303)
+[weargait] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_weargait_5eef996d3808531c.pkl
+[weargait] Cache hit: 62 sequences (skipped raw file processing; cfg verified rev=5eef996d3808531c)
+[fogstar] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_fogstar_14dc51218e48129c.pkl
+[fogstar] Cache hit: 111 sequences (skipped raw file processing; cfg verified rev=14dc51218e48129c)
+[build_sequences] Excluded 876 notype sequences from supervised CV
+[audit] subtype contract:
+  [daphnet] n_seq=258 n_subj=10
+    StartHesitation: observed=0 positive=173099 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [defog] n_seq=906 n_subj=38
+    StartHesitation: observed=4090530 positive=500 violations=0
+    Turn: observed=4090530 positive=586841 violations=0
+    Walking: observed=4090530 positive=98519 violations=0
+  [fogstar] n_seq=111 n_subj=22
+    StartHesitation: observed=0 positive=107210 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [tdcsfog] n_seq=937 n_subj=62
+    StartHesitation: observed=5517707 positive=238126 violations=0
+    Turn: observed=5517707 positive=1311540 violations=0
+    Walking: observed=5517707 positive=162372 violations=0
+  [weargait] n_seq=62 n_subj=12
+    StartHesitation: observed=0 positive=77899 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [xuanwu] n_seq=135 n_subj=13
+    StartHesitation: observed=0 positive=531600 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+[kaggle_eval v25.20] --families=['defog'] -> training families: ['defog']
+================================================================
+MODEL FAMILY: defog
+================================================================
+[rare-split] {'n_train_subjects': 27, 'n_calib_subjects': 6, 'n_thresh_subjects': 5, 'n_train_seqs': 620, 'n_calib_seqs': 181, 'n_thresh_seqs': 105, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 500, 'total_walk_events': 98518, 'held_sh_frac': 0.33, 'held_walk_frac': 0.2325057349925902, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.42.8] WARNING: SH UNDER POWERED (1/4 subjects, 2/8 events, max-subject event fraction 1.00 (gate 0.50)) -- SH AP/recall are NOT reliable for this fold; excluded from any SH-stability claim
+[single-split v25.20] 620 train seqs (27 subjects) / 286 val seqs (11 subjects); train-subject share = 71.1%
+[kaggle_eval v25.20] contest-mimic track: 1 split (NEUROMAMBA_CALIB_FRAC=0.15, NEUROMAMBA_THRESH_FRAC=0.15)
+[split-mode v25.42.8] PRIMARY SPLIT PROTOCOL = SHARED_POOLED (family=defog, n_splits=1, n_repeats=10)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1314, 'n_calib_seqs': 257, 'n_thresh_seqs': 272, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.08444595308139097, 'held_walk_frac': 0.29604047682931506, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0844 vs target>=0.2, held_walk_frac=0.2960 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1314 train seqs (70 subjects) / 529 val seqs (30 subjects); train-subject share = 70.0%
+[family-shared-val v25.38] defog: train filtered to family (677 seqs), val = SHARED pooled split (529 seqs, 30 subjects) -- per-domain ensemble-compatible
+[leak-guard v25.42.3] 876 notype sequences (25 subjects); 18 subjects also in supervised -- per-fold val filtering below
+[warm-start v25.9] family defog: pretrain 15 epochs on tdcsfog (937 sequences) then fine-tune on defog [v25.58 per-family fix]
+[repeat v25.42.7] REPEAT 1/10 (split seed 42 -> 42)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1314, 'n_calib_seqs': 257, 'n_thresh_seqs': 272, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.08444595308139097, 'held_walk_frac': 0.29604047682931506, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0844 vs target>=0.2, held_walk_frac=0.2960 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1314 train seqs (70 subjects) / 529 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 2/10 (split seed 42 -> 10042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1285, 'n_calib_seqs': 294, 'n_thresh_seqs': 264, 'seed': 10042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.11703251112619747, 'held_walk_frac': 0.2712982483038829, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1285 train seqs (70 subjects) / 558 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 3/10 (split seed 42 -> 20042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1322, 'n_calib_seqs': 233, 'n_thresh_seqs': 288, 'seed': 20042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.11349978627643258, 'held_walk_frac': 0.2850626700908429, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1322 train seqs (70 subjects) / 521 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 4/10 (split seed 42 -> 30042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1273, 'n_calib_seqs': 307, 'n_thresh_seqs': 263, 'seed': 30042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.020928146974763858, 'held_walk_frac': 0.29364099812181377, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0209 vs target>=0.2, held_walk_frac=0.2936 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1273 train seqs (70 subjects) / 570 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 5/10 (split seed 42 -> 40042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1329, 'n_calib_seqs': 306, 'n_thresh_seqs': 208, 'seed': 40042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.0845884354596733, 'held_walk_frac': 0.3011537429568017, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0846 vs target>=0.2, held_walk_frac=0.3012 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1329 train seqs (70 subjects) / 514 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 6/10 (split seed 42 -> 50042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1339, 'n_calib_seqs': 237, 'n_thresh_seqs': 267, 'seed': 50042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.07756908300017601, 'held_walk_frac': 0.278213039978535, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0776 vs target>=0.2, held_walk_frac=0.2782 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1339 train seqs (70 subjects) / 504 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 7/10 (split seed 42 -> 60042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1285, 'n_calib_seqs': 325, 'n_thresh_seqs': 233, 'seed': 60042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.12523781985198595, 'held_walk_frac': 0.23442063705009775, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1285 train seqs (70 subjects) / 558 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 8/10 (split seed 42 -> 70042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1299, 'n_calib_seqs': 243, 'n_thresh_seqs': 301, 'seed': 70042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.14621206406678233, 'held_walk_frac': 0.21115029322703055, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1299 train seqs (70 subjects) / 544 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 9/10 (split seed 42 -> 80042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1317, 'n_calib_seqs': 229, 'n_thresh_seqs': 297, 'seed': 80042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.09814940534560358, 'held_walk_frac': 0.23754839204262332, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0981 vs target>=0.2, held_walk_frac=0.2375 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[single-split v25.20] 1317 train seqs (70 subjects) / 526 val seqs (30 subjects); train-subject share = 70.0%
+[repeat v25.42.7] REPEAT 10/10 (split seed 42 -> 90042)
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1248, 'n_calib_seqs': 321, 'n_thresh_seqs': 274, 'seed': 90042, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.17757914057981947, 'held_walk_frac': 0.18833608034037333, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1248 train seqs (70 subjects) / 595 val seqs (30 subjects); train-subject share = 70.0%
+[leak-guard v25.42.4] fold 1 val: DROPPED 3 notype subjects overlapping the held-out split (['040587', '58e067', 'd89567']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 1 val: 788 notype sequences remain (22 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 637 sequences (62 -> 42 lab subjects; 20 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 1/10
+------------------------------------------------------------
+[resume v25.42.6] fold 1 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 1 (defog) REUSED_RESULT (training+eval identity match; mAP=0.1861188532104737)
+[leak-guard v25.42.4] fold 2 val: DROPPED 7 notype subjects overlapping the held-out split (['040587', '2a7175', '413532', '8d43d9', 'a066f4', 'a3a1f9', 'ae2d35']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 2 val: 638 notype sequences remain (18 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 729 sequences (62 -> 45 lab subjects; 17 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 2/10
+------------------------------------------------------------
+[resume v25.42.6] fold 2 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 2 (defog) REUSED_RESULT (training+eval identity match; mAP=0.21563830199858014)
+[leak-guard v25.42.4] fold 3 val: DROPPED 7 notype subjects overlapping the held-out split (['2a7175', '5db717', '8d43d9', 'a066f4', 'bb3387', 'c92925', 'd89567']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 3 val: 559 notype sequences remain (18 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 725 sequences (62 -> 47 lab subjects; 15 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 3/10
+------------------------------------------------------------
+[resume v25.42.6] fold 3 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 3 (defog) REUSED_RESULT (training+eval identity match; mAP=0.20657345211500977)
+[leak-guard v25.42.4] fold 4 val: DROPPED 5 notype subjects overlapping the held-out split (['08de77', '1d7a0d', '7da72f', '8d43d9', 'd79fa0']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 4 val: 726 notype sequences remain (20 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 654 sequences (62 -> 44 lab subjects; 18 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 4/10
+------------------------------------------------------------
+[resume v25.42.6] fold 4 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 4 (defog) REUSED_RESULT (training+eval identity match; mAP=0.20514104144136613)
+[leak-guard v25.42.4] fold 5 val: DROPPED 8 notype subjects overlapping the held-out split (['1d7a0d', '2a7175', '7da72f', '8d43d9', 'a3a1f9', 'ab3b2e', 'ae2d35', 'bb3387']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 5 val: 668 notype sequences remain (17 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 731 sequences (62 -> 45 lab subjects; 17 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 5/10
+------------------------------------------------------------
+[resume v25.42.6] fold 5 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 5 (defog) REUSED_RESULT (training+eval identity match; mAP=0.19664473133061658)
+[leak-guard v25.42.4] fold 6 val: DROPPED 6 notype subjects overlapping the held-out split (['2a7175', 'a066f4', 'a3a1f9', 'ab3b2e', 'c12ab3', 'd89567']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 6 val: 672 notype sequences remain (19 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 729 sequences (62 -> 44 lab subjects; 18 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 6/10
+------------------------------------------------------------
+[resume v25.42.6] fold 6 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 6 (defog) REUSED_RESULT (training+eval identity match; mAP=0.21369372700217185)
+[leak-guard v25.42.4] fold 7 val: DROPPED 8 notype subjects overlapping the held-out split (['08de77', '413532', '58e067', '5db717', 'a066f4', 'ab3b2e', 'ae2d35', 'bb3387']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 7 val: 558 notype sequences remain (17 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 709 sequences (62 -> 46 lab subjects; 16 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 7/10
+------------------------------------------------------------
+[resume v25.42.6] fold 7 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 7 (defog) REUSED_RESULT (training+eval identity match; mAP=0.21801032326189398)
+[leak-guard v25.42.4] fold 8 val: DROPPED 7 notype subjects overlapping the held-out split (['040587', '2a7175', '413532', '8d43d9', 'a066f4', 'c12ab3', 'c92925']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 8 val: 631 notype sequences remain (18 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 725 sequences (62 -> 45 lab subjects; 17 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 8/10
+------------------------------------------------------------
+[resume v25.42.6] fold 8 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 8 (defog) REUSED_RESULT (training+eval identity match; mAP=0.2452971752790598)
+[leak-guard v25.42.4] fold 9 val: DROPPED 5 notype subjects overlapping the held-out split (['08de77', '2a7175', '8d43d9', 'd79fa0', 'd89567']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 9 val: 689 notype sequences remain (20 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 624 sequences (62 -> 41 lab subjects; 21 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 9/10
+------------------------------------------------------------
+[resume v25.42.6] fold 9 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 9 (defog) REUSED_RESULT (training+eval identity match; mAP=0.23639245980530868)
+[leak-guard v25.42.4] fold 10 val: DROPPED 7 notype subjects overlapping the held-out split (['413532', 'a066f4', 'ab3b2e', 'ae2d35', 'bb3387', 'c92925', 'd79fa0']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] fold 10 val: 604 notype sequences remain (18 subjects)
+[warm-excl v43] NESTED ARM: warm pool 937 -> 680 sequences (62 -> 44 lab subjects; 18 validation patients removed from pre-training and rehearsal)
+------------------------------------------------------------
+FOLD 1/1 (defog) REPEAT 10/10
+------------------------------------------------------------
+[resume v25.42.6] fold 10 (defog) decision=exact_resume device=cuda (cuda=True)
+[resume v25.42.6] fold 10 (defog) REUSED_RESULT (training+eval identity match; mAP=0.22968724436432694)
+[kaggle-track] Fold-ensemble (pooled OOF) mAP=0.2082 (internal diagnostic, NOT a journal claim)
+[kaggle-track] bootstrap 95% CI [0.1663,0.2539] (unit=subject)
+[calib v25.26] gate ECE (mean per-cohort gated) = 0.1534 (per-cohort [0.177, 0.166, 0.125, 0.073, 0.154, 0.149, 0.127, 0.123, 0.222, 0.121, 0.134, 0.146, 0.111, 0.163, 0.146, 0.109, 0.363, 0.107, 0.193, 0.154, 0.279, 0.15, 0.132, 0.09, 0.348, 0.109, 0.255, 0.204, 0.206, 0.142, 0.053, 0.096, 0.263, 0.102, 0.075, 0.083, 0.193, 0.138, 0.085, 0.066])
+[pure-family v25.42.7] defog-only held-out: eventF1=0.358 FARh=17.02/h (pooled row is the ensemble-compatible number)
+[repeated-cv v25.42.10] SH stability: powered=0/10 above_floor=0/0 event_recall>0=0/0 coverage>0=0/0 -> SH NOT STABLE (reference floor 0.05)
+[repeated-cv v25.42.9] 10 repeats: mAP {'mean': 0.21531973098088075, 'sd': 0.017148373567419092, 'median': 0.21466601450037598, 'q25': 0.20549914410977704, 'q75': 0.22676801408871872, 'min': 0.1861188532104737, 'max': 0.2452971752790598} | farh {'mean': 4.309607138363021, 'sd': 5.752042343212102, 'median': 1.5527607486832262, 'q25': 0.8058883358505484, 'q75': 4.067771203248629, 'min': 0.6038817293905324, 'max': 19.705673404662694} | brier {'mean': 0.07395834674246396, 'sd': 0.00724102618554224, 'median': 0.07689404567976882, 'q25': 0.06801669080365194, 'q75': 0.07892804475664136, 'min': 0.061023741236569964, 'max': 0.084104481958423}
+[repeated-cv v25.42.10] ERROR: per-repeat baseline mAP missing in repeats [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] -- delta NOT computed (no diff_mean fallback; reviewer fix #1)
+[repeated-cv v25.42.10] per-repeat table saved to defog_phase1_repeats.csv
+----------------------------------------------------------------------------
+[journal-metrics v25.59f] FAMILY defog (fold-level, manuscript set):
+  subtype mAP = 0.1861188532104737  (SH=0.0198 Turn=0.4804 Walking=0.0582)
+  event F1 = 0.33841463414634143 | episode-F1(frame) = 0.5476597741444373
+  FARh = 19.705673404662694 /h (budget 10) | sens@FARh<=10 = 0.08836100608252508
+  window F1 = 0.4218602207041513 | frame F1 = 0.5476597741444373
+  ECE = 0.04378141609342956 | Brier = 0.084104481958423 | temperature = 0.9674694649721686
+  ICC = {"icc_percent_time_frozen": 0.6858458876160292, "icc_n_episodes": 0.3897403147968847, "icc_duration_s": 0.7526016466837164, "n_recordings": 529}
+  bootstrap main-vs-baseline diff = null
+----------------------------------------------------------------------------
+============================================================================
+[journal-track] FAMILY defog SUMMARY (manuscript metrics)
+{
+  "n_folds_completed": 10,
+  "event_f1_mean": 0.1803225526876979,
+  "event_f1_n_evaluable": 10,
+  "event_f1_n_not_evaluable": 0,
+  "worst_fold_collapse_check": {
+    "collapsed": false,
+    "worst_f1": 0.07646356033452809,
+    "min_threshold": 0.05
+  },
+  "ece_max": 0.1533611579607314,
+  "pure_family_heldout": {
+    "family": "defog",
+    "event_f1": 0.35767511177347244,
+    "farh": 17.01552724501783,
+    "episode_f1_frame": 0.5075332312203054,
+    "note": "val frames from the defog source only (the pooled shared-val row mixes defog+tdcsfog)"
+  },
+  "repeated_cv": {
+    "0": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.1861188532104737,
+      "main_map": 0.1861188532104737,
+      "baseline_map": null,
+      "event_f1_mean": 0.33841463414634143,
+      "window_f1_mean": 0.4218602207041513,
+      "ece_mean": 0.04378141609342956,
+      "sh_ap_mean": 0.019780314612651107,
+      "sh_event_recall_mean": 24.142857142857142,
+      "sh_subject_coverage_mean": 0.36980306345733044,
+      "farh_mean": 19.705673404662694,
+      "brier_mean": 0.084104481958423,
+      "reliability_diagram_slope_mean": 0.5655483227191874,
+      "logistic_calib_slope_mean": 0.5539973850117078,
+      "sens_at_farh10": 0.08836100608252508,
+      "farh_at_sens85": 106.27914542891226,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "c050b37556d76c08e199ace31cc3468bd6242c0b14b970d24d976ea5f4783669",
+      "held_sh_subjects": 2,
+      "held_sh_events": 2,
+      "held_sh_max_subject_event_fraction": 0.5,
+      "sh_powered": false
+    },
+    "1": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.21563830199858014,
+      "main_map": 0.21563830199858014,
+      "baseline_map": null,
+      "event_f1_mean": 0.174852652259332,
+      "window_f1_mean": 0.18152199208750291,
+      "ece_mean": 0.038836062256367675,
+      "sh_ap_mean": 0.02868340715224139,
+      "sh_event_recall_mean": 36.6,
+      "sh_subject_coverage_mean": 0.524,
+      "farh_mean": 1.5304643567991651,
+      "brier_mean": 0.07869109387324436,
+      "reliability_diagram_slope_mean": 0.6273544257992217,
+      "logistic_calib_slope_mean": 0.6660519473923887,
+      "sens_at_farh10": 0.06663493574488338,
+      "farh_at_sens85": 72.12425041321185,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "a566098ee86cb8c72e5e383222a2095f221fa823a535be13855501273a9915e0",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "2": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.20657345211500977,
+      "main_map": 0.20657345211500977,
+      "baseline_map": null,
+      "event_f1_mean": 0.0914419695193435,
+      "window_f1_mean": 0.04838944760239032,
+      "ece_mean": 0.028445306286217213,
+      "sh_ap_mean": 0.027923399457060752,
+      "sh_event_recall_mean": 26.448275862068964,
+      "sh_subject_coverage_mean": 0.4370860927152318,
+      "farh_mean": 0.9125218915480405,
+      "brier_mean": 0.07900702838444038,
+      "reliability_diagram_slope_mean": 0.6594869156812219,
+      "logistic_calib_slope_mean": 0.6847023012279257,
+      "sens_at_farh10": 0.06938284714847898,
+      "farh_at_sens85": 56.54236206925715,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "76fac14f7cd0f5fb5551c6111e869408d0d04dbd85a5ebeb7b4512c06d07c6f9",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "3": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.20514104144136613,
+      "main_map": 0.20514104144136613,
+      "baseline_map": null,
+      "event_f1_mean": 0.21013133208255158,
+      "window_f1_mean": 0.2817472698907956,
+      "ece_mean": 0.02962328596750619,
+      "sh_ap_mean": 0.020749980371767056,
+      "sh_event_recall_mean": 21.26086956521739,
+      "sh_subject_coverage_mean": 0.3643122676579926,
+      "farh_mean": 4.234153649017138,
+      "brier_mean": 0.06439579791583083,
+      "reliability_diagram_slope_mean": 0.642601431685678,
+      "logistic_calib_slope_mean": 0.6644034592025343,
+      "sens_at_farh10": 0.023130661496807835,
+      "farh_at_sens85": 58.418137159688534,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "3b2696348582580589d0de1d0e2c489946695500f9b32e1f9ffdb1abc048d839",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "4": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.19664473133061658,
+      "main_map": 0.19664473133061658,
+      "baseline_map": null,
+      "event_f1_mean": 0.1169415292353823,
+      "window_f1_mean": 0.138626540739555,
+      "ece_mean": 0.022084149504588996,
+      "sh_ap_mean": 0.017337861936702163,
+      "sh_event_recall_mean": 35.63157894736842,
+      "sh_subject_coverage_mean": 0.48218029350104824,
+      "farh_mean": 0.7703438172847178,
+      "brier_mean": 0.061023741236569964,
+      "reliability_diagram_slope_mean": 0.8387719088517852,
+      "logistic_calib_slope_mean": 0.8981206098655439,
+      "sens_at_farh10": 0.0,
+      "farh_at_sens85": 45.86845897410897,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "333e75b7e1bcf37a0d544b9b34cfa0ad558928db7e2023af2f1198e08a19300f",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "5": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.21369372700217185,
+      "main_map": 0.21369372700217185,
+      "baseline_map": null,
+      "event_f1_mean": 0.23245614035087717,
+      "window_f1_mean": 0.25663716814159293,
+      "ece_mean": 0.02051852628739221,
+      "sh_ap_mean": 0.014181697576804948,
+      "sh_event_recall_mean": 25.3,
+      "sh_subject_coverage_mean": 0.3941299790356394,
+      "farh_mean": 3.568623865943102,
+      "brier_mean": 0.06682847351354251,
+      "reliability_diagram_slope_mean": 0.7434337707158237,
+      "logistic_calib_slope_mean": 0.8024458265062521,
+      "sens_at_farh10": 0.07533315202610824,
+      "farh_at_sens85": 64.4085715447485,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "dd4f0255451d699fe766eb1c21a15a00aee8a987e78fba2fad734fcc8a9f2d2a",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "6": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.21801032326189398,
+      "main_map": 0.21801032326189398,
+      "baseline_map": null,
+      "event_f1_mean": 0.26447462473195144,
+      "window_f1_mean": 0.5996523034893828,
+      "ece_mean": 0.04113985428017503,
+      "sh_ap_mean": 0.04342881959805527,
+      "sh_event_recall_mean": 34.829787234042556,
+      "sh_subject_coverage_mean": 0.39731285988483683,
+      "farh_mean": 9.514905032657929,
+      "brier_mean": 0.07577125605471598,
+      "reliability_diagram_slope_mean": 0.6142152997005883,
+      "logistic_calib_slope_mean": 0.617059867423177,
+      "sens_at_farh10": 0.6777815973415836,
+      "farh_at_sens85": 25.064271359185973,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "6688e407827a984cc67bf88c1aacfebad0d6ecb9ee85ff86b3f9e2e9e6c6811a",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "7": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.2452971752790598,
+      "main_map": 0.2452971752790598,
+      "baseline_map": null,
+      "event_f1_mean": 0.1678463094034378,
+      "window_f1_mean": 0.19279730170819281,
+      "ece_mean": 0.03122483978989728,
+      "sh_ap_mean": 0.03569812616487384,
+      "sh_event_recall_mean": 33.93939393939394,
+      "sh_subject_coverage_mean": 0.3822937625754527,
+      "farh_mean": 1.575057140567287,
+      "brier_mean": 0.07801683530482165,
+      "reliability_diagram_slope_mean": 0.674243806322011,
+      "logistic_calib_slope_mean": 0.7699205722677898,
+      "sens_at_farh10": 0.07271149095279428,
+      "farh_at_sens85": 94.60758549132491,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "00497151d6ca0aba972674048c29476c848cb02020af7f82d1bf6a990eda4482",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "8": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.23639245980530868,
+      "main_map": 0.23639245980530868,
+      "baseline_map": null,
+      "event_f1_mean": 0.13020277481323372,
+      "window_f1_mean": 0.2625141562853907,
+      "ece_mean": 0.012464302745596153,
+      "sh_ap_mean": 0.02852022726663425,
+      "sh_event_recall_mean": 31.68888888888889,
+      "sh_subject_coverage_mean": 0.31512605042016806,
+      "farh_mean": 0.6804464957596134,
+      "brier_mean": 0.07158134267398022,
+      "reliability_diagram_slope_mean": 0.8916911949944261,
+      "logistic_calib_slope_mean": 0.8699019415662071,
+      "sens_at_farh10": 0.033226892206783466,
+      "farh_at_sens85": 49.98078516481442,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "083039c3949768dbe89f075362ed132d23f66cb4c43116ecbb0bb234cfbbe0ba",
+      "held_sh_subjects": 1,
+      "held_sh_events": 1,
+      "held_sh_max_subject_event_fraction": 1.0,
+      "sh_powered": false
+    },
+    "9": {
+      "n_folds": 1,
+      "kaggle_map_mean": 0.22968724436432694,
+      "main_map": 0.22968724436432694,
+      "baseline_map": null,
+      "event_f1_mean": 0.07646356033452809,
+      "window_f1_mean": 0.10782650835958323,
+      "ece_mean": 0.05073026790653288,
+      "sh_ap_mean": 0.04994098468528962,
+      "sh_event_recall_mean": 40.82051282051282,
+      "sh_subject_coverage_mean": 0.4567404426559356,
+      "farh_mean": 0.6038817293905324,
+      "brier_mean": 0.08016341650907069,
+      "reliability_diagram_slope_mean": 0.5637377328559289,
+      "logistic_calib_slope_mean": 0.6772875009326821,
+      "sens_at_farh10": 0.04028877172538264,
+      "farh_at_sens85": 62.677440309839426,
+      "farh_at_sens85_unreachable_folds": 0,
+      "clinical_feasible": false,
+      "selection_policy_hash": "1d835861704d947cc243721ceebff9ef7163f9d3bd2abd27d4f372d51196b90a",
+      "held_sh_subjects": 2,
+      "held_sh_events": 2,
+      "held_sh_max_subject_event_fraction": 0.5,
+      "sh_powered": false
+    }
+  },
+  "repeated_cv_summary": {
+    "n_repeats": 10,
+    "n_powered_repeats": 0,
+    "kaggle_map": {
+      "mean": 0.21531973098088075,
+      "sd": 0.017148373567419092,
+      "median": 0.21466601450037598,
+      "q25": 0.20549914410977704,
+      "q75": 0.22676801408871872,
+      "min": 0.1861188532104737,
+      "max": 0.2452971752790598
+    },
+    "event_f1": {
+      "mean": 0.1803225526876979,
+      "sd": 0.07815518077716187,
+      "median": 0.1713494808313849,
+      "q25": 0.12025684062984515,
+      "q75": 0.22687493828379576,
+      "min": 0.07646356033452809,
+      "max": 0.33841463414634143
+    },
+    "window_f1": {
+      "mean": 0.24915729090085376,
+      "sd": 0.1530423675699346,
+      "median": 0.22471723492489287,
+      "q25": 0.14935040357654197,
+      "q75": 0.2769389914894444,
+      "min": 0.04838944760239032,
+      "max": 0.5996523034893828
+    },
+    "farh": {
+      "mean": 4.309607138363021,
+      "sd": 5.752042343212102,
+      "median": 1.5527607486832262,
+      "q25": 0.8058883358505484,
+      "q75": 4.067771203248629,
+      "min": 0.6038817293905324,
+      "max": 19.705673404662694
+    },
+    "brier": {
+      "mean": 0.07395834674246396,
+      "sd": 0.00724102618554224,
+      "median": 0.07689404567976882,
+      "q25": 0.06801669080365194,
+      "q75": 0.07892804475664136,
+      "min": 0.061023741236569964,
+      "max": 0.084104481958423
+    },
+    "reliability_diagram_slope": {
+      "mean": 0.6821084809325871,
+      "sd": 0.10467517623752878,
+      "median": 0.6510441736834499,
+      "q25": 0.6175000812252467,
+      "q75": 0.7261362796173705,
+      "min": 0.5637377328559289,
+      "max": 0.8916911949944261
+    },
+    "logistic_calib_slope": {
+      "mean": 0.7203891411396208,
+      "sd": 0.10521910434974806,
+      "median": 0.6809949010803039,
+      "q25": 0.6648155812499978,
+      "q75": 0.7943145129466365,
+      "min": 0.5539973850117078,
+      "max": 0.8981206098655439
+    },
+    "sh_ap": null,
+    "sh_stability": {
+      "powered_repeats": 0,
+      "above_floor": 0,
+      "event_recall_nonzero": 0,
+      "subject_coverage_nonzero": 0,
+      "stability_fraction": 0.0,
+      "sh_stable": false,
+      "criterion": "AP>0.05 AND event_recall>0 AND subject_coverage>0 in >= 80% of >= 4 powered repeats",
+      "reference_floor": 0.05
+    },
+    "note": "between-repeat distribution = split-selection variance (repeated subject-grouped CV); underpowered SH repeats excluded",
+    "main_vs_baseline": {
+      "error": "MISSING per-repeat baseline_map",
+      "missing_in_repeats": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "note": "per-repeat delta is a HARD protocol requirement; re-run with --run-baseline-comparator (frozen sidecar)"
+    }
+  },
+  "phase1_repeats_csv": "defog_phase1_repeats.csv"
+}
+[kaggle-track] FAMILY defog SUMMARY (internal leaderboard-mimic diagnostics ONLY — not part of the journal claim)
+{
+  "kaggle_map_mean": 0.21531973098088075,
+  "kaggle_map_std": 0.017148373567419092,
+  "fold_ensemble_map": {
+    "mAP": 0.20819309557386878,
+    "comparable": true,
+    "StartHesitation": 0.027723689960865924,
+    "Turn": 0.5357488004046187,
+    "Walking": 0.061106796356121665
+  },
+  "bootstrap_ci": {
+    "ci_lo": 0.1663340071656181,
+    "ci_hi": 0.25389678903627844,
+    "mean": 0.2121140374584472,
+    "n_valid_boot": 50,
+    "unit": "subject"
+  }
+}
+============================================================================
+[external] cross-fold cohort summary:
+[external] daphnet: eventF1=0.363 FARh=15.86/h over 10 folds passed=True
+[external] fogstar: eventF1=0.081 FARh=7.48/h over 10 folds passed=False
+[external] weargait: eventF1=0.177 FARh=8.79/h over 10 folds passed=False
+[external] xuanwu: eventF1=0.488 FARh=9.36/h over 10 folds passed=True
+[sota_claim_status] REFUSED gates={'gate_1_comparable': True, 'gate_2_beats_baseline': 'NOT_EVALUATED', 'gate_2_reason': 'baseline comparator artifact unavailable', 'gate_3_no_collapse': True, 'gate_4_external': True, 'gate_5_calibration': False}
+============================================================================
+[journal-track] Final gate (external cohorts required for a full SOTA claim)
+{"status": "REFUSED", "gates": {"gate_1_comparable": true, "gate_2_beats_baseline": "NOT_EVALUATED", "gate_2_reason": "baseline comparator artifact unavailable", "gate_3_no_collapse": true, "gate_4_external": true, "gate_5_calibration": false}, "failed_gates": ["gate_2_beats_baseline", "gate_5_calibration"]}
+============================================================================
+[pool] importing neuromamba_v25_sota (bit-identical postproc)...
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[pool] defog_fold1_r10_ens.npz: 5365289 frames, 30 subjects, 691158 fog frames
+[pool] defog_fold1_r1_ens.npz: 4274911 frames, 30 subjects, 590297 fog frames
+[pool] defog_fold1_r2_ens.npz: 5174900 frames, 30 subjects, 680532 fog frames
+[pool] defog_fold1_r3_ens.npz: 4734133 frames, 30 subjects, 597548 fog frames
+[pool] defog_fold1_r4_ens.npz: 4846305 frames, 30 subjects, 422590 fog frames
+[pool] defog_fold1_r5_ens.npz: 4673238 frames, 30 subjects, 521352 fog frames
+[pool] defog_fold1_r6_ens.npz: 4539565 frames, 30 subjects, 516460 fog frames
+[pool] defog_fold1_r7_ens.npz: 5145611 frames, 30 subjects, 663064 fog frames
+[pool] defog_fold1_r8_ens.npz: 5028389 frames, 30 subjects, 721887 fog frames
+[pool] defog_fold1_r9_ens.npz: 4232515 frames, 30 subjects, 680290 fog frames
+[pool] repeat r8: all subjects already pooled -- dropped
+[pool] POOL: 14650427 frames (40.70 h), 97 unique (repeat-tagged) subjects, 2368 events
+[sweep] pooled operating curve...

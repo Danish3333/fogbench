@@ -1,0 +1,138 @@
+{
+  "device": "cpu",
+  "torch": "2.14.1+cpu",
+  "window_frames": 12000,
+  "channels": 13,
+  "rows": [
+    {
+      "component": "Conv stem (k7, s1)",
+      "params": 5952,
+      "macs": 72960000,
+      "cpu_ms": 1.39,
+      "windows_per_s": 719.5,
+      "note": ""
+    },
+    {
+      "component": "Residual block 1 (64->128, s2)",
+      "params": 180992,
+      "macs": 1090560000,
+      "cpu_ms": 5.959,
+      "windows_per_s": 167.8,
+      "note": ""
+    },
+    {
+      "component": "Residual block 2 (128->128, s1)",
+      "params": 229888,
+      "macs": 1382400000,
+      "cpu_ms": 8.275,
+      "windows_per_s": 120.8,
+      "note": ""
+    },
+    {
+      "component": "Residual block 3 (128->256, s2)",
+      "params": 722432,
+      "macs": 2171904000,
+      "cpu_ms": 11.564,
+      "windows_per_s": 86.5,
+      "note": ""
+    },
+    {
+      "component": "Residual block 4 (256->256, s1)",
+      "params": 918528,
+      "macs": 2758656000,
+      "cpu_ms": 14.792,
+      "windows_per_s": 67.6,
+      "note": ""
+    },
+    {
+      "component": "Projection + LayerNorm",
+      "params": 33152,
+      "macs": 99840000,
+      "cpu_ms": 0.75,
+      "windows_per_s": 1333.6,
+      "note": ""
+    },
+    {
+      "component": "2x BiGRU (128, bidir) + LayerNorm",
+      "params": 495104,
+      "macs": 1497600000,
+      "cpu_ms": 752.016,
+      "windows_per_s": 1.3,
+      "note": ""
+    },
+    {
+      "component": "Local-window attention (win 128, 4h)",
+      "params": 263681,
+      "macs": 789504000,
+      "cpu_ms": 8.036,
+      "windows_per_s": 124.4,
+      "note": ""
+    },
+    {
+      "component": "Fog head (1x1 conv x2)",
+      "params": 33025,
+      "macs": 394752000,
+      "cpu_ms": 2.205,
+      "windows_per_s": 453.5,
+      "note": ""
+    },
+    {
+      "component": "Subtype head (1x1 conv x2, 4-class)",
+      "params": 33412,
+      "macs": 399360000,
+      "cpu_ms": 2.22,
+      "windows_per_s": 450.4,
+      "note": ""
+    },
+    {
+      "component": "Walking gate (strided Conv1d k25 x3)",
+      "params": 40193,
+      "macs": 19908864,
+      "cpu_ms": 1.411,
+      "windows_per_s": 708.6,
+      "note": ""
+    },
+    {
+      "component": "Medication FiLM (linear + modulation)",
+      "params": 1024,
+      "macs": 6144512,
+      "cpu_ms": 0.0152,
+      "windows_per_s": null,
+      "note": "linear 1->512 + 2*256*T modulation MACs"
+    },
+    {
+      "component": "Linear upsample x4 (interpolate)",
+      "params": 0,
+      "macs": 0,
+      "cpu_ms": 1.089,
+      "windows_per_s": 918.0,
+      "note": "parameter-free"
+    },
+    {
+      "component": "Event assembly (threshold/confirm/cooldown/merge)",
+      "params": 0,
+      "macs": 0,
+      "cpu_ms": 1.31,
+      "windows_per_s": 763.3,
+      "note": "non-neural, O(T) numpy"
+    },
+    {
+      "component": "Full CNN-BiGRU detector (CPU reference)",
+      "params": 2957383,
+      "macs": -1,
+      "cpu_ms": 872.28,
+      "windows_per_s": 1.1,
+      "note": "includes gate+FiLM+heads; GPU numbers in Table V are the release values"
+    },
+    {
+      "component": "Transformer-BiLSTM comparator (CPU reference)",
+      "params": 2178316,
+      "macs": -1,
+      "cpu_ms": 62.64,
+      "windows_per_s": 16.0,
+      "note": "competition-style architecture"
+    }
+  ],
+  "full_params": 2957383,
+  "comparator_params": 2178316
+}

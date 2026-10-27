@@ -1,0 +1,31 @@
+{
+  "arm": "nested_v43",
+  "trigger": 0.5,
+  "iou_q": 0.1,
+  "hours": 133.37,
+  "n_labeled_shipped": 8186,
+  "conventions": {
+    "labels3s_pred0.3s (shipped)": {
+      "n_pred_episodes": 5549,
+      "event_f1_iou0.1": 0.3803,
+      "event_sensitivity": 0.3191,
+      "n_false_alarms": 2937,
+      "farh": 22.02,
+      "mean_match_iou": 0.494
+    },
+    "labels3s_pred3s (matched)": {
+      "n_pred_episodes": 5101,
+      "event_f1_iou0.1": 0.3737,
+      "event_sensitivity": 0.3033,
+      "n_false_alarms": 2618,
+      "farh": 19.63,
+      "mean_match_iou": 0.49
+    }
+  },
+  "delta_matched_minus_shipped": {
+    "event_f1": -0.0066,
+    "sensitivity": -0.0158,
+    "n_pred": -448,
+    "farh": -2.39
+  }
+}

@@ -1,0 +1,490 @@
+{
+  "runs": [
+    {
+      "run": "A1_holdD",
+      "file": "results_gen_A1_holdD_28cr.json",
+      "protocol": "A  LODO-1",
+      "train": "TLVMC+xuanwu+weargait",
+      "test": "daphnet",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.398034398034398,
+          "farh": 7.328065757710653,
+          "auc": 0.9118260005236425,
+          "source": "tripod",
+          "farh_p50": 11.136490830804382,
+          "farh_p95": 15.724035562878333,
+          "family": "lodo_daphnet"
+        }
+      }
+    },
+    {
+      "run": "A2_holdX",
+      "file": "results_gen_A2_holdX_28cr.json",
+      "protocol": "A  LODO-1",
+      "train": "TLVMC+daphnet+weargait",
+      "test": "xuanwu",
+      "cohorts": {
+        "xuanwu": {
+          "eF1": 0.5996758508914101,
+          "farh": 17.678312671067463,
+          "auc": 0.8452986560388248,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 28.983957219251266,
+          "family": "lodo_xuanwu"
+        }
+      }
+    },
+    {
+      "run": "A3_holdW",
+      "file": "results_gen_A3_holdW_28cr.json",
+      "protocol": "A  LODO-1",
+      "train": "TLVMC+daphnet+xuanwu",
+      "test": "weargait",
+      "cohorts": {
+        "weargait": {
+          "eF1": 0.350597609561753,
+          "farh": 10.576414595452142,
+          "auc": 0.8219581724688435,
+          "source": "tripod",
+          "farh_p50": 4.15421364197602,
+          "farh_p95": 68.59410055971468,
+          "family": "lodo_weargait"
+        }
+      }
+    },
+    {
+      "run": "B1_holdXW",
+      "file": "results_gen_B1_holdXW_28cr.json",
+      "protocol": "B  LODO-2",
+      "train": "TLVMC+daphnet",
+      "test": "xuanwu,weargait",
+      "cohorts": {
+        "weargait": {
+          "eF1": 0.21428571428571427,
+          "farh": 7.322133181466867,
+          "auc": 0.8115744041920998,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 22.12387496071624,
+          "family": "lodo_xuanwu_weargait"
+        },
+        "xuanwu": {
+          "eF1": 0.5619834710743802,
+          "farh": 18.25792947995492,
+          "auc": 0.847416669260941,
+          "source": "tripod",
+          "farh_p50": 4.4803982576229,
+          "farh_p95": 20.36042162529748,
+          "family": "lodo_xuanwu_weargait"
+        }
+      }
+    },
+    {
+      "run": "B2_holdDW",
+      "file": "results_gen_B2_holdDW_28cr.json",
+      "protocol": "B  LODO-2",
+      "train": "TLVMC+xuanwu",
+      "test": "daphnet,weargait",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.4727272727272727,
+          "farh": 13.695073711131384,
+          "auc": 0.9086201038146856,
+          "source": "tripod",
+          "farh_p50": 30.62816012816336,
+          "farh_p95": 39.56179747284899,
+          "family": "lodo_daphnet_weargait"
+        },
+        "weargait": {
+          "eF1": 0.32669322709163345,
+          "farh": 12.20355530244478,
+          "auc": 0.8261535887165464,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 58.8471375850045,
+          "family": "lodo_daphnet_weargait"
+        }
+      }
+    },
+    {
+      "run": "B3_holdDX",
+      "file": "results_gen_B3_holdDX_28cr.json",
+      "protocol": "B  LODO-2",
+      "train": "TLVMC+weargait",
+      "test": "daphnet,xuanwu",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.38196286472148544,
+          "farh": 5.2858179235945695,
+          "auc": 0.9056907150622678,
+          "source": "tripod",
+          "farh_p50": 8.880047770259331,
+          "farh_p95": 12.53287128952544,
+          "family": "lodo_daphnet_xuanwu"
+        },
+        "xuanwu": {
+          "eF1": 0.5429553264604811,
+          "farh": 14.200611817742715,
+          "auc": 0.8481398099974651,
+          "source": "tripod",
+          "farh_p50": 3.969128996692392,
+          "farh_p95": 22.29946524064168,
+          "family": "lodo_daphnet_xuanwu"
+        }
+      }
+    },
+    {
+      "run": "C1_trainT",
+      "file": "results_gen_C1_trainT_28cr.json",
+      "protocol": "C  T1TA",
+      "train": "TLVMC",
+      "test": "daphnet,xuanwu,weargait",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.1209964412811388,
+          "farh": 1.2013222553624021,
+          "auc": 0.9115405717858172,
+          "source": "tripod",
+          "farh_p50": 1.1428800615384267,
+          "farh_p95": 6.002762641953324,
+          "family": "all"
+        },
+        "weargait": {
+          "eF1": 0.041025641025641026,
+          "farh": 0.8135703534963186,
+          "auc": 0.7912452532098778,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 1.8693961388892062,
+          "family": "all"
+        },
+        "xuanwu": {
+          "eF1": 0.5751391465677179,
+          "farh": 4.926742875543391,
+          "auc": 0.8818110025610252,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 4.70588235294116,
+          "family": "all"
+        }
+      }
+    },
+    {
+      "run": "C2_trainD",
+      "file": "results_gen_C2_trainD_28cr.json",
+      "protocol": "C  T1TA",
+      "train": "daphnet",
+      "test": "TLVMC,xuanwu,weargait",
+      "cohorts": {
+        "weargait": {
+          "eF1": 0.13545816733067728,
+          "farh": 3.2542814139852743,
+          "auc": 0.44334771000824613,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 0.0,
+          "family": "all"
+        },
+        "xuanwu": {
+          "eF1": 0.38877755511022044,
+          "farh": 7.245210111093222,
+          "auc": 0.2163923406856127,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 4.70588235294116,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.007852244744086374,
+          "farh": 22.261555820851218,
+          "auc": 0.7068434746291545,
+          "farh_p50": 25.567500865566437,
+          "farh_p95": 99.3348683630573,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "C3_trainX",
+      "file": "results_gen_C3_trainX_28cr.json",
+      "protocol": "C  T1TA",
+      "train": "xuanwu",
+      "test": "TLVMC,daphnet,weargait",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.10176125244618395,
+          "farh": 21.743932822059477,
+          "auc": 0.8783690817324882,
+          "source": "tripod",
+          "farh_p50": 12.924357177862348,
+          "farh_p95": 20.13864171791463,
+          "family": "all"
+        },
+        "weargait": {
+          "eF1": 0.13545816733067728,
+          "farh": 3.2542814139852743,
+          "auc": 0.6474707655014073,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 1.8693961388892062,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.36134943746520287,
+          "farh": 81.54759395427604,
+          "auc": 0.8186853449773472,
+          "farh_p50": 80.50663989456105,
+          "farh_p95": 132.1286943994837,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "C4_trainW",
+      "file": "results_gen_C4_trainW_28cr.json",
+      "protocol": "C  T1TA",
+      "train": "weargait",
+      "test": "TLVMC,daphnet,xuanwu",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.0,
+          "farh": 0.0,
+          "auc": 0.7086315811613408,
+          "source": "tripod",
+          "farh_p50": 75.18691787534053,
+          "farh_p95": 104.01176587916163,
+          "family": "all"
+        },
+        "xuanwu": {
+          "eF1": 0.3857868020304569,
+          "farh": 67.2355498309451,
+          "auc": 0.4290461996845786,
+          "source": "tripod",
+          "farh_p50": 75.26132404181185,
+          "farh_p95": 150.32350266337522,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.1821516464738167,
+          "farh": 109.66745393850917,
+          "auc": 0.5740475696400222,
+          "farh_p50": 112.13497728747566,
+          "farh_p95": 192.2032460165029,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "D1_invTrainDXW",
+      "file": "results_gen_D1_invTrainDXW_28cr.json",
+      "protocol": "D  INVERSE",
+      "train": "daphnet+xuanwu+weargait",
+      "test": "TLVMC",
+      "cohorts": {
+        "TLVMC": {
+          "eF1": 0.4172017437051206,
+          "farh": 88.06754188199284,
+          "auc": 0.8640574019572722,
+          "farh_p50": 88.15406503687034,
+          "farh_p95": 169.3559005844038,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "D2_invTrainDX",
+      "file": "results_gen_D2_invTrainDX_28cr.json",
+      "protocol": "D  INVERSE",
+      "train": "daphnet+xuanwu",
+      "test": "TLVMC,weargait",
+      "cohorts": {
+        "weargait": {
+          "eF1": 0.12745098039215685,
+          "farh": 0.8135703534963186,
+          "auc": 0.6606612265449399,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 0.0,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.2682292893046733,
+          "farh": 4.052568056551244,
+          "auc": 0.8725590544229662,
+          "farh_p50": 0.6093597660058498,
+          "farh_p95": 29.20506865944028,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "D3_invTrainDW",
+      "file": "results_gen_D3_invTrainDW_28cr.json",
+      "protocol": "D  INVERSE",
+      "train": "daphnet+weargait",
+      "test": "TLVMC,xuanwu",
+      "cohorts": {
+        "xuanwu": {
+          "eF1": 0.26940639269406397,
+          "farh": 4.0573176622122045,
+          "auc": 0.7223808788639069,
+          "source": "tripod",
+          "farh_p50": 0.0,
+          "farh_p95": 0.0,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.2363337237726335,
+          "farh": 25.4319321916226,
+          "auc": 0.8198295936779728,
+          "farh_p50": 6.9619151595702595,
+          "farh_p95": 68.39636617724248,
+          "source": "posthoc"
+        }
+      }
+    },
+    {
+      "run": "D4_invTrainXW",
+      "file": "results_gen_D4_invTrainXW_28cr.json",
+      "protocol": "D  INVERSE",
+      "train": "xuanwu+weargait",
+      "test": "TLVMC,daphnet",
+      "cohorts": {
+        "daphnet": {
+          "eF1": 0.10412147505422994,
+          "farh": 20.903007243305797,
+          "auc": 0.7464729370330643,
+          "source": "tripod",
+          "farh_p50": 25.848714355724695,
+          "farh_p95": 33.38841739450497,
+          "family": "all"
+        },
+        "TLVMC": {
+          "eF1": 0.35976799478105786,
+          "farh": 410.9221303872419,
+          "auc": 0.7961959712449002,
+          "farh_p50": 421.3570819201399,
+          "farh_p95": 676.2276568559404,
+          "source": "posthoc"
+        }
+      }
+    }
+  ],
+  "farh_tol": 0.5,
+  "posthoc_tlvmc": {
+    "D1_invTrainDXW": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_D1_invTrainDXW/all_fold1.pt",
+      "trigger_stored": 0.147806802102025,
+      "auc": 0.8640574019572722,
+      "event_f1_at_stored_trigger": 0.4172017437051206,
+      "farh_at_stored_trigger": 88.06754188199284,
+      "best_under_budget": {
+        "trigger": 0.8,
+        "eF1": 0.0960529525487783,
+        "farh": 9.552481847585074
+      },
+      "farh_p50": 88.15406503687034,
+      "farh_p95": 169.3559005844038,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 159.8
+    },
+    "D2_invTrainDX": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_D2_invTrainDX/all_fold1.pt",
+      "trigger_stored": 0.5999502225305369,
+      "auc": 0.8725590544229662,
+      "event_f1_at_stored_trigger": 0.2682292893046733,
+      "farh_at_stored_trigger": 4.052568056551244,
+      "best_under_budget": {
+        "trigger": 0.28,
+        "eF1": 0.5124332900650318,
+        "farh": 9.235444210507936
+      },
+      "farh_p50": 0.6093597660058498,
+      "farh_p95": 29.20506865944028,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 155.7
+    },
+    "D3_invTrainDW": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_D3_invTrainDW/all_fold1.pt",
+      "trigger_stored": 0.5420417197589162,
+      "auc": 0.8198295936779728,
+      "event_f1_at_stored_trigger": 0.2363337237726335,
+      "farh_at_stored_trigger": 25.4319321916226,
+      "best_under_budget": {
+        "trigger": 0.56,
+        "eF1": 0.12444340813062119,
+        "farh": 7.981077907289694
+      },
+      "farh_p50": 6.9619151595702595,
+      "farh_p95": 68.39636617724248,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 141.0
+    },
+    "C2_trainD": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_C2_trainD/all_fold1.pt",
+      "trigger_stored": 0.06454135658694504,
+      "auc": 0.7068434746291545,
+      "event_f1_at_stored_trigger": 0.007852244744086374,
+      "farh_at_stored_trigger": 22.261555820851218,
+      "best_under_budget": {
+        "trigger": 0.08,
+        "eF1": 0.0008081951261152698,
+        "farh": 6.602653398258659
+      },
+      "farh_p50": 25.567500865566437,
+      "farh_p95": 99.3348683630573,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 126.0
+    },
+    "C3_trainX": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_C3_trainX/all_fold1.pt",
+      "trigger_stored": 0.49552371172641646,
+      "auc": 0.8186853449773472,
+      "event_f1_at_stored_trigger": 0.36134943746520287,
+      "farh_at_stored_trigger": 81.54759395427604,
+      "best_under_budget": {
+        "trigger": 0.96,
+        "eF1": 0.30910226702698346,
+        "farh": 7.953509417109073
+      },
+      "farh_p50": 80.50663989456105,
+      "farh_p95": 132.1286943994837,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 131.5
+    },
+    "C4_trainW": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_C4_trainW/all_fold1.pt",
+      "trigger_stored": 0.5066482110732372,
+      "auc": 0.5740475696400222,
+      "event_f1_at_stored_trigger": 0.1821516464738167,
+      "farh_at_stored_trigger": 109.66745393850917,
+      "best_under_budget": {
+        "trigger": 0.98,
+        "eF1": 0.0014720859147861745,
+        "farh": 1.130308097405449
+      },
+      "farh_p50": 112.13497728747566,
+      "farh_p95": 192.2032460165029,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 130.9
+    },
+    "D4_invTrainXW": {
+      "ckpt": "/mnt/d/New Mamba tests/new tests/source code/neuromamba_v25_ckpt/gen28cr_D4_invTrainXW/all_fold1.pt",
+      "trigger_stored": 0.024913025167443214,
+      "auc": 0.7961959712449002,
+      "event_f1_at_stored_trigger": 0.35976799478105786,
+      "farh_at_stored_trigger": 410.9221303872419,
+      "best_under_budget": {
+        "trigger": 0.28,
+        "eF1": 0.2628747537851266,
+        "farh": 9.263012700688558
+      },
+      "farh_p50": 421.3570819201399,
+      "farh_p95": 676.2276568559404,
+      "note": "gated stream, frozen trigger, MLLS not applied post-hoc",
+      "seconds": 163.9
+    }
+  }
+}

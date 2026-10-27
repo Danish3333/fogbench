@@ -1,0 +1,17 @@
+{
+  "n_boot": 1000,
+  "mAP_ci": {
+    "ci_lo": 0.49731185298731845,
+    "ci_hi": 0.6049151747416086,
+    "mean": 0.5617571828106188,
+    "n_valid_boot": 1000,
+    "unit": "subject"
+  },
+  "baseline_diff_ci": {
+    "diff_mean": 0.4410767130259221,
+    "ci_lo": 0.3978531901783568,
+    "ci_hi": 0.47742531576690017,
+    "non_overlapping_zero": true
+  },
+  "note": "publication-grade subject-level bootstrap on frozen final-run arrays (audit D5 fix); replaces the launcher's n_boot=50 CIs"
+}

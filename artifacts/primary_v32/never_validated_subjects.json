@@ -1,0 +1,15 @@
+{
+ "description": "Supervised TLVMC patients who never appear in a validation partition across the 10 repeats of the subject-disjoint protocol. Derived from the released split manifests: the 100-patient supervised pool is the union of train_subjects and test_subjects over the defog-family manifests (_primary_v32/) and the tdcsfog-family manifests (_ablation_v39_route/, same splits); the scored union is the union of test_subjects. With ten independent 70/30 draws, a given patient stays on the development side in every repeat with probability (70/100)^10 = 0.028, so about 3 of 100 are expected to be never held out; the observed count matches.",
+ "generated": "2026-10-24",
+ "n_pool": 100,
+ "n_scored_at_least_once": 97,
+ "never_validated_subjects": [
+  "2d57c2",
+  "8c1f5e",
+  "c8e721"
+ ],
+ "sources": [
+  "_primary_v32/defog_fold1_r1..r10_manifest.json",
+  "_ablation_v39_route/tdcsfog_fold1_r1..r10_manifest.json"
+ ]
+}

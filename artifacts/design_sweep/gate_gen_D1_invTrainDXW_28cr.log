@@ -1,0 +1,1065 @@
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[model] BIDIRECTIONAL_MAMBA_V25_LOADED
+[model] RESNET1D_BASELINE_V25_LOADED
+[losses] LOSSES_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[selection-policy v25.42.9] FROZEN DEVELOPMENT PROTOCOL for this run:
+  model-selection metric : windowF1
+  early-stop rule        : patience=25 min_epoch=20
+  calibration method     : temperature fit on calib only (gated first); T-grid [0.10,12]x240, boundary fits accepted (v25.43.0)
+  threshold objective    : windowF1 (variant) -> max-epF1 fallback on calib
+  postprocessing space   : confirm=auto>=3 cooldown=auto>=30 sustain/merge from calib
+  swa/ema policy         : aswa from epoch 25; variants raw/ema/swa selected on calib
+  ensemble rule          : 3-seed mean; non-final seeds EXCLUDED (v25.42.7)
+  split policy           : split_mode=None n_repeats=1 (locked before first repeat)
+[manifest] {"code": "v25.57.0", "file_sha256": "24005c32b73e1903", "file_sha256_full": "24005c32b73e1903815fc75a3ed5d1e257c990e0eed779e14face28b1f478e55", "n_channels": 13, "seed": 42, "n_splits": 1, "n_seeds": 3, "model": "sequence", "device": "cuda", "device_requested": "cuda", "cuda_available": true, "epochs": 80, "families": null, "family_shared_val": false, "split_mode": null, "training_identity": "43fe7267560266d84aab7afff4f2612c6f6fd411a94503d77689318c5e2e1fe8", "env": {"NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_BOOTSTRAP_N": "50"}, "effective_config": {"NEUROMAMBA_SELECT_BY_WINDOW_F1": "1", "NEUROMAMBA_MAP_INCLUDE_THRESH": "0", "NEUROMAMBA_WF1_INCLUDE_THRESH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_SUBTYPE_FINETUNE": "0", "NEUROMAMBA_EP_LOSS_W": "0", "NEUROMAMBA_EP_LOSS_START": "3", "NEUROMAMBA_PCGRAD": "0", "NEUROMAMBA_GATE_SH_COND": "1", "NEUROMAMBA_GATE_SH_ETA": "0.2", "NEUROMAMBA_GATE_MASK_SH": "1", "NEUROMAMBA_DEPLOY_CONFORMAL": "0", "NEUROMAMBA_DEPLOY_CONFORMAL_BUDGET": "10", "NEUROMAMBA_SCORE_ANCHOR_W": "0", "NEUROMAMBA_SCORE_ANCHOR_START": "3", "NEUROMAMBA_SCORE_ANCHOR_TARGETS": "0.05,0.80", "NEUROMAMBA_HEAD_PRIOR_INIT": "1", "NEUROMAMBA_TURN_PLAIN": "1", "NEUROMAMBA_EPOCH_T_FIXED": "1", "NEUROMAMBA_SUBTYPE_TEMPERATURE": "0", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DEFOG_SH_WEAK": "0.05", "NEUROMAMBA_DEFOG_SH_SCALE_MODE": "term", "NEUROMAMBA_OPT_2NDPLACE": "0", "NEUROMAMBA_OPT_WD": "", "NEUROMAMBA_OPT_HEAD_WD0": "1", "NEUROMAMBA_GRAD_CLIP_MODE": "adaptive", "NEUROMAMBA_GRAD_CLIP": "1.0", "NEUROMAMBA_MIN_EPOCH_MAP_SEL": "10", "NEUROMAMBA_FOG_TOLERANCE": "0.85", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_CONFORMAL_SSBC": "0", "NEUROMAMBA_MIN_CALIB_SUBJ_POSTPROC": "15", "NEUROMAMBA_EVENT_BUDGET_CONFORMAL": "0", "NEUROMAMBA_BOOTSTRAP_N": "50", "NEUROMAMBA_SUBTYPE_FT_MONITOR": "1", "NEUROMAMBA_SUBTYPE_FT_RESTORE_BEST": "0", "NEUROMAMBA_PARETO_SELECT": "0", "NEUROMAMBA_PARETO_ALPHA": "0.95", "NEUROMAMBA_PARETO_MIN_SH_AP": "0.05", "NEUROMAMBA_EPOCH_RAW_TRIGGER": "1", "NEUROMAMBA_SEL_F1_GRID": "0.05,0.1,0.2,0.3", "NEUROMAMBA_CALIB_FRAC": "0.15", "NEUROMAMBA_THRESH_FRAC": "0.15", "NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_NOTYPE_PSEUDO": "0", "NEUROMAMBA_HARD_NEG_CROP_PROB": "0.15", "NEUROMAMBA_ADAM_BETA2": "0.999", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_SCORE_ANCHOR": "0", "NEUROMAMBA_GRAD_GUARD": "1", "NEUROMAMBA_GRAD_GUARD_CEILING": "1000", "NEUROMAMBA_GRAD_GUARD_DYN_CAP": "1000", "NEUROMAMBA_GRAD_GUARD_WARMUP_EPOCHS": "10", "NEUROMAMBA_GRAD_GUARD_MAX_ABORT_FRAC": "0.25", "NEUROMAMBA_GRAD_GUARD_BAD_EPOCH_PATIENCE": "4", "NEUROMAMBA_GRAD_GUARD_FROZEN_FLOOR": "700", "NEUROMAMBA_SUBTYPE_COND_LOSS": "0", "NEUROMAMBA_SUBJECT_FIRST_SAMPLER": "1", "NEUROMAMBA_SELECT_UTILITY": "0", "NEUROMAMBA_MIN_EPOCH_UTILITY": "2", "NEUROMAMBA_SUB_W_MAX": "1.0", "NEUROMAMBA_SAMPLER_QUOTA": "0.20,0.20,0.10,0.25,0.25", "NEUROMAMBA_NOTYPE_FOG_W": "1.0", "NEUROMAMBA_WARMUP_EPOCHS": "", "NEUROMAMBA_SUB_W_RAMP_EPOCHS": "", "NEUROMAMBA_EMA_EPOCH_EVAL": "1", "NEUROMAMBA_SH_CONTRASTIVE": "0", "NEUROMAMBA_SH_CONTRASTIVE_W": "0.15", "NEUROMAMBA_SH_CONTRASTIVE_NORM": "1", "NEUROMAMBA_CONTRAST_W_EFF_CAP": "5.0", "NEUROMAMBA_TOKEN_POS_WEIGHT_CAP": "8", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_TOKEN_PW_SOURCE": "patch", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_RARE_BOOST": "0", "NEUROMAMBA_WARM_REPLAY_REPEAT": "1", "NEUROMAMBA_WALK_HARDNEG_W": "2", "NEUROMAMBA_SH_HARDNEG_W": "1.0", "NEUROMAMBA_SMALL_CALIB_EP_F1_DEPLOY": "1", "NEUROMAMBA_PRIOR_CLAMP_DELTA": "0.15", "NEUROMAMBA_DEPLOY_FARH_SAFETY": "0.75", "NEUROMAMBA_SUB_CE_WEIGHTS": "5.0,2.0,5.0,1.0", "NEUROMAMBA_USE_AUGMENTATION": "1", "NEUROMAMBA_CROP_POS_PROB": "0.2", "NEUROMAMBA_SH_OVERSAMPLE": "5.0", "NEUROMAMBA_SH_CROP_PROB": "0.40", "NEUROMAMBA_WALK_CROP_PROB": "0.40", "NEUROMAMBA_EXTERNAL_PRIOR_MATCH": "1", "NEUROMAMBA_SH_SUBJECT_CAP": "0", "NEUROMAMBA_SUB_W_FLOOR": "0.35", "NEUROMAMBA_SUB_POS_WEIGHT": "1", "NEUROMAMBA_SUB_POS_WEIGHT_CAP": "20", "NEUROMAMBA_SUB_PW_SOURCE": "dataset", "NEUROMAMBA_POLY1_EPS": "1.0", "NEUROMAMBA_WARM_REPLAY": "1", "NEUROMAMBA_WARM_REPLAY_MAX": "150", "NEUROMAMBA_FINETUNE_LR_RESTART": "1", "NEUROMAMBA_FINETUNE_LR_SCALE": "0.5", "NEUROMAMBA_AXIS_FLIP_AUG": "1", "NEUROMAMBA_PAD_MASK": "0", "NEUROMAMBA_SAMPLER_EXPOSURE": "order", "NEUROMAMBA_GRU_HIDDEN": "128", "NEUROMAMBA_GRU_LAYERS": "2", "NEUROMAMBA_GRU_DROPOUT": "0.2", "NEUROMAMBA_DMODEL": "128", "NEUROMAMBA_NBLOCKS": "2", "NEUROMAMBA_MAMBA_DMODEL": "128", "NEUROMAMBA_MAMBA_BLOCKS": "2", "NEUROMAMBA_MAMBA_DROPOUT": "0.15", "NEUROMAMBA_WINNER_D": "128", "NEUROMAMBA_WINNER_HEADS": "6", "NEUROMAMBA_WINNER_DEPTH": "5", "NEUROMAMBA_WINNER_PATCH": "14", "NEUROMAMBA_WINNER_DROPOUT": "0.1", "NEUROMAMBA_LORA_RANK": "0", "NEUROMAMBA_LORA_ALPHA": "1.0", "NEUROMAMBA_LORA_DROPOUT": "0.1", "NEUROMAMBA_LORA_FREEZE_BACKBONE": "0", "NEUROMAMBA_DISABLE_WALKING_GATE": "0", "NEUROMAMBA_ROLL_WINDOW": "4000", "NEUROMAMBA_ROLL_STRIDE": "1000", "NEUROMAMBA_EMA_DECAY": "0.999", "NEUROMAMBA_EARLY_STOP_PATIENCE": "25", "NEUROMAMBA_EARLY_STOP_MIN_EPOCH": "20", "NEUROMAMBA_SWA_START": "25", "NEUROMAMBA_FOG_WARMUP_EPOCHS": "2", "NEUROMAMBA_RAMP_EPOCHS": "10", "NEUROMAMBA_WALKING_GATE_LOSS_WEIGHT": "0.3", "NEUROMAMBA_SEED_DIVERSITY": "0"}}
+[device] requested=cuda resolved=cuda cuda_available=True cuda_devices=1
+[daphnet] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_daphnet_57a09b5032d4696a.pkl
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[model] BIDIRECTIONAL_MAMBA_V25_LOADED
+[model] RESNET1D_BASELINE_V25_LOADED
+[losses] LOSSES_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[daphnet] Cache hit: 258 sequences (skipped raw file processing; cfg verified rev=57a09b5032d4696a)
+[xuanwu] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_xuanwu_fe667db5e735fe9b.pkl
+[xuanwu] Cache hit: 135 sequences (skipped raw file processing; cfg verified rev=fe667db5e735fe9b)
+[weargait] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_weargait_5eef996d3808531c.pkl
+[weargait] Cache hit: 62 sequences (skipped raw file processing; cfg verified rev=5eef996d3808531c)
+[audit] subtype contract:
+  [daphnet] n_seq=258 n_subj=10
+    StartHesitation: observed=0 positive=173099 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [weargait] n_seq=62 n_subj=12
+    StartHesitation: observed=0 positive=77899 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [xuanwu] n_seq=135 n_subj=13
+    StartHesitation: observed=0 positive=531600 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+[kaggle_eval v25] pooled family: 455 sequences, 35 subjects, 0 sequences containing observed Start Hesitation
+================================================================
+MODEL FAMILY: all
+================================================================
+[rare-split] {'n_train_subjects': 25, 'n_calib_subjects': 5, 'n_thresh_subjects': 5, 'n_train_seqs': 330, 'n_calib_seqs': 61, 'n_thresh_seqs': 64, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 0, 'total_walk_events': 0, 'held_sh_frac': 0.0, 'held_walk_frac': 0.0, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0000 vs target>=0.2, held_walk_frac=0.0000 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[rare-split v25.42.8] WARNING: SH UNDER POWERED (0/4 subjects, 0/8 events, max-subject event fraction 0.00 (gate 0.50)) -- SH AP/recall are NOT reliable for this fold; excluded from any SH-stability claim
+[single-split v25.20] 330 train seqs (25 subjects) / 125 val seqs (10 subjects); train-subject share = 71.4%
+[kaggle_eval v25.20] contest-mimic track: 1 split (NEUROMAMBA_CALIB_FRAC=0.15, NEUROMAMBA_THRESH_FRAC=0.15)
+[split-mode v25.42.8] PRIMARY SPLIT PROTOCOL = PURE_FAMILY (family=all, n_splits=1, n_repeats=1)
+[rare-split] {'n_train_subjects': 25, 'n_calib_subjects': 5, 'n_thresh_subjects': 5, 'n_train_seqs': 330, 'n_calib_seqs': 61, 'n_thresh_seqs': 64, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 0, 'total_walk_events': 0, 'held_sh_frac': 0.0, 'held_walk_frac': 0.0, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0000 vs target>=0.2, held_walk_frac=0.0000 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[rare-split v25.42.8] WARNING: SH UNDER POWERED (0/4 subjects, 0/8 events, max-subject event fraction 0.00 (gate 0.50)) -- SH AP/recall are NOT reliable for this fold; excluded from any SH-stability claim
+[single-split v25.20] 330 train seqs (25 subjects) / 125 val seqs (10 subjects); train-subject share = 71.4%
+[split-mode v25.42.8] pure_family: train+val both drawn from all subjects only (the journal primary claim)
+[leak-guard v25.42.3] 0 notype sequences (0 subjects); 0 subjects also in supervised -- per-fold val filtering below
+[rare-split] {'n_train_subjects': 25, 'n_calib_subjects': 5, 'n_thresh_subjects': 5, 'n_train_seqs': 330, 'n_calib_seqs': 61, 'n_thresh_seqs': 64, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 0, 'total_walk_events': 0, 'held_sh_frac': 0.0, 'held_walk_frac': 0.0, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0000 vs target>=0.2, held_walk_frac=0.0000 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[rare-split v25.42.8] WARNING: SH UNDER POWERED (0/4 subjects, 0/8 events, max-subject event fraction 0.00 (gate 0.50)) -- SH AP/recall are NOT reliable for this fold; excluded from any SH-stability claim
+[single-split v25.20] 330 train seqs (25 subjects) / 125 val seqs (10 subjects); train-subject share = 71.4%
+------------------------------------------------------------
+FOLD 1/1 (all)
+------------------------------------------------------------
+[3way-split] {'n_train_subjects': 17, 'n_calib_subjects': 4, 'n_thresh_subjects': 4, 'n_train_seqs': 280, 'n_calib_seqs': 18, 'n_thresh_seqs': 32, 'seed': 42, 'split_method': 'random_subject'}
+
+[seed-ensemble] training seed 1/3 (seed=42)
+[emphasis-audit v25.59b] WARNING: NEUROMAMBA_SH_OVERSAMPLE=5 is INERT under SAMPLER_EXPOSURE='order' (order mode only reorders -- set NEUROMAMBA_SAMPLER_EXPOSURE=weighted for true oversampling)
+[emphasis-audit v25.58] effective SH emphasis ~14.4x (exposure 1.80 [crop 0.40+walk 0.40, oversample INERT (order mode)], loss x8.00, sub_w 1.00) -> WARN (Lin&Grewal safe ~2.3x, danger ~60x)
+[device v25.42.6] training on cuda (NVIDIA GeForce RTX 3060)
+[sub-head v25.24] model_type=sequence -> sigmoid head mode (the 1st-place objective: independent masked sigmoids, no None class; softmax left SH AP at 0.000 in every pooled run)
+[branch-guard v25.2] model_type=sequence -> winner-style Conv+BiGRU.
+[arch] {"model_version": "convgru_v25.6", "backbone": "1D_ResNet4_blocks + 2xBiGRU", "in_channels_contract": 13, "gru_hidden": 128, "n_gru_layers": 2, "no_global_pooling": true, "full_resolution_heads": true, "use_walking_gate": true, "hazard_head": "off", "med_film": true, "subtype_head": "3x_masked_sigmoid (SH/Turn/Walking)", "reference": "Kaggle top-5 all sequence models: 1st Transformer+2BiLSTM 0.514, 2nd GRU 0.451, 4th MultiResidualBiGRU 0.417", "v25.6_fixes": "medication_state_FiLM", "role": "main_model"}
+[causal 28bz] model_causal=False preproc_causal=False -> deployable_latency=False   [non-causal: set NEUROMAMBA_CAUSAL=1 AND NEUROMAMBA_CAUSAL_FILTER=1 for a deployable onset latency]
+[loss-weight v25] fog pos=394763 neg=1717925 prevalence=0.1869 (Poly-1 handles imbalance; no stacked pos_weight)
+[loss-weight v25] subtype_pos=[0, 0, 0] subtype_neg=[0, 0, 0] (ASL gamma_neg={'StartHesitation': 1.5, 'Turn': 2.0, 'Walking': 2.0}, per-class observed mask)
+[loss-weight v25.44] subtype train priors (obs) = [0.0, 0.0, 0.0] (SH/Turn/Walk)
+[head-prior v25.51.2] subtype head biases initialized from priors [-9.21, -9.21, -9.21] (winner shared Conv1d bias)
+[loss v25.59] TOKEN_ASL=1 -> subtype token loss = per-class Asymmetric Loss (gamma_neg SH 1.5 / Turn 2.0 / Walk 2.0, clip 0.05) on the patch-pooled targets
+[loss v25.59f] CONTEXT HARD NEGATIVES: WALK_HARDNEG_W=2 (Walk-channel negatives x2 on FoG-not-Walk cells) SH_HARDNEG_W=1 (SH-channel negatives x1 on FoG-not-SH cells) -- per-cell loss weighting active
+[loss-weight v25.3] subtype CE weights (SH/Turn/Walk/None) = [5.0, 2.0, 5.0, 1.0]
+[train v25.11c] model selection + early stopping use calib WINDOW-F1 (Lin & Grewal 2026: F1-based stopping +47% over AUC-based)
+[augment v25] p_augment=0.50 p_each=0.20 crop_pos_prob=0.20
+[grad-guard v25.52] ENABLED (hard ceiling 1000, DYN_CAP=1.000e+03, dynamic = max(ceiling, 3x p99 of recent finite norms); aborting batches restores last-finite state)
+[sampler v25.52] SubjectFirstEventSampler ENABLED (subject-uniform rare-class exposure)
+[sampler v25.53] quota override applied: {'SH': 0.2, 'Walk': 0.2, 'Turn': 0.1, 'hard_negative': 0.25, 'background': 0.25}
+[loss] epoch=0 fog_w=1.00 sub_w=0.35 {"poly1": 0.7390998806272234, "walking_gate": 0.7295068195887975} grad_max=5.692 clip=18
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=0 thr=0.050(smooth=0.050) epF1=0.122 sens=0.000 FARh=16.91/h light=True rawFogF1@0.05=0.132 calibSubtypeMAP=0.0000 windowF1@thr=0.213 selWF1@grid=0.101 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.57 gateFlip=45.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=0 train=5.6s eval=2.2s
+[loss] epoch=1 fog_w=1.00 sub_w=0.35 {"poly1": 0.784231949704034, "walking_gate": 0.6707826205662318} grad_max=3.134 clip=0
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=0.634 FARh=10.1/h (trigger=0.029). Max-sens point: sens=1.000 at FARh=16.9/h (trigger=0.019)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=1 thr=0.029(smooth=0.040) epF1=0.261 sens=0.634 FARh=10.15/h light=False rawFogF1@0.05=0.123 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.215 selWF1@grid=0.279 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.53 gateFlip=66.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=1 train=3.4s eval=1.2s
+[loss] epoch=2 fog_w=1.00 sub_w=0.35 {"poly1": 0.7569272088153022, "walking_gate": 0.6405607283115387} grad_max=4.960 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.048). Max-sens point: sens=1.000 at FARh=20.3/h (trigger=0.029)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=2 thr=0.048(smooth=0.048) epF1=0.130 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.123 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.215 selWF1@grid=0.233 smoothed=-0.5892 sel=windowF1 gated=True gateMean=0.56 gateFlip=74.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=2 train=3.2s eval=1.2s
+[loss] epoch=3 fog_w=0.96 sub_w=0.41 {"poly1": 0.6653626952852522, "walking_gate": 0.5864078955990928} grad_max=13.139 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=0.193 FARh=13.5/h (trigger=0.182). Max-sens point: sens=0.991 at FARh=37.2/h (trigger=0.072)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=3 thr=0.182(smooth=0.049) epF1=0.154 sens=0.193 FARh=13.53/h light=False rawFogF1@0.05=0.278 calibSubtypeMAP=0.0000 windowF1@thr=0.190 emaWF1=0.190 rawWF1=0.142 selWF1@grid=0.202 smoothed=-0.1886 sel=windowF1 gated=True gateMean=0.57 gateFlip=12.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=3 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 20.64 at epoch 4 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=4 fog_w=0.92 sub_w=0.48 {"poly1": 0.6951769403048924, "walking_gate": 0.6156607270240784} grad_max=20.636 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.050). Max-sens point: sens=1.000 at FARh=23.7/h (trigger=0.028)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=4 thr=0.050(smooth=0.050) epF1=0.144 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.133 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.217 selWF1@grid=0.205 smoothed=0.2130 sel=windowF1 gated=True gateMean=0.55 gateFlip=75.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=4 train=3.0s eval=1.2s
+[grad v25.42.1] WARNING: max grad norm 40.61 at epoch 5 (15/35 batches clipped = 43%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=5 fog_w=0.88 sub_w=0.54 {"poly1": 0.6853124703679766, "walking_gate": 0.5974361249378749} grad_max=40.606 clip=15
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_epF1: sens=0.792 FARh=30.4/h (trigger=0.024). Max-sens point: sens=0.943 at FARh=179.3/h (trigger=0.001)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=5 thr=0.024(smooth=0.048) epF1=0.321 sens=0.792 FARh=30.44/h light=False rawFogF1@0.05=0.000 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.016 selWF1@grid=0.163 smoothed=0.1899 sel=windowF1 gated=True gateMean=0.56 gateFlip=57.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=5 train=3.5s eval=1.3s
+[loss] epoch=6 fog_w=0.84 sub_w=0.61 {"poly1": 0.7518396598952157, "walking_gate": 0.588561373949051} grad_max=13.396 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.521 FARh=6.8/h (trigger=0.072). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.056)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=6 thr=0.072(smooth=0.050) epF1=0.225 sens=0.521 FARh=6.76/h light=False rawFogF1@0.05=0.276 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.239 selWF1@grid=0.153 smoothed=0.1738 sel=windowF1 gated=True gateMean=0.57 gateFlip=71.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=6 train=3.3s eval=1.2s
+[grad v25.42.1] info: grad spike 22.53 at epoch 7 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=7 fog_w=0.80 sub_w=0.68 {"poly1": 0.6824433330978666, "walking_gate": 0.5781783819198608} grad_max=22.528 clip=3
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=7 thr=0.044(smooth=0.050) epF1=0.332 sens=0.947 FARh=6.76/h light=False rawFogF1@0.05=0.151 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.235 selWF1@grid=0.153 smoothed=0.1566 sel=windowF1 gated=True gateMean=0.58 gateFlip=68.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=7 train=3.2s eval=1.2s
+[loss] epoch=8 fog_w=0.76 sub_w=0.74 {"poly1": 0.758469011102404, "walking_gate": 0.5755543453352792} grad_max=13.484 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.799 FARh=3.4/h (trigger=0.077). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.063)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=8 thr=0.077(smooth=0.050) epF1=0.335 sens=0.799 FARh=3.38/h light=False rawFogF1@0.05=0.293 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.232 selWF1@grid=0.128 smoothed=0.1449 sel=windowF1 gated=True gateMean=0.58 gateFlip=65.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=8 train=3.7s eval=1.2s
+[loss] epoch=9 fog_w=0.72 sub_w=0.80 {"poly1": 0.7496028959751129, "walking_gate": 0.5551510785307203} grad_max=11.676 clip=1
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=9 thr=0.064(smooth=0.064) epF1=0.330 sens=0.995 FARh=6.76/h light=False rawFogF1@0.05=0.291 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.184 selWF1@grid=0.122 smoothed=0.1345 sel=windowF1 gated=True gateMean=0.57 gateFlip=81.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=9 train=3.0s eval=1.2s
+[grad-guard v25.54] warmup cap FROZEN: 3xQ95=1.340e+01 -> cap=7.000e+02 (was 1.000e+03)
+[grad v25.42.1] info: grad spike 49.93 at epoch 10 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=10 fog_w=0.68 sub_w=0.87 {"poly1": 0.6864589869976043, "walking_gate": 0.5756370782852173} grad_max=49.926 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.775 FARh=6.8/h (trigger=0.044). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.032)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=10 thr=0.044(smooth=0.064) epF1=0.291 sens=0.775 FARh=6.76/h light=False rawFogF1@0.05=0.133 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.210 selWF1@grid=0.126 smoothed=0.1253 sel=windowF1 gated=True gateMean=0.58 gateFlip=70.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=10 train=3.1s eval=1.2s
+[grad v25.42.1] info: grad spike 79.12 at epoch 11 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=11 fog_w=0.64 sub_w=0.94 {"poly1": 0.6971467963286808, "walking_gate": 0.5445078015327454} grad_max=79.120 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.634 FARh=6.8/h (trigger=0.035). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.023)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=11 thr=0.035(smooth=0.044) epF1=0.250 sens=0.634 FARh=6.76/h light=False rawFogF1@0.05=0.125 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.223 selWF1@grid=0.118 smoothed=0.1220 sel=windowF1 gated=True gateMean=0.62 gateFlip=69.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=11 train=3.4s eval=1.2s
+[loss] epoch=12 fog_w=0.60 sub_w=1.00 {"poly1": 0.629032164812088, "walking_gate": 0.5241361396653311} grad_max=12.615 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=0.994 FARh=13.5/h (trigger=0.044). Max-sens point: sens=0.994 at FARh=16.9/h (trigger=0.035)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=12 thr=0.044(smooth=0.044) epF1=0.334 sens=0.994 FARh=13.53/h light=False rawFogF1@0.05=0.084 calibSubtypeMAP=0.0000 windowF1@thr=0.308 emaWF1=0.308 rawWF1=0.195 selWF1@grid=0.104 smoothed=0.1161 sel=windowF1 gated=True gateMean=0.59 gateFlip=63.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=12 train=3.3s eval=1.3s
+[grad v25.42.1] info: grad spike 30.48 at epoch 13 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=13 fog_w=0.60 sub_w=1.00 {"poly1": 0.617935665164675, "walking_gate": 0.5353153143610273} grad_max=30.484 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.629 FARh=6.8/h (trigger=0.036). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.024)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=13 thr=0.036(smooth=0.044) epF1=0.300 sens=0.629 FARh=6.76/h light=False rawFogF1@0.05=0.007 calibSubtypeMAP=0.0000 windowF1@thr=0.308 emaWF1=0.308 rawWF1=0.167 selWF1@grid=0.098 smoothed=0.1069 sel=windowF1 gated=True gateMean=0.59 gateFlip=76.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=13 train=3.8s eval=1.2s
+[grad v25.42.1] info: grad spike 39.25 at epoch 14 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=14 fog_w=0.60 sub_w=1.00 {"poly1": 0.6374555460044316, "walking_gate": 0.5590814019952501} grad_max=39.250 clip=7
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=14 thr=0.013(smooth=0.036) epF1=0.275 sens=0.917 FARh=6.76/h light=False rawFogF1@0.05=0.119 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.188 selWF1@grid=0.091 smoothed=0.0977 sel=windowF1 gated=True gateMean=0.59 gateFlip=58.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=14 train=3.7s eval=1.1s
+[loss] epoch=15 fog_w=0.60 sub_w=1.00 {"poly1": 0.6255166598728725, "walking_gate": 0.5441540207181658} grad_max=8.545 clip=0
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.725 FARh=3.4/h (trigger=0.026). Max-sens point: sens=0.999 at FARh=16.9/h (trigger=0.013)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=15 thr=0.026(smooth=0.035) epF1=0.380 sens=0.725 FARh=3.38/h light=False rawFogF1@0.05=0.000 calibSubtypeMAP=0.0000 windowF1@thr=0.308 emaWF1=0.308 rawWF1=0.113 selWF1@grid=0.080 smoothed=0.0896 sel=windowF1 gated=True gateMean=0.56 gateFlip=74.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=15 train=3.4s eval=1.2s
+[grad v25.42.1] info: grad spike 27.01 at epoch 16 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=16 fog_w=0.60 sub_w=1.00 {"poly1": 0.6790292995316641, "walking_gate": 0.563879075220653} grad_max=27.013 clip=5
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=16 thr=0.039(smooth=0.036) epF1=0.341 sens=0.900 FARh=6.76/h light=False rawFogF1@0.05=0.102 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.190 selWF1@grid=0.085 smoothed=0.0851 sel=windowF1 gated=True gateMean=0.55 gateFlip=66.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=16 train=3.4s eval=1.2s
+[grad v25.42.1] info: grad spike 25.51 at epoch 17 (2/35 batches clipped = 6%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=17 fog_w=0.60 sub_w=1.00 {"poly1": 0.6409711458853313, "walking_gate": 0.5689475050994328} grad_max=25.506 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.029). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.014)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=17 thr=0.029(smooth=0.029) epF1=0.125 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.139 calibSubtypeMAP=0.0000 windowF1@thr=0.309 emaWF1=0.309 rawWF1=0.212 selWF1@grid=0.087 smoothed=0.0838 sel=windowF1 gated=True gateMean=0.56 gateFlip=65.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=17 train=3.4s eval=1.2s
+[loss] epoch=18 fog_w=0.60 sub_w=1.00 {"poly1": 0.6784501143864223, "walking_gate": 0.5550092765263148} grad_max=18.791 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.034). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.015)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=18 thr=0.034(smooth=0.029) epF1=0.121 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.130 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.197 selWF1@grid=0.097 smoothed=0.0895 sel=windowF1 gated=True gateMean=0.58 gateFlip=10.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=18 train=3.3s eval=1.2s
+[grad v25.42.1] info: grad spike 28.73 at epoch 19 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=19 fog_w=0.60 sub_w=1.00 {"poly1": 0.6058220850569861, "walking_gate": 0.5431434001241412} grad_max=28.725 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.059). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.021)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=19 thr=0.059(smooth=0.034) epF1=0.136 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.142 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.226 selWF1@grid=0.107 smoothed=0.0971 sel=windowF1 gated=True gateMean=0.56 gateFlip=9.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=19 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 36.58 at epoch 20 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=20 fog_w=0.60 sub_w=1.00 {"poly1": 0.5721710355154106, "walking_gate": 0.5729751416615078} grad_max=36.575 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.031). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.012)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=20 thr=0.031(smooth=0.034) epF1=0.133 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.147 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.219 selWF1@grid=0.117 smoothed=0.1070 sel=windowF1 gated=True gateMean=0.53 gateFlip=54.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=20 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 34.56 at epoch 21 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=21 fog_w=0.60 sub_w=1.00 {"poly1": 0.6520291634968349, "walking_gate": 0.5651547534125192} grad_max=34.564 clip=5
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=21 thr=0.019(smooth=0.031) epF1=0.366 sens=1.000 FARh=6.76/h light=False rawFogF1@0.05=0.145 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.213 selWF1@grid=0.117 smoothed=0.1137 sel=windowF1 gated=True gateMean=0.51 gateFlip=62.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=21 train=3.6s eval=1.2s
+[grad v25.42.1] info: grad spike 20.56 at epoch 22 (6/35 batches clipped = 17%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=22 fog_w=0.60 sub_w=1.00 {"poly1": 0.5620966962405614, "walking_gate": 0.4998662199292864} grad_max=20.556 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.032). Max-sens point: sens=1.000 at FARh=23.7/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=22 thr=0.032(smooth=0.032) epF1=0.136 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.140 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.218 selWF1@grid=0.123 smoothed=0.1188 sel=windowF1 gated=True gateMean=0.50 gateFlip=2.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=22 train=3.5s eval=1.2s
+[grad v25.42.1] info: grad spike 20.71 at epoch 23 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=23 fog_w=0.60 sub_w=1.00 {"poly1": 0.6242328315973282, "walking_gate": 0.5423945188522339} grad_max=20.708 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.016). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.016)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=23 thr=0.016(smooth=0.031) epF1=0.277 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.224 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.282 selWF1@grid=0.133 smoothed=0.1241 sel=windowF1 gated=True gateMean=0.53 gateFlip=19.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=23 train=2.9s eval=1.3s
+[grad v25.42.1] info: grad spike 22.32 at epoch 24 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=24 fog_w=0.60 sub_w=1.00 {"poly1": 0.6796095075351851, "walking_gate": 0.5608993973050799} grad_max=22.316 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.046). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.019)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=24 thr=0.046(smooth=0.031) epF1=0.134 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.143 calibSubtypeMAP=0.0000 windowF1@thr=0.313 emaWF1=0.313 rawWF1=0.224 selWF1@grid=0.134 smoothed=0.1296 sel=windowF1 gated=True gateMean=0.51 gateFlip=67.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=24 train=3.1s eval=1.2s
+[grad v25.42.1] info: grad spike 23.24 at epoch 25 (2/35 batches clipped = 6%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=25 fog_w=0.60 sub_w=1.00 {"poly1": 0.643792108127049, "walking_gate": 0.522995695897511} grad_max=23.245 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.018). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=25 thr=0.018(smooth=0.019) epF1=0.122 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.053 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.192 selWF1@grid=0.133 smoothed=0.1331 sel=windowF1 gated=True gateMean=0.48 gateFlip=63.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=25 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 27.10 at epoch 26 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=26 fog_w=0.60 sub_w=1.00 {"poly1": 0.621543800830841, "walking_gate": 0.529716214963368} grad_max=27.095 clip=3
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=26 thr=0.014(smooth=0.018) epF1=0.341 sens=0.947 FARh=6.76/h light=False rawFogF1@0.05=0.019 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.178 selWF1@grid=0.120 smoothed=0.1290 sel=windowF1 gated=True gateMean=0.48 gateFlip=68.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=26 train=3.3s eval=1.2s
+[loss] epoch=27 fog_w=0.60 sub_w=1.00 {"poly1": 0.5917568100350243, "walking_gate": 0.5317343762942723} grad_max=19.240 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.018). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=27 thr=0.018(smooth=0.018) epF1=0.137 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.153 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.225 selWF1@grid=0.104 smoothed=0.1192 sel=windowF1 gated=True gateMean=0.47 gateFlip=63.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=27 train=3.2s eval=1.2s
+[loss] epoch=28 fog_w=0.60 sub_w=1.00 {"poly1": 0.5572109584297452, "walking_gate": 0.5288448487009321} grad_max=16.084 clip=2
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=28 thr=0.011(smooth=0.018) epF1=0.331 sens=1.000 FARh=6.76/h light=False rawFogF1@0.05=0.108 calibSubtypeMAP=0.0000 windowF1@thr=0.309 emaWF1=0.309 rawWF1=0.193 selWF1@grid=0.103 smoothed=0.1093 sel=windowF1 gated=True gateMean=0.50 gateFlip=61.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=28 train=3.0s eval=1.1s
+[loss] epoch=29 fog_w=0.60 sub_w=1.00 {"poly1": 0.5737817755767277, "walking_gate": 0.5404177180358342} grad_max=17.642 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.018). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.006)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=29 thr=0.018(smooth=0.018) epF1=0.131 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.148 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.219 selWF1@grid=0.103 smoothed=0.1036 sel=windowF1 gated=True gateMean=0.51 gateFlip=6.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=29 train=3.1s eval=1.2s
+[grad v25.42.1] info: grad spike 33.80 at epoch 30 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=30 fog_w=0.60 sub_w=1.00 {"poly1": 0.548641356400081, "walking_gate": 0.4992102742195129} grad_max=33.801 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.018). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=30 thr=0.018(smooth=0.018) epF1=0.144 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.085 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.215 selWF1@grid=0.103 smoothed=0.1032 sel=windowF1 gated=True gateMean=0.52 gateFlip=70.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=30 train=2.9s eval=1.2s
+[early-stop] epoch=30: no smoothed windowF1 improvement in 25 epochs (best epoch 4, smoothed windowF1=0.2130). Stopping.
+[aswa v25.31] swa folded 1 score-improving checkpoint(s) since epoch 25 (best folded score 0.1331)
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.1575 per-thr=[0.313, 0.204, 0.113, 0.0]
+[variant] ema calibWindowF1=0.1575
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.0301 per-thr=[0.073, 0.048, 0.0, 0.0]
+[variant] swa calibWindowF1=0.0301
+[variant] selected=ema calibWindowF1=0.1575
+[calib v25.51.2] NEUROMAMBA_SUBTYPE_TEMPERATURE=0 -> per-subtype temperatures DISABLED (T=1.0 shipped)
+[gate v25.57] EFFECTIVE: mode=multiply floor=0.250 SH_COND=True eta=0.20 sh_probs=NOT provided (exemption inert)
+[calib v25.51.2] per-epoch diagnostic T frozen at 1.0 (fold-end deployed T=1.807 fitted normally)
+[calib] binary T(gated)=1.807 ECE 0.1046 -> 0.0869
+[pareto] trigger | sens | FARh/h (9 frontier pts, 3 dup/dominated)
+[pareto] 0.143  1.000  13.5
+[pareto] 0.143  1.000  13.5
+[pareto] 0.144  1.000  13.5
+[pareto] 0.144  1.000  13.5
+[pareto] 0.145  1.000  13.5
+[pareto] 0.147  1.000  13.5
+[pareto] 0.165  1.000  13.5
+[pareto] 0.227  0.203  3.4
+[pareto] 0.242  0.203  3.4
+[pareto] max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.143); clinical-feasible points: 0
+[inner-cv] triggers=[0.145, 0.18, 0.145] -> median=0.145
+[postproc] tuned {"trigger": 0.14529813077292297, "confirm_n": 3, "cooldown_n": 30, "sustain": 0.05811925230916919, "merge_gap_n": 30, "sensitivity": 1.0, "farh": 16.461469872080663, "event_sensitivity": 0.13793103448275862, "event_f1": 0.18604651162790697, "sensitivity_level": "frame+event", "inner_cv_triggers": [0.14529813077292297, 0.1795400098155242, 0.14525485329759813], "ssbc_alpha_effective": 0.4376586748096509}
+[postproc v25.27] full-calib verified: trigger=0.145 sens=1.00 FARh=13.5/h
+[joint-certify v25.44] 0/24 certified operating points at alpha=0.10 (sens_target=0.85, FARh budget=10/h) -- no trigger carries the joint guarantee on this calib split
+[calib] T=1.807 ECE(calib)=0.0869 ECE(thresh)=0.0170
+[thresh-split] thr=0.145 frameF1=0.342 eventF1=0.202 FARh=36.18/h walking_gate=ON (scored on the THRESH split, NOT val -- the fold [VAL] line is the reportable operating point)
+[thresh-split v25.11] window-F1@frozenThr=0.361 (contest ceiling 0.73-0.81) | best sens@FARh<=10: 0.20 | best FARh@sens>=0.85: 13.5/h
+[thresh-split v25.15] coverage->FARh curve: cov 1.00: sens 0.85, FARh 36.2/h | cov 0.95: sens 0.77, FARh 50.9/h | cov 0.90: sens 0.74, FARh 48.6/h
+[per-subtype-threshold] StartHesitation: trigger=0.000 sens=1.000 FARh=16.96/h
+[per-subtype-threshold] Turn: not evaluable (0 positives <20)
+[per-subtype-threshold] Walking: not evaluable (0 positives <20)
+[internal] subtype mAP={"mAP": 0.0, "comparable": false, "StartHesitation": 0.0, "Turn": 0.0, "Walking": 0.0} [scored on the selection split; use the fold [VAL] mAP for the honest number]
+[conformal v25.31] alpha=0.10 trigger=0.261 (fit on 873 calib neg-windows) -> THRESH alarm FARh=12.44/h sens=0.12 (guarantee: neg-window alarm rate <= 0.10 + 1/874)
+
+[seed-ensemble] training seed 2/3 (seed=1042)
+[emphasis-audit v25.59b] WARNING: NEUROMAMBA_SH_OVERSAMPLE=5 is INERT under SAMPLER_EXPOSURE='order' (order mode only reorders -- set NEUROMAMBA_SAMPLER_EXPOSURE=weighted for true oversampling)
+[emphasis-audit v25.58] effective SH emphasis ~14.4x (exposure 1.80 [crop 0.40+walk 0.40, oversample INERT (order mode)], loss x8.00, sub_w 1.00) -> WARN (Lin&Grewal safe ~2.3x, danger ~60x)
+[device v25.42.6] training on cuda (NVIDIA GeForce RTX 3060)
+[branch-guard v25.2] model_type=sequence -> winner-style Conv+BiGRU.
+[arch] {"model_version": "convgru_v25.6", "backbone": "1D_ResNet4_blocks + 2xBiGRU", "in_channels_contract": 13, "gru_hidden": 128, "n_gru_layers": 2, "no_global_pooling": true, "full_resolution_heads": true, "use_walking_gate": true, "hazard_head": "off", "med_film": true, "subtype_head": "3x_masked_sigmoid (SH/Turn/Walking)", "reference": "Kaggle top-5 all sequence models: 1st Transformer+2BiLSTM 0.514, 2nd GRU 0.451, 4th MultiResidualBiGRU 0.417", "v25.6_fixes": "medication_state_FiLM", "role": "main_model"}
+[causal 28bz] model_causal=False preproc_causal=False -> deployable_latency=False   [non-causal: set NEUROMAMBA_CAUSAL=1 AND NEUROMAMBA_CAUSAL_FILTER=1 for a deployable onset latency]
+[loss-weight v25] fog pos=394763 neg=1717925 prevalence=0.1869 (Poly-1 handles imbalance; no stacked pos_weight)
+[loss-weight v25] subtype_pos=[0, 0, 0] subtype_neg=[0, 0, 0] (ASL gamma_neg={'StartHesitation': 1.5, 'Turn': 2.0, 'Walking': 2.0}, per-class observed mask)
+[loss-weight v25.44] subtype train priors (obs) = [0.0, 0.0, 0.0] (SH/Turn/Walk)
+[head-prior v25.51.2] subtype head biases initialized from priors [-9.21, -9.21, -9.21] (winner shared Conv1d bias)
+[loss v25.59] TOKEN_ASL=1 -> subtype token loss = per-class Asymmetric Loss (gamma_neg SH 1.5 / Turn 2.0 / Walk 2.0, clip 0.05) on the patch-pooled targets
+[loss v25.59f] CONTEXT HARD NEGATIVES: WALK_HARDNEG_W=2 (Walk-channel negatives x2 on FoG-not-Walk cells) SH_HARDNEG_W=1 (SH-channel negatives x1 on FoG-not-SH cells) -- per-cell loss weighting active
+[loss-weight v25.3] subtype CE weights (SH/Turn/Walk/None) = [5.0, 2.0, 5.0, 1.0]
+[train v25.11c] model selection + early stopping use calib WINDOW-F1 (Lin & Grewal 2026: F1-based stopping +47% over AUC-based)
+[augment v25] p_augment=0.50 p_each=0.20 crop_pos_prob=0.20
+[grad-guard v25.52] ENABLED (hard ceiling 1000, DYN_CAP=1.000e+03, dynamic = max(ceiling, 3x p99 of recent finite norms); aborting batches restores last-finite state)
+[sampler v25.52] SubjectFirstEventSampler ENABLED (subject-uniform rare-class exposure)
+[sampler v25.53] quota override applied: {'SH': 0.2, 'Walk': 0.2, 'Turn': 0.1, 'hard_negative': 0.25, 'background': 0.25}
+[loss] epoch=0 fog_w=1.00 sub_w=0.35 {"poly1": 0.7628666630813054, "walking_gate": 0.6722542200769697} grad_max=5.047 clip=16
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=0 thr=0.050(smooth=0.050) epF1=0.131 sens=0.000 FARh=13.53/h light=True rawFogF1@0.05=0.139 calibSubtypeMAP=0.0000 windowF1@thr=0.232 selWF1@grid=0.083 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.61 gateFlip=74.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=0 train=3.4s eval=0.5s
+[loss] epoch=1 fog_w=1.00 sub_w=0.35 {"poly1": 0.7935208490916661, "walking_gate": 0.6312637184347425} grad_max=5.564 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.551 FARh=3.4/h (trigger=0.027). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.022)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=1 thr=0.027(smooth=0.039) epF1=0.243 sens=0.551 FARh=3.38/h light=False rawFogF1@0.05=0.126 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.207 selWF1@grid=0.230 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.58 gateFlip=65.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=1 train=3.2s eval=1.2s
+[grad v25.42.1] WARNING: max grad norm 30.02 at epoch 2 (13/35 batches clipped = 37%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['daphnet', 'xuanwu']
+[loss] epoch=2 fog_w=1.00 sub_w=0.35 {"poly1": 0.7428441918322019, "walking_gate": 0.6102808160441262} grad_max=30.015 clip=13
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.204 FARh=6.8/h (trigger=0.061). Max-sens point: sens=1.000 at FARh=33.8/h (trigger=0.029)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=2 thr=0.061(smooth=0.050) epF1=0.136 sens=0.204 FARh=6.76/h light=False rawFogF1@0.05=0.145 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.242 selWF1@grid=0.230 smoothed=-0.5900 sel=windowF1 gated=True gateMean=0.59 gateFlip=12.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=2 train=3.4s eval=1.2s
+[loss] epoch=3 fog_w=0.96 sub_w=0.41 {"poly1": 0.6733602809054511, "walking_gate": 0.5639642604759761} grad_max=12.972 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.045). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.032)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=3 thr=0.045(smooth=0.048) epF1=0.119 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.121 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.193 selWF1@grid=0.231 smoothed=-0.1797 sel=windowF1 gated=True gateMean=0.57 gateFlip=61.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=3 train=2.9s eval=1.1s
+[grad v25.42.1] info: grad spike 84.12 at epoch 4 (8/35 batches clipped = 23%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=4 fog_w=0.92 sub_w=0.48 {"poly1": 0.69820356965065, "walking_gate": 0.6027836280209677} grad_max=84.120 clip=8
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.027). Max-sens point: sens=1.000 at FARh=23.7/h (trigger=0.012)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=4 thr=0.027(smooth=0.045) epF1=0.147 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.090 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.245 selWF1@grid=0.205 smoothed=0.2219 sel=windowF1 gated=True gateMean=0.59 gateFlip=10.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=4 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 31.08 at epoch 5 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=5 fog_w=0.88 sub_w=0.54 {"poly1": 0.6776228521551405, "walking_gate": 0.5781024830681937} grad_max=31.077 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.010). Max-sens point: sens=1.000 at FARh=20.3/h (trigger=0.004)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=5 thr=0.010(smooth=0.027) epF1=0.134 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.098 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.221 selWF1@grid=0.153 smoothed=0.1963 sel=windowF1 gated=True gateMean=0.58 gateFlip=6.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=5 train=3.0s eval=1.2s
+[loss] epoch=6 fog_w=0.84 sub_w=0.61 {"poly1": 0.7337160732064928, "walking_gate": 0.5640475554125649} grad_max=15.028 clip=1
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=6 thr=0.020(smooth=0.027) epF1=0.261 sens=0.858 FARh=6.76/h light=False rawFogF1@0.05=0.125 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.191 selWF1@grid=0.153 smoothed=0.1705 sel=windowF1 gated=True gateMean=0.57 gateFlip=58.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=6 train=2.9s eval=1.1s
+[grad v25.42.1] info: grad spike 30.29 at epoch 7 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=7 fog_w=0.80 sub_w=0.68 {"poly1": 0.6378410611833845, "walking_gate": 0.5624275437423161} grad_max=30.291 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=0.0/h (trigger=0.029). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.012)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=7 thr=0.029(smooth=0.027) epF1=0.119 sens=0.208 FARh=0.00/h light=False rawFogF1@0.05=0.128 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.193 selWF1@grid=0.153 smoothed=0.1533 sel=windowF1 gated=True gateMean=0.60 gateFlip=2.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=7 train=3.1s eval=1.1s
+[loss] epoch=8 fog_w=0.76 sub_w=0.74 {"poly1": 0.7677281498908997, "walking_gate": 0.5626535321984972} grad_max=19.417 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.628 FARh=3.4/h (trigger=0.047). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.034)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=8 thr=0.047(smooth=0.027) epF1=0.268 sens=0.628 FARh=3.38/h light=False rawFogF1@0.05=0.145 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.227 selWF1@grid=0.153 smoothed=0.1533 sel=windowF1 gated=True gateMean=0.58 gateFlip=68.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=8 train=3.6s eval=1.1s
+[loss] epoch=9 fog_w=0.72 sub_w=0.80 {"poly1": 0.7444017073937825, "walking_gate": 0.5468605637550354} grad_max=7.026 clip=0
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.805 FARh=3.4/h (trigger=0.045). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.032)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=9 thr=0.045(smooth=0.029) epF1=0.288 sens=0.805 FARh=3.38/h light=False rawFogF1@0.05=0.128 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.201 selWF1@grid=0.154 smoothed=0.1534 sel=windowF1 gated=True gateMean=0.55 gateFlip=63.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=9 train=2.9s eval=1.1s
+[grad-guard v25.54] warmup cap FROZEN: 3xQ95=9.111e+00 -> cap=7.000e+02 (was 1.000e+03)
+[loss] epoch=10 fog_w=0.68 sub_w=0.87 {"poly1": 0.6870909652539662, "walking_gate": 0.5650876241070883} grad_max=8.952 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=0.0/h (trigger=0.020). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.002)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=10 thr=0.020(smooth=0.029) epF1=0.119 sens=0.208 FARh=0.00/h light=False rawFogF1@0.05=0.147 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.193 selWF1@grid=0.154 smoothed=0.1537 sel=windowF1 gated=True gateMean=0.60 gateFlip=0.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=10 train=2.9s eval=1.2s
+[grad v25.42.1] WARNING: max grad norm 34.78 at epoch 11 (13/35 batches clipped = 37%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=11 fog_w=0.64 sub_w=0.94 {"poly1": 0.6906417561428887, "walking_gate": 0.5316375468458449} grad_max=34.777 clip=13
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.628 FARh=6.8/h (trigger=0.038). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.026)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=11 thr=0.038(smooth=0.038) epF1=0.267 sens=0.628 FARh=6.76/h light=False rawFogF1@0.05=0.148 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.217 selWF1@grid=0.155 smoothed=0.1542 sel=windowF1 gated=True gateMean=0.59 gateFlip=67.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=11 train=3.2s eval=1.2s
+[loss] epoch=12 fog_w=0.60 sub_w=1.00 {"poly1": 0.5934529210839953, "walking_gate": 0.5164694002696446} grad_max=19.902 clip=4
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=12 thr=0.032(smooth=0.038) epF1=0.317 sens=0.968 FARh=6.76/h light=False rawFogF1@0.05=0.133 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.208 selWF1@grid=0.154 smoothed=0.1544 sel=windowF1 gated=True gateMean=0.58 gateFlip=60.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=12 train=2.9s eval=1.1s
+[grad v25.42.1] info: grad spike 30.09 at epoch 13 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=13 fog_w=0.60 sub_w=1.00 {"poly1": 0.6466641702822277, "walking_gate": 0.534746344600405} grad_max=30.087 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.203 FARh=6.8/h (trigger=0.045). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.023)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=13 thr=0.045(smooth=0.038) epF1=0.146 sens=0.203 FARh=6.76/h light=False rawFogF1@0.05=0.106 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.194 selWF1@grid=0.155 smoothed=0.1546 sel=windowF1 gated=True gateMean=0.57 gateFlip=69.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=13 train=3.3s eval=1.2s
+[grad v25.42.1] WARNING: max grad norm 45.72 at epoch 14 (11/35 batches clipped = 31%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=14 fog_w=0.60 sub_w=1.00 {"poly1": 0.668440409217562, "walking_gate": 0.5397498803479331} grad_max=45.720 clip=11
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=14 thr=0.009(smooth=0.032) epF1=0.312 sens=0.977 FARh=6.76/h light=False rawFogF1@0.05=0.134 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.270 selWF1@grid=0.155 smoothed=0.1548 sel=windowF1 gated=True gateMean=0.54 gateFlip=49.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=14 train=2.9s eval=1.1s
+[grad v25.42.1] info: grad spike 34.82 at epoch 15 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=15 fog_w=0.60 sub_w=1.00 {"poly1": 0.6050754427909851, "walking_gate": 0.5458050974777766} grad_max=34.817 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.628 FARh=6.8/h (trigger=0.018). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=15 thr=0.018(smooth=0.032) epF1=0.273 sens=0.628 FARh=6.76/h light=False rawFogF1@0.05=0.118 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.225 selWF1@grid=0.155 smoothed=0.1551 sel=windowF1 gated=True gateMean=0.56 gateFlip=62.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=15 train=3.3s eval=1.2s
+[grad v25.42.1] info: grad spike 33.99 at epoch 16 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=16 fog_w=0.60 sub_w=1.00 {"poly1": 0.6683082359177726, "walking_gate": 0.5674916471753801} grad_max=33.991 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.093). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.018)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=16 thr=0.093(smooth=0.032) epF1=0.137 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.134 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.231 selWF1@grid=0.156 smoothed=0.1554 sel=windowF1 gated=True gateMean=0.55 gateFlip=4.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=16 train=3.6s eval=1.2s
+[loss] epoch=17 fog_w=0.60 sub_w=1.00 {"poly1": 0.6230975883347648, "walking_gate": 0.5581055164337159} grad_max=13.385 clip=0
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.184 FARh=6.8/h (trigger=0.033). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=17 thr=0.033(smooth=0.033) epF1=0.161 sens=0.184 FARh=6.76/h light=False rawFogF1@0.05=0.013 calibSubtypeMAP=0.0000 windowF1@thr=0.309 emaWF1=0.309 rawWF1=0.109 selWF1@grid=0.156 smoothed=0.1558 sel=windowF1 gated=True gateMean=0.56 gateFlip=13.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=17 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 39.00 at epoch 18 (6/35 batches clipped = 17%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=18 fog_w=0.60 sub_w=1.00 {"poly1": 0.6883408512387957, "walking_gate": 0.5491253759179796} grad_max=38.996 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=10.1/h (trigger=0.031). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.031)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=18 thr=0.031(smooth=0.031) epF1=0.274 sens=1.000 FARh=10.15/h light=False rawFogF1@0.05=0.284 calibSubtypeMAP=0.0000 windowF1@thr=0.309 emaWF1=0.309 rawWF1=0.276 selWF1@grid=0.156 smoothed=0.1560 sel=windowF1 gated=True gateMean=0.57 gateFlip=6.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=18 train=3.2s eval=1.2s
+[grad v25.42.1] info: grad spike 44.99 at epoch 19 (4/35 batches clipped = 11%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=19 fog_w=0.60 sub_w=1.00 {"poly1": 0.6382462756974356, "walking_gate": 0.5440645941666195} grad_max=44.991 clip=4
+  [threshold] UNSAFE fallback max_epF1 at FARh=47.4/h (>2x budget) -- guarding to min-FAR usable point FARh=16.9/h [v25.53.10]
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=min_farh_unsafe_guard: sens=1.000 FARh=16.9/h (trigger=0.051). Max-sens point: sens=1.000 at FARh=20.3/h (trigger=0.050)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=19 thr=0.051(smooth=0.033) epF1=0.281 sens=1.000 FARh=16.91/h light=False rawFogF1@0.05=0.286 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.302 selWF1@grid=0.154 smoothed=0.1555 sel=windowF1 gated=True gateMean=0.54 gateFlip=12.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=19 train=3.6s eval=1.2s
+[grad v25.42.1] info: grad spike 49.33 at epoch 20 (4/35 batches clipped = 11%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=20 fog_w=0.60 sub_w=1.00 {"poly1": 0.6081623122096061, "walking_gate": 0.5536086525235857} grad_max=49.331 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.034). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.011)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=20 thr=0.034(smooth=0.034) epF1=0.124 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.104 calibSubtypeMAP=0.0000 windowF1@thr=0.310 emaWF1=0.310 rawWF1=0.190 selWF1@grid=0.155 smoothed=0.1551 sel=windowF1 gated=True gateMean=0.53 gateFlip=9.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=20 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 21.71 at epoch 21 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=21 fog_w=0.60 sub_w=1.00 {"poly1": 0.7227182648011616, "walking_gate": 0.555010154417583} grad_max=21.710 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.393 FARh=6.8/h (trigger=0.094). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.046)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=21 thr=0.094(smooth=0.034) epF1=0.240 sens=0.393 FARh=6.76/h light=False rawFogF1@0.05=0.284 calibSubtypeMAP=0.0000 windowF1@thr=0.316 emaWF1=0.316 rawWF1=0.163 selWF1@grid=0.152 smoothed=0.1536 sel=windowF1 gated=True gateMean=0.52 gateFlip=76.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=21 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 65.85 at epoch 22 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=22 fog_w=0.60 sub_w=1.00 {"poly1": 0.5535062279020037, "walking_gate": 0.4904021348272051} grad_max=65.849 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.050). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.013)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=22 thr=0.050(smooth=0.050) epF1=0.131 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.133 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.213 selWF1@grid=0.148 smoothed=0.1517 sel=windowF1 gated=True gateMean=0.51 gateFlip=5.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=22 train=3.1s eval=1.2s
+[grad v25.42.1] info: grad spike 42.47 at epoch 23 (4/35 batches clipped = 11%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=23 fog_w=0.60 sub_w=1.00 {"poly1": 0.6037156620195934, "walking_gate": 0.5338235403810229} grad_max=42.465 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=0.995 FARh=13.5/h (trigger=0.039). Max-sens point: sens=0.995 at FARh=13.5/h (trigger=0.039)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=23 thr=0.039(smooth=0.050) epF1=0.290 sens=0.995 FARh=13.53/h light=False rawFogF1@0.05=0.264 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.304 selWF1@grid=0.141 smoothed=0.1469 sel=windowF1 gated=True gateMean=0.54 gateFlip=12.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=23 train=3.4s eval=1.3s
+[grad v25.42.1] info: grad spike 30.74 at epoch 24 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=24 fog_w=0.60 sub_w=1.00 {"poly1": 0.6440125314252717, "walking_gate": 0.558513924905232} grad_max=30.743 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.047). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.013)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=24 thr=0.047(smooth=0.047) epF1=0.152 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.104 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.185 selWF1@grid=0.143 smoothed=0.1440 sel=windowF1 gated=True gateMean=0.50 gateFlip=11.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=24 train=3.2s eval=1.2s
+[grad v25.42.1] info: grad spike 31.80 at epoch 25 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=25 fog_w=0.60 sub_w=1.00 {"poly1": 0.6198631512267249, "walking_gate": 0.510949055637632} grad_max=31.802 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.008). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=25 thr=0.008(smooth=0.047) epF1=0.276 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.000 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.328 selWF1@grid=0.130 smoothed=0.1379 sel=windowF1 gated=True gateMean=0.50 gateFlip=19.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=25 train=2.9s eval=1.3s
+[grad v25.42.1] info: grad spike 21.08 at epoch 26 (2/35 batches clipped = 6%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=26 fog_w=0.60 sub_w=1.00 {"poly1": 0.6206372473921095, "walking_gate": 0.5312861842768533} grad_max=21.082 clip=2
+  [threshold] UNSAFE fallback max_epF1 at FARh=33.8/h (>2x budget) -- guarding to min-FAR usable point FARh=16.9/h [v25.53.10]
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=min_farh_unsafe_guard: sens=1.000 FARh=16.9/h (trigger=0.013). Max-sens point: sens=1.000 at FARh=20.3/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=26 thr=0.013(smooth=0.039) epF1=0.283 sens=1.000 FARh=16.91/h light=False rawFogF1@0.05=0.022 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.291 selWF1@grid=0.124 smoothed=0.1324 sel=windowF1 gated=True gateMean=0.49 gateFlip=52.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=26 train=3.6s eval=1.3s
+[grad v25.42.1] info: grad spike 27.71 at epoch 27 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=27 fog_w=0.60 sub_w=1.00 {"poly1": 0.6188330428940909, "walking_gate": 0.5497336345059531} grad_max=27.705 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.010). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=27 thr=0.010(smooth=0.013) epF1=0.276 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.122 calibSubtypeMAP=0.0000 windowF1@thr=0.308 emaWF1=0.308 rawWF1=0.311 selWF1@grid=0.119 smoothed=0.1244 sel=windowF1 gated=True gateMean=0.49 gateFlip=19.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=27 train=3.5s eval=1.2s
+[grad v25.42.1] info: grad spike 28.50 at epoch 28 (6/35 batches clipped = 17%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=28 fog_w=0.60 sub_w=1.00 {"poly1": 0.5591107815504074, "walking_gate": 0.5271886314664568} grad_max=28.503 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.239 FARh=6.8/h (trigger=0.027). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=28 thr=0.027(smooth=0.013) epF1=0.139 sens=0.239 FARh=6.76/h light=False rawFogF1@0.05=0.129 calibSubtypeMAP=0.0000 windowF1@thr=0.313 emaWF1=0.313 rawWF1=0.201 selWF1@grid=0.111 smoothed=0.1181 sel=windowF1 gated=True gateMean=0.51 gateFlip=6.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=28 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 49.27 at epoch 29 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=29 fog_w=0.60 sub_w=1.00 {"poly1": 0.611328911781311, "walking_gate": 0.5357510192053658} grad_max=49.273 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=0.0/h (trigger=0.025). Max-sens point: sens=0.976 at FARh=13.5/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=29 thr=0.025(smooth=0.013) epF1=0.131 sens=0.208 FARh=0.00/h light=False rawFogF1@0.05=0.148 calibSubtypeMAP=0.0000 windowF1@thr=0.313 emaWF1=0.313 rawWF1=0.219 selWF1@grid=0.103 smoothed=0.1110 sel=windowF1 gated=True gateMean=0.53 gateFlip=6.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=29 train=3.3s eval=1.2s
+[grad v25.42.1] info: grad spike 21.73 at epoch 30 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=30 fog_w=0.60 sub_w=1.00 {"poly1": 0.5874518445559911, "walking_gate": 0.5024610434259688} grad_max=21.730 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.027). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.009)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=30 thr=0.027(smooth=0.025) epF1=0.139 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.142 calibSubtypeMAP=0.0000 windowF1@thr=0.313 emaWF1=0.313 rawWF1=0.229 selWF1@grid=0.097 smoothed=0.1037 sel=windowF1 gated=True gateMean=0.52 gateFlip=12.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=30 train=2.9s eval=1.2s
+[early-stop] epoch=30: no smoothed windowF1 improvement in 25 epochs (best epoch 4, smoothed windowF1=0.2219). Stopping.
+[aswa v25.31] swa folded 1 score-improving checkpoint(s) since epoch 25 (best folded score 0.1379)
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.1559 per-thr=[0.314, 0.309, 0.0, 0.0]
+[variant] ema calibWindowF1=0.1559
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.0000 per-thr=[0.0, 0.0, 0.0, 0.0]
+[variant] swa calibWindowF1=0.0000
+[variant] selected=ema calibWindowF1=0.1559
+[calib v25.51.2] NEUROMAMBA_SUBTYPE_TEMPERATURE=0 -> per-subtype temperatures DISABLED (T=1.0 shipped)
+[calib v25.51.2] per-epoch diagnostic T frozen at 1.0 (fold-end deployed T=1.534 fitted normally)
+[calib] binary T(gated)=1.534 ECE 0.0935 -> 0.0149
+[pareto] trigger | sens | FARh/h (4 frontier pts, 8 dup/dominated)
+[pareto] 0.155  0.979  16.9
+[pareto] 0.178  0.136  13.5
+[pareto] 0.195  0.097  6.8
+[pareto] 0.236  0.000  3.4
+[pareto] max-sens point: sens=0.979 at FARh=16.9/h (trigger=0.155); clinical-feasible points: 0
+[inner-cv] triggers=[0.163, 0.098, 0.163] -> median=0.163
+[postproc] tuned {"trigger": 0.16278782000810096, "confirm_n": 3, "cooldown_n": 30, "sustain": 0.06511512800324039, "merge_gap_n": 30, "sensitivity": 0.9868036143795098, "farh": 24.69220480812099, "event_sensitivity": 0.2413793103448276, "event_f1": 0.3043478260869565, "sensitivity_level": "frame+event", "inner_cv_triggers": [0.16278782000810096, 0.09770015625302471, 0.16280105761926073], "ssbc_alpha_effective": 0.4376586748096509}
+[pareto] trigger | sens | FARh/h (4 frontier pts, 8 dup/dominated)
+[pareto] 0.155  0.979  16.9
+[pareto] 0.178  0.136  13.5
+[pareto] 0.195  0.097  6.8
+[pareto] 0.236  0.000  3.4
+[pareto] max-sens point: sens=0.979 at FARh=16.9/h (trigger=0.155); clinical-feasible points: 0
+[postproc v25.46] clinical target unmet -- deploying CONSTRAINED point (max sens @ FARh<=10): trigger=0.195 sens=0.10 FARh=6.8/h [clinical_target_unmet=True]
+[postproc v25.51.3] report-only max-epF1 diagnostic (NOT deployed): trigger=0.171 epF1=0.335 sens=0.95 FARh=20.3/h
+[postproc v25.27] full-calib verified: trigger=0.195 sens=0.10 FARh=6.8/h
+[joint-certify v25.44] 0/24 certified operating points at alpha=0.10 (sens_target=0.85, FARh budget=10/h) -- no trigger carries the joint guarantee on this calib split
+[calib] T=1.534 ECE(calib)=0.0149 ECE(thresh)=0.0895
+[thresh-split] thr=0.195 frameF1=0.235 eventF1=0.222 FARh=10.18/h walking_gate=ON (scored on the THRESH split, NOT val -- the fold [VAL] line is the reportable operating point)
+[thresh-split v25.11] window-F1@frozenThr=0.080 (contest ceiling 0.73-0.81) | best sens@FARh<=10: 0.10 | best FARh@sens>=0.85: 16.9/h
+[thresh-split v25.15] coverage->FARh curve: cov 1.00: sens 0.33, FARh 10.2/h | cov 0.95: sens 0.04, FARh 116.5/h | cov 0.90: sens 0.04, FARh 108.5/h
+[per-subtype-threshold] StartHesitation: trigger=0.000 sens=0.996 FARh=16.96/h
+[per-subtype-threshold] Turn: not evaluable (0 positives <20)
+[per-subtype-threshold] Walking: not evaluable (0 positives <20)
+[internal] subtype mAP={"mAP": 0.0, "comparable": false, "StartHesitation": 0.0, "Turn": 0.0, "Walking": 0.0} [scored on the selection split; use the fold [VAL] mAP for the honest number]
+[conformal v25.31] alpha=0.10 trigger=0.191 (fit on 873 calib neg-windows) -> THRESH alarm FARh=15.83/h sens=0.14 (guarantee: neg-window alarm rate <= 0.10 + 1/874)
+
+[seed-ensemble] training seed 3/3 (seed=2042)
+[emphasis-audit v25.59b] WARNING: NEUROMAMBA_SH_OVERSAMPLE=5 is INERT under SAMPLER_EXPOSURE='order' (order mode only reorders -- set NEUROMAMBA_SAMPLER_EXPOSURE=weighted for true oversampling)
+[emphasis-audit v25.58] effective SH emphasis ~14.4x (exposure 1.80 [crop 0.40+walk 0.40, oversample INERT (order mode)], loss x8.00, sub_w 1.00) -> WARN (Lin&Grewal safe ~2.3x, danger ~60x)
+[device v25.42.6] training on cuda (NVIDIA GeForce RTX 3060)
+[branch-guard v25.2] model_type=sequence -> winner-style Conv+BiGRU.
+[arch] {"model_version": "convgru_v25.6", "backbone": "1D_ResNet4_blocks + 2xBiGRU", "in_channels_contract": 13, "gru_hidden": 128, "n_gru_layers": 2, "no_global_pooling": true, "full_resolution_heads": true, "use_walking_gate": true, "hazard_head": "off", "med_film": true, "subtype_head": "3x_masked_sigmoid (SH/Turn/Walking)", "reference": "Kaggle top-5 all sequence models: 1st Transformer+2BiLSTM 0.514, 2nd GRU 0.451, 4th MultiResidualBiGRU 0.417", "v25.6_fixes": "medication_state_FiLM", "role": "main_model"}
+[causal 28bz] model_causal=False preproc_causal=False -> deployable_latency=False   [non-causal: set NEUROMAMBA_CAUSAL=1 AND NEUROMAMBA_CAUSAL_FILTER=1 for a deployable onset latency]
+[loss-weight v25] fog pos=394763 neg=1717925 prevalence=0.1869 (Poly-1 handles imbalance; no stacked pos_weight)
+[loss-weight v25] subtype_pos=[0, 0, 0] subtype_neg=[0, 0, 0] (ASL gamma_neg={'StartHesitation': 1.5, 'Turn': 2.0, 'Walking': 2.0}, per-class observed mask)
+[loss-weight v25.44] subtype train priors (obs) = [0.0, 0.0, 0.0] (SH/Turn/Walk)
+[head-prior v25.51.2] subtype head biases initialized from priors [-9.21, -9.21, -9.21] (winner shared Conv1d bias)
+[loss v25.59] TOKEN_ASL=1 -> subtype token loss = per-class Asymmetric Loss (gamma_neg SH 1.5 / Turn 2.0 / Walk 2.0, clip 0.05) on the patch-pooled targets
+[loss v25.59f] CONTEXT HARD NEGATIVES: WALK_HARDNEG_W=2 (Walk-channel negatives x2 on FoG-not-Walk cells) SH_HARDNEG_W=1 (SH-channel negatives x1 on FoG-not-SH cells) -- per-cell loss weighting active
+[loss-weight v25.3] subtype CE weights (SH/Turn/Walk/None) = [5.0, 2.0, 5.0, 1.0]
+[train v25.11c] model selection + early stopping use calib WINDOW-F1 (Lin & Grewal 2026: F1-based stopping +47% over AUC-based)
+[augment v25] p_augment=0.50 p_each=0.20 crop_pos_prob=0.20
+[grad-guard v25.52] ENABLED (hard ceiling 1000, DYN_CAP=1.000e+03, dynamic = max(ceiling, 3x p99 of recent finite norms); aborting batches restores last-finite state)
+[sampler v25.52] SubjectFirstEventSampler ENABLED (subject-uniform rare-class exposure)
+[sampler v25.53] quota override applied: {'SH': 0.2, 'Walk': 0.2, 'Turn': 0.1, 'hard_negative': 0.25, 'background': 0.25}
+[loss] epoch=0 fog_w=1.00 sub_w=0.35 {"poly1": 0.774213627406529, "walking_gate": 0.6536656907626561} grad_max=5.264 clip=18
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=0 thr=0.050(smooth=0.050) epF1=0.260 sens=0.000 FARh=13.53/h light=True rawFogF1@0.05=0.132 calibSubtypeMAP=0.0000 windowF1@thr=0.211 selWF1@grid=0.105 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.67 gateFlip=65.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=0 train=3.9s eval=0.5s
+[loss] epoch=1 fog_w=1.00 sub_w=0.35 {"poly1": 0.8043573583875384, "walking_gate": 0.6263478440897805} grad_max=3.077 clip=1
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=1 thr=0.029(smooth=0.039) epF1=0.283 sens=1.000 FARh=6.76/h light=False rawFogF1@0.05=0.136 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.202 selWF1@grid=0.280 smoothed=-1.0000 sel=windowF1(pre-maturity-floor) gated=True gateMean=0.64 gateFlip=64.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=1 train=3.1s eval=1.1s
+[loss] epoch=2 fog_w=1.00 sub_w=0.35 {"poly1": 0.7502160195793425, "walking_gate": 0.5895895447049823} grad_max=8.734 clip=8
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.102). Max-sens point: sens=1.000 at FARh=30.4/h (trigger=0.037)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=2 thr=0.102(smooth=0.050) epF1=0.152 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.135 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.207 selWF1@grid=0.252 smoothed=-0.5825 sel=windowF1 gated=True gateMean=0.66 gateFlip=8.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=2 train=3.2s eval=1.2s
+[loss] epoch=3 fog_w=0.96 sub_w=0.41 {"poly1": 0.6609611702816827, "walking_gate": 0.5559217665876661} grad_max=8.281 clip=2
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=3 thr=0.056(smooth=0.053) epF1=0.310 sens=0.976 FARh=3.38/h light=False rawFogF1@0.05=0.121 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.196 selWF1@grid=0.235 smoothed=-0.1709 sel=windowF1 gated=True gateMean=0.65 gateFlip=61.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=3 train=2.9s eval=1.1s
+[loss] epoch=4 fog_w=0.92 sub_w=0.48 {"poly1": 0.6918541133403778, "walking_gate": 0.5967853503567832} grad_max=7.444 clip=5
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=4 thr=0.028(smooth=0.050) epF1=0.317 sens=1.000 FARh=6.76/h light=False rawFogF1@0.05=0.147 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.201 selWF1@grid=0.205 smoothed=0.2308 sel=windowF1 gated=True gateMean=0.62 gateFlip=62.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=4 train=3.2s eval=1.1s
+[grad v25.42.1] info: grad spike 22.44 at epoch 5 (9/35 batches clipped = 26%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=5 fog_w=0.88 sub_w=0.54 {"poly1": 0.6890975654125213, "walking_gate": 0.5700855587209974} grad_max=22.436 clip=9
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.019). Max-sens point: sens=1.000 at FARh=20.3/h (trigger=0.006)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=5 thr=0.019(smooth=0.029) epF1=0.130 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.150 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.209 selWF1@grid=0.195 smoothed=0.2116 sel=windowF1 gated=True gateMean=0.62 gateFlip=3.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=5 train=3.6s eval=1.2s
+[grad v25.42.1] info: grad spike 22.42 at epoch 6 (2/35 batches clipped = 6%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=6 fog_w=0.84 sub_w=0.61 {"poly1": 0.7502486876079014, "walking_gate": 0.5685933675084796} grad_max=22.424 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.687 FARh=6.8/h (trigger=0.046). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.036)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=6 thr=0.046(smooth=0.046) epF1=0.252 sens=0.687 FARh=6.76/h light=False rawFogF1@0.05=0.133 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.208 selWF1@grid=0.160 smoothed=0.1869 sel=windowF1 gated=True gateMean=0.61 gateFlip=65.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=6 train=3.7s eval=1.2s
+[loss] epoch=7 fog_w=0.80 sub_w=0.68 {"poly1": 0.6600222762141909, "walking_gate": 0.5516463731016431} grad_max=14.720 clip=9
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=0.923 FARh=13.5/h (trigger=0.038). Max-sens point: sens=0.986 at FARh=16.9/h (trigger=0.027)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=7 thr=0.038(smooth=0.038) epF1=0.300 sens=0.923 FARh=13.53/h light=False rawFogF1@0.05=0.172 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.319 selWF1@grid=0.153 smoothed=0.1696 sel=windowF1 gated=True gateMean=0.61 gateFlip=15.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=7 train=3.2s eval=1.2s
+[grad v25.42.1] WARNING: max grad norm 45.47 at epoch 8 (15/35 batches clipped = 43%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['daphnet', 'xuanwu']
+[loss] epoch=8 fog_w=0.76 sub_w=0.74 {"poly1": 0.7416677577154976, "walking_gate": 0.5759892012391772} grad_max=45.468 clip=15
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.019). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=8 thr=0.019(smooth=0.028) epF1=0.119 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.000 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.013 selWF1@grid=0.153 smoothed=0.1557 sel=windowF1 gated=True gateMean=0.62 gateFlip=9.2% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=8 train=3.7s eval=1.2s
+[grad v25.42.1] info: grad spike 34.94 at epoch 9 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=9 fog_w=0.72 sub_w=0.80 {"poly1": 0.7249500238469668, "walking_gate": 0.5498537157263075} grad_max=34.940 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.006). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.006)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=9 thr=0.006(smooth=0.019) epF1=0.275 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.012 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.281 selWF1@grid=0.153 smoothed=0.1534 sel=windowF1 gated=True gateMean=0.59 gateFlip=19.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=9 train=3.5s eval=1.3s
+[grad-guard v25.54] warmup cap FROZEN: 3xQ95=1.909e+01 -> cap=7.000e+02 (was 1.000e+03)
+[grad v25.42.1] info: grad spike 28.59 at epoch 10 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=10 fog_w=0.68 sub_w=0.87 {"poly1": 0.6560453278677804, "walking_gate": 0.5726442524365016} grad_max=28.592 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=3.4/h (trigger=0.041). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.018)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=10 thr=0.041(smooth=0.038) epF1=0.121 sens=0.208 FARh=3.38/h light=False rawFogF1@0.05=0.125 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.198 selWF1@grid=0.155 smoothed=0.1540 sel=windowF1 gated=True gateMean=0.58 gateFlip=4.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=10 train=3.7s eval=1.2s
+[grad v25.42.1] info: grad spike 34.51 at epoch 11 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=11 fog_w=0.64 sub_w=0.94 {"poly1": 0.6054609967129571, "walking_gate": 0.5271829647677285} grad_max=34.508 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.238 FARh=6.8/h (trigger=0.281). Max-sens point: sens=1.000 at FARh=16.9/h (trigger=0.013)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=11 thr=0.281(smooth=0.038) epF1=0.153 sens=0.238 FARh=6.76/h light=False rawFogF1@0.05=0.148 calibSubtypeMAP=0.0000 windowF1@thr=0.000 emaWF1=0.000 rawWF1=0.235 selWF1@grid=0.155 smoothed=0.1545 sel=windowF1 gated=True gateMean=0.62 gateFlip=7.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=11 train=3.0s eval=1.2s
+[grad v25.42.1] info: grad spike 27.86 at epoch 12 (4/35 batches clipped = 11%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=12 fog_w=0.60 sub_w=1.00 {"poly1": 0.6429081158978599, "walking_gate": 0.5193652144500187} grad_max=27.861 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.041). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.020)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=12 thr=0.041(smooth=0.041) epF1=0.123 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.131 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.210 selWF1@grid=0.155 smoothed=0.1549 sel=windowF1 gated=True gateMean=0.60 gateFlip=24.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=12 train=3.3s eval=1.2s
+[loss] epoch=13 fog_w=0.60 sub_w=1.00 {"poly1": 0.6521760438169751, "walking_gate": 0.5220505569662367} grad_max=18.783 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.042). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.023)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=13 thr=0.042(smooth=0.041) epF1=0.138 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.025 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.149 selWF1@grid=0.155 smoothed=0.1547 sel=windowF1 gated=True gateMean=0.60 gateFlip=78.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=13 train=2.8s eval=1.2s
+[grad v25.42.1] info: grad spike 32.79 at epoch 14 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=14 fog_w=0.60 sub_w=1.00 {"poly1": 0.6205784899847848, "walking_gate": 0.5434265579496111} grad_max=32.788 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.019). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=14 thr=0.019(smooth=0.041) epF1=0.124 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.136 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.200 selWF1@grid=0.155 smoothed=0.1548 sel=windowF1 gated=True gateMean=0.58 gateFlip=8.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=14 train=3.6s eval=1.2s
+[loss] epoch=15 fog_w=0.60 sub_w=1.00 {"poly1": 0.6111271764550891, "walking_gate": 0.5441308081150055} grad_max=17.211 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.016). Max-sens point: sens=1.000 at FARh=16.9/h (trigger=0.015)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=15 thr=0.016(smooth=0.041) epF1=0.293 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.003 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.336 selWF1@grid=0.155 smoothed=0.1551 sel=windowF1 gated=True gateMean=0.60 gateFlip=21.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=15 train=3.3s eval=1.2s
+[loss] epoch=16 fog_w=0.60 sub_w=1.00 {"poly1": 0.6852186441421508, "walking_gate": 0.5551713705062866} grad_max=12.366 clip=0
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.200 FARh=6.8/h (trigger=0.051). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.027)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=16 thr=0.051(smooth=0.041) epF1=0.140 sens=0.200 FARh=6.76/h light=False rawFogF1@0.05=0.099 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.160 selWF1@grid=0.133 smoothed=0.1479 sel=windowF1 gated=True gateMean=0.58 gateFlip=73.1% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=16 train=2.9s eval=1.2s
+[loss] epoch=17 fog_w=0.60 sub_w=1.00 {"poly1": 0.5976181975432805, "walking_gate": 0.557065532888685} grad_max=17.756 clip=5
+  [threshold] UNSAFE fallback max_epF1 at FARh=30.4/h (>2x budget) -- guarding to min-FAR usable point FARh=20.3/h [v25.53.10]
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=min_farh_unsafe_guard: sens=0.957 FARh=20.3/h (trigger=0.018). Max-sens point: sens=0.994 at FARh=23.7/h (trigger=0.011)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=17 thr=0.018(smooth=0.019) epF1=0.325 sens=0.957 FARh=20.29/h light=False rawFogF1@0.05=0.027 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.141 selWF1@grid=0.104 smoothed=0.1309 sel=windowF1 gated=True gateMean=0.58 gateFlip=65.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=17 train=3.4s eval=1.3s
+[grad v25.42.1] info: grad spike 45.20 at epoch 18 (8/35 batches clipped = 23%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=18 fog_w=0.60 sub_w=1.00 {"poly1": 0.6516999444791249, "walking_gate": 0.545800953251975} grad_max=45.200 clip=8
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.015). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.015)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=18 thr=0.015(smooth=0.018) epF1=0.277 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.045 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.312 selWF1@grid=0.104 smoothed=0.1137 sel=windowF1 gated=True gateMean=0.58 gateFlip=19.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=18 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 47.61 at epoch 19 (6/35 batches clipped = 17%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=19 fog_w=0.60 sub_w=1.00 {"poly1": 0.5915417100702013, "walking_gate": 0.5392503551074437} grad_max=47.612 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.042). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.018)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=19 thr=0.042(smooth=0.018) epF1=0.123 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.124 calibSubtypeMAP=0.0000 windowF1@thr=0.313 emaWF1=0.313 rawWF1=0.198 selWF1@grid=0.093 smoothed=0.1005 sel=windowF1 gated=True gateMean=0.58 gateFlip=12.3% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000 [NOT FINAL -- before early-stop floor]
+[time] epoch=19 train=3.2s eval=1.2s
+[grad v25.42.1] info: grad spike 46.11 at epoch 20 (7/35 batches clipped = 20%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=20 fog_w=0.60 sub_w=1.00 {"poly1": 0.5495311831789357, "walking_gate": 0.5614971978323801} grad_max=46.111 clip=7
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.026). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.011)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=20 thr=0.026(smooth=0.026) epF1=0.127 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.134 calibSubtypeMAP=0.0000 windowF1@thr=0.311 emaWF1=0.311 rawWF1=0.204 selWF1@grid=0.092 smoothed=0.0962 sel=windowF1 gated=True gateMean=0.56 gateFlip=27.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=20 train=2.8s eval=1.2s
+[grad v25.42.1] info: grad spike 36.85 at epoch 21 (4/35 batches clipped = 11%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=21 fog_w=0.60 sub_w=1.00 {"poly1": 0.6633079575640815, "walking_gate": 0.5375534994261605} grad_max=36.848 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.040). Max-sens point: sens=1.000 at FARh=16.9/h (trigger=0.016)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=21 thr=0.040(smooth=0.026) epF1=0.138 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.144 calibSubtypeMAP=0.0000 windowF1@thr=0.315 emaWF1=0.315 rawWF1=0.225 selWF1@grid=0.088 smoothed=0.0910 sel=windowF1 gated=True gateMean=0.54 gateFlip=28.9% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=21 train=2.8s eval=1.2s
+[grad v25.42.1] info: grad spike 34.47 at epoch 22 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=22 fog_w=0.60 sub_w=1.00 {"poly1": 0.5456495983260018, "walking_gate": 0.497100601877485} grad_max=34.471 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.024). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=22 thr=0.024(smooth=0.026) epF1=0.129 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.079 calibSubtypeMAP=0.0000 windowF1@thr=0.312 emaWF1=0.312 rawWF1=0.169 selWF1@grid=0.089 smoothed=0.0895 sel=windowF1 gated=True gateMean=0.54 gateFlip=28.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=22 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 25.82 at epoch 23 (1/35 batches clipped = 3%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=23 fog_w=0.60 sub_w=1.00 {"poly1": 0.5776218972035817, "walking_gate": 0.528012010029384} grad_max=25.822 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.285 FARh=6.8/h (trigger=0.042). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.012)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=23 thr=0.042(smooth=0.040) epF1=0.159 sens=0.285 FARh=6.76/h light=False rawFogF1@0.05=0.141 calibSubtypeMAP=0.0000 windowF1@thr=0.318 emaWF1=0.318 rawWF1=0.218 selWF1@grid=0.088 smoothed=0.0883 sel=windowF1 gated=True gateMean=0.55 gateFlip=8.7% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=23 train=3.2s eval=1.2s
+[grad v25.42.1] info: grad spike 25.37 at epoch 24 (6/35 batches clipped = 17%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=24 fog_w=0.60 sub_w=1.00 {"poly1": 0.6055372410586902, "walking_gate": 0.5548681684902736} grad_max=25.370 clip=6
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.031). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=24 thr=0.031(smooth=0.031) epF1=0.123 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.131 calibSubtypeMAP=0.0000 windowF1@thr=0.317 emaWF1=0.317 rawWF1=0.197 selWF1@grid=0.082 smoothed=0.0864 sel=windowF1 gated=True gateMean=0.55 gateFlip=3.6% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=24 train=2.9s eval=1.2s
+[loss] epoch=25 fog_w=0.60 sub_w=1.00 {"poly1": 0.5878551747117724, "walking_gate": 0.5192838600703649} grad_max=17.114 clip=1
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.028). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=25 thr=0.028(smooth=0.031) epF1=0.139 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.139 calibSubtypeMAP=0.0000 windowF1@thr=0.317 emaWF1=0.317 rawWF1=0.230 selWF1@grid=0.082 smoothed=0.0840 sel=windowF1 gated=True gateMean=0.53 gateFlip=6.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=25 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 46.10 at epoch 26 (9/35 batches clipped = 26%) -- benign outlier, adaptive clip active src=['daphnet', 'xuanwu']
+[loss] epoch=26 fog_w=0.60 sub_w=1.00 {"poly1": 0.5903778408254896, "walking_gate": 0.5243629838739122} grad_max=46.102 clip=9
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.029). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.010)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=26 thr=0.029(smooth=0.029) epF1=0.124 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.134 calibSubtypeMAP=0.0000 windowF1@thr=0.318 emaWF1=0.318 rawWF1=0.203 selWF1@grid=0.079 smoothed=0.0810 sel=windowF1 gated=True gateMean=0.51 gateFlip=12.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=26 train=3.7s eval=1.2s
+[loss] epoch=27 fog_w=0.60 sub_w=1.00 {"poly1": 0.5839944217886244, "walking_gate": 0.5264217351164137} grad_max=19.483 clip=4
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.022). Max-sens point: sens=1.000 at FARh=23.7/h (trigger=0.008)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=27 thr=0.022(smooth=0.029) epF1=0.138 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.116 calibSubtypeMAP=0.0000 windowF1@thr=0.316 emaWF1=0.316 rawWF1=0.198 selWF1@grid=0.079 smoothed=0.0798 sel=windowF1 gated=True gateMean=0.52 gateFlip=55.8% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=27 train=3.3s eval=1.2s
+[grad v25.42.1] info: grad spike 23.53 at epoch 28 (3/35 batches clipped = 9%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait', 'xuanwu']
+[loss] epoch=28 fog_w=0.60 sub_w=1.00 {"poly1": 0.5529066332748958, "walking_gate": 0.5183009113584246} grad_max=23.527 clip=3
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.024). Max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.009)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=28 thr=0.024(smooth=0.028) epF1=0.137 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.103 calibSubtypeMAP=0.0000 windowF1@thr=0.318 emaWF1=0.318 rawWF1=0.200 selWF1@grid=0.079 smoothed=0.0789 sel=windowF1 gated=True gateMean=0.55 gateFlip=14.5% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=28 train=3.5s eval=1.2s
+[loss] epoch=29 fog_w=0.60 sub_w=1.00 {"poly1": 0.5559880307742527, "walking_gate": 0.5281966507434845} grad_max=17.776 clip=2
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.208 FARh=6.8/h (trigger=0.019). Max-sens point: sens=1.000 at FARh=13.5/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=29 thr=0.019(smooth=0.024) epF1=0.136 sens=0.208 FARh=6.76/h light=False rawFogF1@0.05=0.154 calibSubtypeMAP=0.0000 windowF1@thr=0.316 emaWF1=0.316 rawWF1=0.226 selWF1@grid=0.079 smoothed=0.0789 sel=windowF1 gated=True gateMean=0.55 gateFlip=8.4% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=29 train=2.9s eval=1.2s
+[grad v25.42.1] info: grad spike 38.96 at epoch 30 (5/35 batches clipped = 14%) -- benign outlier, adaptive clip active src=['daphnet', 'weargait']
+[loss] epoch=30 fog_w=0.60 sub_w=1.00 {"poly1": 0.5336900166102818, "walking_gate": 0.4808762456689562} grad_max=38.963 clip=5
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_1.5x: sens=1.000 FARh=13.5/h (trigger=0.007). Max-sens point: sens=1.000 at FARh=16.9/h (trigger=0.007)
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.20] StartHesitation EXCLUDED from the selection mAP (0 observed SH positives < 20) -- the 1st-place defog rule: selection mAP = mean(Turn, Walking) only
+[selection v25.58] SH-power gate: 0 SH subjects / 0 SH events / max-subject frac 1.00 -> mAP blend 0.30 FORCED TO 0 (underpowered selection split; blended noise would drag selection)
+[eval] epoch=30 thr=0.007(smooth=0.022) epF1=0.289 sens=1.000 FARh=13.53/h light=False rawFogF1@0.05=0.087 calibSubtypeMAP=0.0000 windowF1@thr=0.307 emaWF1=0.307 rawWF1=0.306 selWF1@grid=0.067 smoothed=0.0750 sel=windowF1 gated=True gateMean=0.56 gateFlip=17.0% shSel=0 turnSel=0 walkSel=0 SH=0.000 Turn=0.000 Walk=0.000
+[time] epoch=30 train=2.9s eval=1.3s
+[early-stop] epoch=30: no smoothed windowF1 improvement in 25 epochs (best epoch 4, smoothed windowF1=0.2308). Stopping.
+[aswa v25.31] swa folded 1 score-improving checkpoint(s) since epoch 25 (best folded score 0.0840)
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.1089 per-thr=[0.304, 0.132, 0.0, 0.0]
+[variant] ema calibWindowF1=0.1089
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.1550 per-thr=[0.216, 0.191, 0.122, 0.091]
+[variant] swa calibWindowF1=0.1550
+[variant] selected=swa calibWindowF1=0.1550
+[calib v25.51.2] NEUROMAMBA_SUBTYPE_TEMPERATURE=0 -> per-subtype temperatures DISABLED (T=1.0 shipped)
+[calib v25.51.2] per-epoch diagnostic T frozen at 1.0 (fold-end deployed T=2.717 fitted normally)
+[calib] binary T(gated)=2.717 ECE 0.1418 -> 0.0894
+[pareto] trigger | sens | FARh/h (2 frontier pts, 10 dup/dominated)
+[pareto] 0.168  1.000  6.8
+[pareto] 0.265  0.208  0.0
+[pareto] max-sens point: sens=1.000 at FARh=10.1/h (trigger=0.140); clinical-feasible points: 1
+[inner-cv] triggers=[0.148, 0.167, 0.148] -> median=0.148
+[postproc] tuned {"trigger": 0.147806802102025, "confirm_n": 3, "cooldown_n": 30, "sustain": 0.059122720840809995, "merge_gap_n": 30, "sensitivity": 1.0, "farh": 12.346102404060495, "event_sensitivity": 0.13793103448275862, "event_f1": 0.1904761904761905, "sensitivity_level": "frame+event", "inner_cv_triggers": [0.147806802102025, 0.16661290613046129, 0.14755784157945537], "ssbc_alpha_effective": 0.4376586748096509}
+[postproc v25.27] full-calib verified: trigger=0.148 sens=1.00 FARh=10.1/h
+[joint-certify v25.44] 0/24 certified operating points at alpha=0.10 (sens_target=0.85, FARh budget=10/h) -- no trigger carries the joint guarantee on this calib split
+[calib] T=2.717 ECE(calib)=0.0894 ECE(thresh)=0.1606
+[thresh-split] thr=0.148 frameF1=0.273 eventF1=0.205 FARh=16.96/h walking_gate=ON (scored on the THRESH split, NOT val -- the fold [VAL] line is the reportable operating point)
+[thresh-split v25.11] window-F1@frozenThr=0.329 (contest ceiling 0.73-0.81) | best sens@FARh<=10: 1.00 | best FARh@sens>=0.85: 6.8/h
+[thresh-split v25.15] coverage->FARh curve: cov 1.00: sens 1.00, FARh 17.0/h | cov 0.95: sens 0.96, FARh 127.8/h | cov 0.90: sens 0.95, FARh 121.0/h
+[per-subtype-threshold] StartHesitation: trigger=0.000 sens=0.940 FARh=13.57/h
+[per-subtype-threshold] Turn: not evaluable (0 positives <20)
+[per-subtype-threshold] Walking: not evaluable (0 positives <20)
+[internal] subtype mAP={"mAP": 0.0, "comparable": false, "StartHesitation": 0.0, "Turn": 0.0, "Walking": 0.0} [scored on the selection split; use the fold [VAL] mAP for the honest number]
+[conformal v25.31] alpha=0.10 trigger=0.351 (fit on 873 calib neg-windows) -> THRESH alarm FARh=18.09/h sens=0.23 (guarantee: neg-window alarm rate <= 0.10 + 1/874)
+[seed-ensemble] blended mAP (3 seeds) = 0.0000
+[baseline v25.42.8] comparator seed=7000 (base=7000+repeat*10000+fold); full RNG reset before training
+[baseline] fold=0 epoch=0
+[baseline] fold=0 epoch=1
+[baseline] fold=0 epoch=2
+[baseline] fold=0 epoch=3
+[baseline] fold=0 epoch=4
+[baseline] fold=0 epoch=5
+[baseline] fold=0 epoch=6
+[baseline] fold=0 epoch=7
+[baseline] fold=0 epoch=8
+[baseline] fold=0 epoch=9
+[baseline] fold=0 epoch=10
+[baseline] fold=0 epoch=11
+[baseline] fold=0 epoch=12
+[baseline] fold=0 epoch=13
+[baseline] fold=0 epoch=14
+[baseline] fold=0 epoch=15
+[baseline] fold=0 epoch=16
+[baseline] fold=0 epoch=17
+[baseline] fold=0 epoch=18
+[baseline] fold=0 epoch=19
+[baseline] fold=0 epoch=20
+[baseline] fold=0 epoch=21
+[baseline] fold=0 epoch=22
+[baseline] fold=0 epoch=23
+[baseline] fold=0 epoch=24
+[baseline] fold=0 epoch=25
+[baseline] fold=0 epoch=26
+[baseline] fold=0 epoch=27
+[baseline] fold=0 epoch=28
+[baseline] fold=0 epoch=29
+[baseline] fold=0 epoch=30
+[baseline] fold=0 epoch=31
+[baseline] fold=0 epoch=32
+[baseline] fold=0 epoch=33
+[baseline] fold=0 epoch=34
+[baseline] fold=0 epoch=35
+[baseline] fold=0 epoch=36
+[baseline] fold=0 epoch=37
+[baseline] fold=0 epoch=38
+[baseline] fold=0 epoch=39
+[baseline] fold=0 resnet1d kaggle_map={"mAP": 0.0, "comparable": false, "StartHesitation": 0.0, "Turn": 0.0, "Walking": 0.0}
+[seed-val v25.40] per-seed val mAP [0.0, 0.0, 0.0] mean=0.0000 sd=0.0000
+  [icc v25.21] %TF ICC=0.018 #episodes ICC=-6.520658845553431e-17 duration ICC=0.06701432722554022 (n_rec=125) [contest refs: %TF 0.877-0.949, #episodes <0.6]
+[VAL] frameF1=0.421 eventF1=0.285 FARh=15.18/h ECE=0.0916 windowF1=0.499 (contest ceiling 0.73-0.81) train=492s
+  cueing: detected 100% of 233 events, median onset->alarm -0.50s, within-1s 100% [v25.42 caveat: bidirectional inference -- negative latency is NOT a causal early-warning claim; use the causal/window-roll path for that]  [NON-DEPLOYABLE: negative latency is an artifact, not a real cueing latency]
+  mAP(internal)=0.0000  SH=0.000 Turn=0.000 Walk=0.000
+  [sel-ensemble v25.60] Selection-split mAP: main=0.0000 baseline=0.0000 blend0.35=0.0000 blend0.5=0.0000 (report-only -- never selects or deploys)
+  [sel-ensemble v25.60] per-cohort (main): daphnet: mAP=0.0000 (SH=0.000 Turn=0.000 Walk=0.000) | weargait: mAP=0.0000 (SH=0.000 Turn=0.000 Walk=0.000) | xuanwu: mAP=0.0000 (SH=0.000 Turn=0.000 Walk=0.000)
+  [FARh envelope v25.42.2] per-subject FARh/h: Q25=0.00 med=0.00 Q75=0.00 Q90=5.00 Q95=6.05 (mean=1.19, n_subj=10)
+  [med-subgroup v25.15] unknown: eventF1=0.285 FARh=15.18/h windowF1=0.499 (n_frames=1257124)
+[checkpoint] fold 1 results saved to neuromamba_v25_fold1_all_checkpoint.json
+[kaggle-track] Fold-ensemble (pooled OOF) mAP=0.0000 (internal diagnostic, NOT a journal claim)
+[bootstrap v25.34] WARNING: 0/50 bootstrap samples were comparable (10 subjects) -- CI and gate_2 (beats baseline) are NON-COMPUTABLE, not zero
+[kaggle-track] bootstrap 95% CI [0.0000,0.0000] (unit=subject)
+[kaggle-track] baseline-diff bootstrap starting (NEUROMAMBA_BOOTSTRAP_N boots; minutes on 4.6M-frame pooled OOF -- progress prints every 50 boots)
+[kaggle-track] baseline-diff bootstrap: 50/50 boots (0 comparable)
+[bootstrap v25.34] WARNING: 0/50 baseline-diff samples were comparable -- gate_2 (beats baseline) is NON-COMPUTABLE, not zero
+[kaggle-track] vs frozen ResNet1D baseline: diff_mean=nan CI=[nan,nan] non_overlapping=False
+[calib v25.26] gate ECE (mean per-cohort gated) = 0.0916 (per-cohort [])
+----------------------------------------------------------------------------
+[journal-metrics v25.59f] FAMILY all (fold-level, manuscript set):
+  subtype mAP = 0.0  (SH=0.0000 Turn=0.0000 Walking=0.0000)
+  event F1 = 0.2849162011173184 | episode-F1(frame) = 0.4210982321799095
+  FARh = 15.177500389778574 /h (budget 10) | sens@FARh<=10 = 1.0
+  window F1 = 0.4989630539980029 | frame F1 = 0.4210982321799095
+  ECE = 0.09157037085284847 | Brier = 0.1577836864106718 | temperature = 2.71732399599866
+  ICC = {"icc_percent_time_frozen": 0.018312190022605198, "icc_n_episodes": -6.520658845553431e-17, "icc_duration_s": 0.06701432722554022, "n_recordings": 125}
+  bootstrap main-vs-baseline diff = {"diff_mean": NaN, "ci_lo": NaN, "ci_hi": NaN, "non_overlapping_zero": false, "n_valid_boot": 0}
+----------------------------------------------------------------------------
+============================================================================
+[journal-track] FAMILY all SUMMARY (manuscript metrics)
+{
+  "n_folds_completed": 1,
+  "event_f1_mean": 0.2849162011173184,
+  "event_f1_n_evaluable": 1,
+  "event_f1_n_not_evaluable": 0,
+  "worst_fold_collapse_check": {
+    "collapsed": false,
+    "worst_f1": 0.2849162011173184,
+    "min_threshold": 0.05
+  },
+  "ece_max": 0.09157037085284847
+}
+[kaggle-track] FAMILY all SUMMARY (internal leaderboard-mimic diagnostics ONLY — not part of the journal claim)
+{
+  "kaggle_map_mean": 0.0,
+  "kaggle_map_std": 0.0,
+  "fold_ensemble_map": {
+    "mAP": 0.0,
+    "comparable": false,
+    "StartHesitation": 0.0,
+    "Turn": 0.0,
+    "Walking": 0.0
+  },
+  "bootstrap_ci": {
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "mean": 0.0,
+    "n_valid_boot": 0,
+    "unit": "subject"
+  },
+  "baseline_ci_diff": {
+    "diff_mean": NaN,
+    "ci_lo": NaN,
+    "ci_hi": NaN,
+    "non_overlapping_zero": false,
+    "n_valid_boot": 0
+  }
+}
+============================================================================
+[external v25.56] REFUSED stored external rows for fold 1 (no evaluation_rev stamp (pre-v25.56 record)) -- stale rows cannot feed gate_4; a fresh training run is required after this eval change
+[sota_claim_status] REFUSED gates={'gate_1_comparable': True, 'gate_2_beats_baseline': False, 'gate_2_reason': 'ok', 'gate_3_no_collapse': True, 'gate_4_external': False, 'gate_5_calibration': True}
+============================================================================
+[journal-track] Final gate (external cohorts required for a full SOTA claim)
+{"status": "REFUSED", "gates": {"gate_1_comparable": true, "gate_2_beats_baseline": false, "gate_2_reason": "ok", "gate_3_no_collapse": true, "gate_4_external": false, "gate_5_calibration": true}, "failed_gates": ["gate_2_beats_baseline", "gate_4_external"]}
+============================================================================
+[mono-gate] skipped: <2 OOF ensemble npz arrays present in cwd
+[output] Results written to results_gen_D1_invTrainDXW_28cr.json
+[clinical-s4 v25.43] 18 clinical rows -> results_gen_D1_invTrainDXW_28cr_clinical_s4.csv

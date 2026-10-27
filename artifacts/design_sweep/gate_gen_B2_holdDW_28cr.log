@@ -1,0 +1,670 @@
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[model] BIDIRECTIONAL_MAMBA_V25_LOADED
+[model] RESNET1D_BASELINE_V25_LOADED
+[losses] LOSSES_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[selection-policy v25.42.9] FROZEN DEVELOPMENT PROTOCOL for this run:
+  model-selection metric : windowF1
+  early-stop rule        : patience=25 min_epoch=20
+  calibration method     : temperature fit on calib only (gated first); T-grid [0.10,12]x240, boundary fits accepted (v25.43.0)
+  threshold objective    : windowF1 (variant) -> max-epF1 fallback on calib
+  postprocessing space   : confirm=auto>=3 cooldown=auto>=30 sustain/merge from calib
+  swa/ema policy         : aswa from epoch 25; variants raw/ema/swa selected on calib
+  ensemble rule          : 1-seed mean; non-final seeds EXCLUDED (v25.42.7)
+  split policy           : split_mode=None n_repeats=1 (locked before first repeat)
+[manifest] {"code": "v25.57.0", "file_sha256": "24005c32b73e1903", "file_sha256_full": "24005c32b73e1903815fc75a3ed5d1e257c990e0eed779e14face28b1f478e55", "n_channels": 13, "seed": 42, "n_splits": 1, "n_seeds": 1, "model": "sequence", "device": "cuda", "device_requested": "cuda", "cuda_available": true, "epochs": 80, "families": null, "family_shared_val": false, "split_mode": null, "training_identity": "e60e0dda199772bc864ccd29138028da0fb8764537a26aacd2d4afdf24ed9473", "env": {"NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_BOOTSTRAP_N": "50"}, "effective_config": {"NEUROMAMBA_SELECT_BY_WINDOW_F1": "1", "NEUROMAMBA_MAP_INCLUDE_THRESH": "0", "NEUROMAMBA_WF1_INCLUDE_THRESH": "0", "NEUROMAMBA_DOMAIN_DANN": "0.05", "NEUROMAMBA_SUBTYPE_FINETUNE": "0", "NEUROMAMBA_EP_LOSS_W": "0", "NEUROMAMBA_EP_LOSS_START": "3", "NEUROMAMBA_PCGRAD": "0", "NEUROMAMBA_GATE_SH_COND": "1", "NEUROMAMBA_GATE_SH_ETA": "0.2", "NEUROMAMBA_GATE_MASK_SH": "1", "NEUROMAMBA_DEPLOY_CONFORMAL": "0", "NEUROMAMBA_DEPLOY_CONFORMAL_BUDGET": "10", "NEUROMAMBA_SCORE_ANCHOR_W": "0", "NEUROMAMBA_SCORE_ANCHOR_START": "3", "NEUROMAMBA_SCORE_ANCHOR_TARGETS": "0.05,0.80", "NEUROMAMBA_HEAD_PRIOR_INIT": "1", "NEUROMAMBA_TURN_PLAIN": "1", "NEUROMAMBA_EPOCH_T_FIXED": "1", "NEUROMAMBA_SUBTYPE_TEMPERATURE": "0", "NEUROMAMBA_MASK_DEFOG_SH": "0", "NEUROMAMBA_DEFOG_SH_WEAK": "0.05", "NEUROMAMBA_DEFOG_SH_SCALE_MODE": "term", "NEUROMAMBA_OPT_2NDPLACE": "0", "NEUROMAMBA_OPT_WD": "", "NEUROMAMBA_OPT_HEAD_WD0": "1", "NEUROMAMBA_GRAD_CLIP_MODE": "adaptive", "NEUROMAMBA_GRAD_CLIP": "1.0", "NEUROMAMBA_MIN_EPOCH_MAP_SEL": "10", "NEUROMAMBA_FOG_TOLERANCE": "0.85", "NEUROMAMBA_SELECT_MAP_BLEND": "0.3", "NEUROMAMBA_CONFORMAL_SSBC": "0", "NEUROMAMBA_MIN_CALIB_SUBJ_POSTPROC": "15", "NEUROMAMBA_EVENT_BUDGET_CONFORMAL": "0", "NEUROMAMBA_BOOTSTRAP_N": "50", "NEUROMAMBA_SUBTYPE_FT_MONITOR": "1", "NEUROMAMBA_SUBTYPE_FT_RESTORE_BEST": "0", "NEUROMAMBA_PARETO_SELECT": "0", "NEUROMAMBA_PARETO_ALPHA": "0.95", "NEUROMAMBA_PARETO_MIN_SH_AP": "0.05", "NEUROMAMBA_EPOCH_RAW_TRIGGER": "1", "NEUROMAMBA_SEL_F1_GRID": "0.05,0.1,0.2,0.3", "NEUROMAMBA_CALIB_FRAC": "0.15", "NEUROMAMBA_THRESH_FRAC": "0.15", "NEUROMAMBA_WINNER_TOKEN_LOSS": "1", "NEUROMAMBA_NOTYPE_PSEUDO": "0", "NEUROMAMBA_HARD_NEG_CROP_PROB": "0.15", "NEUROMAMBA_ADAM_BETA2": "0.999", "NEUROMAMBA_MLLS_CORRECT": "1", "NEUROMAMBA_SCORE_ANCHOR": "0", "NEUROMAMBA_GRAD_GUARD": "1", "NEUROMAMBA_GRAD_GUARD_CEILING": "1000", "NEUROMAMBA_GRAD_GUARD_DYN_CAP": "1000", "NEUROMAMBA_GRAD_GUARD_WARMUP_EPOCHS": "10", "NEUROMAMBA_GRAD_GUARD_MAX_ABORT_FRAC": "0.25", "NEUROMAMBA_GRAD_GUARD_BAD_EPOCH_PATIENCE": "4", "NEUROMAMBA_GRAD_GUARD_FROZEN_FLOOR": "700", "NEUROMAMBA_SUBTYPE_COND_LOSS": "0", "NEUROMAMBA_SUBJECT_FIRST_SAMPLER": "1", "NEUROMAMBA_SELECT_UTILITY": "0", "NEUROMAMBA_MIN_EPOCH_UTILITY": "2", "NEUROMAMBA_SUB_W_MAX": "1.0", "NEUROMAMBA_SAMPLER_QUOTA": "0.20,0.20,0.10,0.25,0.25", "NEUROMAMBA_NOTYPE_FOG_W": "1.0", "NEUROMAMBA_WARMUP_EPOCHS": "", "NEUROMAMBA_SUB_W_RAMP_EPOCHS": "", "NEUROMAMBA_EMA_EPOCH_EVAL": "1", "NEUROMAMBA_SH_CONTRASTIVE": "0", "NEUROMAMBA_SH_CONTRASTIVE_W": "0.15", "NEUROMAMBA_SH_CONTRASTIVE_NORM": "1", "NEUROMAMBA_CONTRAST_W_EFF_CAP": "5.0", "NEUROMAMBA_TOKEN_POS_WEIGHT_CAP": "8", "NEUROMAMBA_TOKEN_POS_WEIGHT_MODE": "rare", "NEUROMAMBA_TOKEN_PW_SOURCE": "patch", "NEUROMAMBA_TOKEN_ASL": "1", "NEUROMAMBA_RARE_BOOST": "0", "NEUROMAMBA_WARM_REPLAY_REPEAT": "1", "NEUROMAMBA_WALK_HARDNEG_W": "2", "NEUROMAMBA_SH_HARDNEG_W": "1.0", "NEUROMAMBA_SMALL_CALIB_EP_F1_DEPLOY": "1", "NEUROMAMBA_PRIOR_CLAMP_DELTA": "0.15", "NEUROMAMBA_DEPLOY_FARH_SAFETY": "0.75", "NEUROMAMBA_SUB_CE_WEIGHTS": "5.0,2.0,5.0,1.0", "NEUROMAMBA_USE_AUGMENTATION": "1", "NEUROMAMBA_CROP_POS_PROB": "0.2", "NEUROMAMBA_SH_OVERSAMPLE": "5.0", "NEUROMAMBA_SH_CROP_PROB": "0.40", "NEUROMAMBA_WALK_CROP_PROB": "0.40", "NEUROMAMBA_EXTERNAL_PRIOR_MATCH": "1", "NEUROMAMBA_SH_SUBJECT_CAP": "0", "NEUROMAMBA_SUB_W_FLOOR": "0.35", "NEUROMAMBA_SUB_POS_WEIGHT": "1", "NEUROMAMBA_SUB_POS_WEIGHT_CAP": "20", "NEUROMAMBA_SUB_PW_SOURCE": "dataset", "NEUROMAMBA_POLY1_EPS": "1.0", "NEUROMAMBA_WARM_REPLAY": "1", "NEUROMAMBA_WARM_REPLAY_MAX": "150", "NEUROMAMBA_FINETUNE_LR_RESTART": "1", "NEUROMAMBA_FINETUNE_LR_SCALE": "0.5", "NEUROMAMBA_AXIS_FLIP_AUG": "1", "NEUROMAMBA_PAD_MASK": "0", "NEUROMAMBA_SAMPLER_EXPOSURE": "order", "NEUROMAMBA_GRU_HIDDEN": "128", "NEUROMAMBA_GRU_LAYERS": "2", "NEUROMAMBA_GRU_DROPOUT": "0.2", "NEUROMAMBA_DMODEL": "128", "NEUROMAMBA_NBLOCKS": "2", "NEUROMAMBA_MAMBA_DMODEL": "128", "NEUROMAMBA_MAMBA_BLOCKS": "2", "NEUROMAMBA_MAMBA_DROPOUT": "0.15", "NEUROMAMBA_WINNER_D": "128", "NEUROMAMBA_WINNER_HEADS": "6", "NEUROMAMBA_WINNER_DEPTH": "5", "NEUROMAMBA_WINNER_PATCH": "14", "NEUROMAMBA_WINNER_DROPOUT": "0.1", "NEUROMAMBA_LORA_RANK": "0", "NEUROMAMBA_LORA_ALPHA": "1.0", "NEUROMAMBA_LORA_DROPOUT": "0.1", "NEUROMAMBA_LORA_FREEZE_BACKBONE": "0", "NEUROMAMBA_DISABLE_WALKING_GATE": "0", "NEUROMAMBA_ROLL_WINDOW": "4000", "NEUROMAMBA_ROLL_STRIDE": "1000", "NEUROMAMBA_EMA_DECAY": "0.999", "NEUROMAMBA_EARLY_STOP_PATIENCE": "25", "NEUROMAMBA_EARLY_STOP_MIN_EPOCH": "20", "NEUROMAMBA_SWA_START": "25", "NEUROMAMBA_FOG_WARMUP_EPOCHS": "2", "NEUROMAMBA_RAMP_EPOCHS": "10", "NEUROMAMBA_WALKING_GATE_LOSS_WEIGHT": "0.3", "NEUROMAMBA_SEED_DIVERSITY": "0"}}
+[device] requested=cuda resolved=cuda cuda_available=True cuda_devices=1
+[tlvmc_loader] Loading CACHED sequences from /mnt/d/Installed/Datasets/tlvmc-parkinsons-freezing-gait-prediction/.neuromamba_v25_cache_200a2435600abf45.pkl
+[schema] SCHEMA_V25_LOADED
+[schema] channel contract: N_CHANNELS=13 13 = 3 acc + magnitude + 7 FoG features + 2 accel-derived turn-rate features
+[common] COMMON_V25_LOADED
+[tlvmc_loader] TLVMC_LOADER_V25_LOADED
+[load_datasets] LOAD_DATASETS_V25_LOADED
+[build_sequences] BUILD_SEQUENCES_V25_LOADED
+[metrics] METRICS_V25_LOADED
+[calibration] CALIBRATION_V25_LOADED
+[clinical] CLINICAL_V25_LOADED
+[augmentation] AUGMENTATION_V25_LOADED
+[model] BIDIRECTIONAL_MAMBA_V25_LOADED
+[model] RESNET1D_BASELINE_V25_LOADED
+[losses] LOSSES_V25_LOADED
+[sampling] SAMPLING_V25_LOADED
+[train] TRAIN_V25_LOADED
+[train] BASELINE_AND_ENSEMBLE_V25_LOADED
+[kaggle_eval] KAGGLE_EVAL_V25_LOADED
+[tlvmc_loader] Cache hit: 2719 sequences (skipped raw CSV processing; cfg verified)
+[daphnet] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_daphnet_57a09b5032d4696a.pkl
+[daphnet] Cache hit: 258 sequences (skipped raw file processing; cfg verified rev=57a09b5032d4696a)
+[xuanwu] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_xuanwu_fe667db5e735fe9b.pkl
+[xuanwu] Cache hit: 135 sequences (skipped raw file processing; cfg verified rev=fe667db5e735fe9b)
+[weargait] Loading CACHED sequences from /mnt/d/New Mamba tests/new tests/source code/models/neuromamba_v25_cache/seqs_weargait_5eef996d3808531c.pkl
+[weargait] Cache hit: 62 sequences (skipped raw file processing; cfg verified rev=5eef996d3808531c)
+[build_sequences] Excluded 876 notype sequences from supervised CV
+[rare-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1314, 'n_calib_seqs': 257, 'n_thresh_seqs': 272, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.08444595308139097, 'held_walk_frac': 0.29604047682931506, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[rare-split v25.33] WARNING: held fraction below 50% of the target band (held_sh_frac=0.0844 vs target>=0.2, held_walk_frac=0.2960 vs target>=0.2) -- subtype APs on the selection split are small-sample noise
+[lodo v28bu2] frozen-val exclusion ACTIVE: removed 529 seqs (30 frozen-val subjects) -- internal mAP check now genuinely held out for this arm
+[lodo v25.61] ACTIVE: held=['daphnet', 'weargait'] (val+external-eval only); train pool = TLVMC supervised + externals ['xuanwu'] (+135 seqs)
+[audit] subtype contract:
+  [daphnet] n_seq=258 n_subj=10
+    StartHesitation: observed=0 positive=173099 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [defog] n_seq=906 n_subj=38
+    StartHesitation: observed=4090530 positive=500 violations=0
+    Turn: observed=4090530 positive=586841 violations=0
+    Walking: observed=4090530 positive=98519 violations=0
+  [tdcsfog] n_seq=937 n_subj=62
+    StartHesitation: observed=5517707 positive=238126 violations=0
+    Turn: observed=5517707 positive=1311540 violations=0
+    Walking: observed=5517707 positive=162372 violations=0
+  [weargait] n_seq=62 n_subj=12
+    StartHesitation: observed=0 positive=77899 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+  [xuanwu] n_seq=135 n_subj=13
+    StartHesitation: observed=0 positive=531600 violations=0
+    Turn: observed=0 positive=0 violations=0
+    Walking: observed=0 positive=0 violations=0
+[kaggle_eval v25] pooled family: 2298 sequences, 135 subjects, 114 sequences containing observed Start Hesitation
+[kaggle_eval v25] notype: 876 sequences (Event-target training, subtypes masked)
+[lodo v25.61] families overridden -> ['lodo_daphnet_weargait'] (2298 pooled seqs incl. held-out val)
+================================================================
+MODEL FAMILY: lodo_daphnet_weargait
+================================================================
+[rare-split] {'n_train_subjects': 95, 'n_calib_subjects': 20, 'n_thresh_subjects': 20, 'n_train_seqs': 1496, 'n_calib_seqs': 369, 'n_thresh_seqs': 433, 'seed': 42, 'split_method': 'rare_subtype_aware', 'total_sh_events': 238626, 'total_walk_events': 260890, 'held_sh_frac': 0.12361603513447822, 'held_walk_frac': 0.16128636590133774, 'target_sh_frac': [0.2, 0.3], 'target_walk_frac': [0.2, 0.3]}
+[single-split v25.20] 1496 train seqs (95 subjects) / 802 val seqs (40 subjects); train-subject share = 70.4%
+[kaggle_eval v25.20] contest-mimic track: 1 split (NEUROMAMBA_CALIB_FRAC=0.15, NEUROMAMBA_THRESH_FRAC=0.15)
+[split-mode v25.61] LODO protocol forced (held=['daphnet', 'weargait']); arg.split_mode=None ignored
+[split-mode v25.42.8] PRIMARY SPLIT PROTOCOL = LODO (family=lodo_daphnet_weargait, n_splits=1, n_repeats=1)
+[lodo v25.61] fold: train=1978 seqs (113 subjects) / val=320 seqs (22 subjects), held=['daphnet', 'weargait']
+[leak-guard v25.42.3] 876 notype sequences (25 subjects); 18 subjects also in supervised -- per-fold val filtering below
+[warm-start v25.9] family lodo_daphnet_weargait: pretrain 15 epochs on tdcsfog (937 sequences) then fine-tune on lodo_daphnet_weargait [v25.58 per-family fix]
+[lodo v25.61] fold: train=1978 seqs (113 subjects) / val=320 seqs (22 subjects), held=['daphnet', 'weargait']
+------------------------------------------------------------
+FOLD 1/1 (lodo_daphnet_weargait)
+------------------------------------------------------------
+[3way-split] {'n_train_subjects': 70, 'n_calib_subjects': 15, 'n_thresh_subjects': 15, 'n_train_seqs': 1327, 'n_calib_seqs': 249, 'n_thresh_seqs': 267, 'seed': 42, 'split_method': 'random_subject'}
+[lodo v25.61] cohort cap 0.1: xuanwu trimmed 135 -> 14 seqs (subjects kept: 13)
+[lodo v25.61] inner split: calib=249 / thresh=267 (TLVMC-only), train = TLVMC 1327 + external 14 (pool had 135; cap=0.1)
+[emphasis-audit v25.59b] WARNING: NEUROMAMBA_SH_OVERSAMPLE=5 is INERT under SAMPLER_EXPOSURE='order' (order mode only reorders -- set NEUROMAMBA_SAMPLER_EXPOSURE=weighted for true oversampling)
+[emphasis-audit v25.58] effective SH emphasis ~14.4x (exposure 1.80 [crop 0.40+walk 0.40, oversample INERT (order mode)], loss x8.00, sub_w 1.00) -> WARN (Lin&Grewal safe ~2.3x, danger ~60x)
+[device v25.42.6] training on cuda (NVIDIA GeForce RTX 3060)
+[sub-head v25.24] model_type=sequence -> sigmoid head mode (the 1st-place objective: independent masked sigmoids, no None class; softmax left SH AP at 0.000 in every pooled run)
+[branch-guard v25.2] model_type=sequence -> winner-style Conv+BiGRU.
+[arch] {"model_version": "convgru_v25.6", "backbone": "1D_ResNet4_blocks + 2xBiGRU", "in_channels_contract": 13, "gru_hidden": 128, "n_gru_layers": 2, "no_global_pooling": true, "full_resolution_heads": true, "use_walking_gate": true, "hazard_head": "off", "med_film": true, "subtype_head": "3x_masked_sigmoid (SH/Turn/Walking)", "reference": "Kaggle top-5 all sequence models: 1st Transformer+2BiLSTM 0.514, 2nd GRU 0.451, 4th MultiResidualBiGRU 0.417", "v25.6_fixes": "medication_state_FiLM", "role": "main_model"}
+[causal 28bz] model_causal=False preproc_causal=False -> deployable_latency=False   [non-causal: set NEUROMAMBA_CAUSAL=1 AND NEUROMAMBA_CAUSAL_FILTER=1 for a deployable onset latency]
+[loss-weight v25] fog pos=1881921 neg=5253699 prevalence=0.2637 (Poly-1 handles imbalance; no stacked pos_weight)
+[loss-weight v25] subtype_pos=[209740, 1376659, 245122] subtype_neg=[6757880, 5590961, 6722498] (ASL gamma_neg={'StartHesitation': 1.5, 'Turn': 2.0, 'Walking': 2.0}, per-class observed mask)
+[loss-weight v25.44] subtype train priors (obs) = [0.0301, 0.19758, 0.03518] (SH/Turn/Walk)
+[head-prior v25.51.2] subtype head biases initialized from priors [-3.47, -1.40, -3.31] (winner shared Conv1d bias)
+[loss-weight v25.57] token pw source=patch (pooled): pos=[18684, 99707, 17802] neg=[855234, 774211, 856116] -- legacy frame counts over-weighted rare classes
+[loss-weight v25.59c] TURN_PLAIN=1 -> token pos_weight Turn forced to 1.0
+[loss-weight v25.33] token-BCE pos_weight (SH/Turn/Walk) = [8.0, 1.0, 8.0] (cap=8, mode=rare)
+[loss v25.59] TOKEN_ASL=1 -> subtype token loss = per-class Asymmetric Loss (gamma_neg SH 1.5 / Turn 2.0 / Walk 2.0, clip 0.05) on the patch-pooled targets
+[loss v25.59f] CONTEXT HARD NEGATIVES: WALK_HARDNEG_W=2 (Walk-channel negatives x2 on FoG-not-Walk cells) SH_HARDNEG_W=1 (SH-channel negatives x1 on FoG-not-SH cells) -- per-cell loss weighting active
+[loss-weight v25.3] subtype CE weights (SH/Turn/Walk/None) = [5.0, 2.0, 5.0, 1.0]
+[train v25.11c] model selection + early stopping use calib WINDOW-F1 (Lin & Grewal 2026: F1-based stopping +47% over AUC-based)
+[augment v25] SH partner pool: 79 sequences contain observed Start Hesitation
+[augment v25] p_augment=0.50 p_each=0.20 crop_pos_prob=0.20
+[leak-guard v25.42.4] calib/thresh: DROPPED 5 notype subjects overlapping the held-out split (['1d7a0d', '413532', 'a066f4', 'c12ab3', 'd89567']) -- their Event labels must not train the fog head
+[leak-guard v25.42.4] calib/thresh: 687 notype sequences remain (20 subjects)
+[train v25] notype sequences: 687 (Event-target only, subtypes masked)
+[warm-start v25.9] pretraining 15 epochs on 937 transfer sequences (238126 SH frames) before fine-tuning
+[grad-guard v25.52] ENABLED (hard ceiling 1000, DYN_CAP=1.000e+03, dynamic = max(ceiling, 3x p99 of recent finite norms); aborting batches restores last-finite state)
+[sampler v25.52] SubjectFirstEventSampler ENABLED (subject-uniform rare-class exposure)
+[sampler v25.53] quota override applied: {'SH': 0.2, 'Walk': 0.2, 'Turn': 0.1, 'hard_negative': 0.25, 'background': 0.25}
+[grad v25.42.1] WARNING: max grad norm 23.11 at epoch 0 (37/118 batches clipped = 31%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['tdcsfog']
+[loss] epoch=0 fog_w=1.00 sub_w=0.35 {"poly1": 0.915349178900153, "subtype_asl": 0.6487985457909309, "walking_gate": 0.5391738712787628} grad_max=23.111 clip=37
+[time] warm epoch=0 train=17.9s
+[grad v25.42.1] WARNING: max grad norm 67.42 at epoch 1 (46/118 batches clipped = 39%) -- possible collapse (check sh_contrastive scale / seed-diversity width) src=['tdcsfog']
+[loss] epoch=1 fog_w=1.00 sub_w=0.35 {"poly1": 0.8246254095081555, "subtype_asl": 0.36566684344562433, "walking_gate": 0.4359120458869611} grad_max=67.421 clip=46
+[time] warm epoch=1 train=21.1s
+[grad v25.42.1] info: grad spike 119.82 at epoch 2 (14/118 batches clipped = 12%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=2 fog_w=1.00 sub_w=0.35 {"poly1": 0.6923024750362008, "subtype_asl": 0.33408891599057083, "walking_gate": 0.3882863632703232} grad_max=119.824 clip=14
+[time] warm epoch=2 train=18.3s
+[grad v25.42.1] info: grad spike 78.85 at epoch 3 (4/118 batches clipped = 3%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=3 fog_w=0.96 sub_w=0.41 {"poly1": 0.6513533460891853, "subtype_asl": 0.3429543955598847, "walking_gate": 0.36975613324824025} grad_max=78.852 clip=4
+[time] warm epoch=3 train=20.1s
+[grad v25.42.1] info: grad spike 95.08 at epoch 4 (11/118 batches clipped = 9%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=4 fog_w=0.92 sub_w=0.48 {"poly1": 0.5745489316976676, "subtype_asl": 0.3161272254409426, "walking_gate": 0.32695328823085557} grad_max=95.081 clip=11
+[time] warm epoch=4 train=19.9s
+[grad v25.42.1] info: grad spike 33.71 at epoch 5 (10/118 batches clipped = 8%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=5 fog_w=0.88 sub_w=0.54 {"poly1": 0.5952069288340666, "subtype_asl": 0.30919087760276714, "walking_gate": 0.3197418037107435} grad_max=33.710 clip=10
+[time] warm epoch=5 train=21.3s
+[grad v25.42.1] info: grad spike 46.88 at epoch 6 (6/118 batches clipped = 5%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=6 fog_w=0.84 sub_w=0.61 {"poly1": 0.5499140541937392, "subtype_asl": 0.30292330694905784, "walking_gate": 0.3346223697318869} grad_max=46.881 clip=6
+[time] warm epoch=6 train=18.8s
+[grad v25.42.1] info: grad spike 84.53 at epoch 7 (13/118 batches clipped = 11%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=7 fog_w=0.80 sub_w=0.68 {"poly1": 0.5310177900275942, "subtype_asl": 0.2950698390476785, "walking_gate": 0.30795742811287863} grad_max=84.527 clip=13
+[time] warm epoch=7 train=18.6s
+[grad v25.42.1] info: grad spike 40.78 at epoch 8 (11/118 batches clipped = 9%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=8 fog_w=0.76 sub_w=0.74 {"poly1": 0.5350712062948841, "subtype_asl": 0.29524613310725, "walking_gate": 0.30716663510617565} grad_max=40.783 clip=11
+[time] warm epoch=8 train=20.2s
+[grad v25.42.1] info: grad spike 32.90 at epoch 9 (8/118 batches clipped = 7%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=9 fog_w=0.72 sub_w=0.80 {"poly1": 0.4955685243515645, "subtype_asl": 0.2951621168877109, "walking_gate": 0.3183951083633859} grad_max=32.900 clip=8
+[time] warm epoch=9 train=19.4s
+[grad-guard v25.54] warmup cap FROZEN: 3xQ95=2.106e+01 -> cap=7.000e+02 (was 1.000e+03)
+[grad v25.42.1] info: grad spike 71.31 at epoch 10 (10/118 batches clipped = 8%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=10 fog_w=0.68 sub_w=0.87 {"poly1": 0.4855300829572193, "subtype_asl": 0.26762532891105795, "walking_gate": 0.3032422298091953} grad_max=71.306 clip=10
+[time] warm epoch=10 train=18.1s
+[grad v25.42.1] info: grad spike 49.45 at epoch 11 (14/118 batches clipped = 12%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=11 fog_w=0.64 sub_w=0.94 {"poly1": 0.5184026405972949, "subtype_asl": 0.28561378813396066, "walking_gate": 0.3192246750754825} grad_max=49.446 clip=14
+[time] warm epoch=11 train=17.9s
+[grad v25.42.1] info: grad spike 30.64 at epoch 12 (9/118 batches clipped = 8%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=12 fog_w=0.60 sub_w=1.00 {"poly1": 0.4901414924632695, "subtype_asl": 0.24662485870264345, "walking_gate": 0.30876326737767557} grad_max=30.638 clip=9
+[time] warm epoch=12 train=17.4s
+[grad v25.42.1] info: grad spike 56.00 at epoch 13 (14/118 batches clipped = 12%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=13 fog_w=0.60 sub_w=1.00 {"poly1": 0.48817828537549, "subtype_asl": 0.23851754952032686, "walking_gate": 0.3006121944320404} grad_max=56.000 clip=14
+[time] warm epoch=13 train=18.9s
+[grad v25.42.1] info: grad spike 79.17 at epoch 14 (12/118 batches clipped = 10%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=14 fog_w=0.60 sub_w=1.00 {"poly1": 0.4479410957734464, "subtype_asl": 0.22562787284032773, "walking_gate": 0.2959270133810528} grad_max=79.169 clip=12
+[time] warm epoch=14 train=19.3s
+[lr v25.19] fine-tune phase: LR restarted to 0.00015 (0.5x base, schedule re-anchored at epoch 15)
+[replay v25.18a] fine-tune with SH rehearsal: 107 SH-positive warm sequences retained in the batch stream
+[grad v25.42.1] info: grad spike 152.76 at epoch 15 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=15 fog_w=0.60 sub_w=1.00 {"poly1": 0.5428538112046567, "subtype_asl": 0.2876458994848898, "walking_gate": 0.3596918708487843} grad_max=152.760 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.700 FARh=9.3/h (trigger=0.406). Max-sens point: sens=1.000 at FARh=48.3/h (trigger=0.011)
+[eval] epoch=15 thr=0.406(smooth=0.406) epF1=0.720 sens=0.700 FARh=9.33/h light=False rawFogF1@0.05=0.553 calibSubtypeMAP=0.1258 windowF1@thr=0.370 emaWF1=0.370 rawWF1=0.628 selWF1@grid=0.370 (blend 0.30) smoothed=0.2969 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=13.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.020 Turn=0.355 Walk=0.002 [NOT FINAL -- before early-stop floor]
+[time] epoch=15 train=40.7s eval=41.7s
+[grad v25.42.1] info: grad spike 104.67 at epoch 16 (32/267 batches clipped = 12%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=16 fog_w=0.60 sub_w=1.00 {"poly1": 0.5017057252343228, "subtype_asl": 0.28025235830063233, "walking_gate": 0.350177214498377} grad_max=104.668 clip=32
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.554 FARh=9.1/h (trigger=0.213). Max-sens point: sens=0.999 at FARh=48.5/h (trigger=0.001)
+[eval] epoch=16 thr=0.213(smooth=0.309) epF1=0.621 sens=0.554 FARh=9.11/h light=False rawFogF1@0.05=0.613 calibSubtypeMAP=0.1436 windowF1@thr=0.370 emaWF1=0.370 rawWF1=0.516 selWF1@grid=0.370 (blend 0.30) smoothed=0.2996 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=6.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.030 Turn=0.398 Walk=0.003 [NOT FINAL -- before early-stop floor]
+[time] epoch=16 train=40.9s eval=34.9s
+[grad v25.42.1] info: grad spike 63.85 at epoch 17 (18/267 batches clipped = 7%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=17 fog_w=0.60 sub_w=1.00 {"poly1": 0.5172198598137062, "subtype_asl": 0.28854032935163054, "walking_gate": 0.34043085374189225} grad_max=63.853 clip=18
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.534 FARh=9.7/h (trigger=0.209). Max-sens point: sens=1.000 at FARh=54.7/h (trigger=0.003)
+[eval] epoch=17 thr=0.209(smooth=0.213) epF1=0.622 sens=0.534 FARh=9.75/h light=False rawFogF1@0.05=0.628 calibSubtypeMAP=0.1974 windowF1@thr=0.390 emaWF1=0.390 rawWF1=0.494 selWF1@grid=0.385 (blend 0.30) smoothed=0.3093 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=6.6% shSel=26505 turnSel=326744 walkSel=3202 SH=0.048 Turn=0.542 Walk=0.002 [NOT FINAL -- before early-stop floor]
+[time] epoch=17 train=41.9s eval=34.8s
+[grad v25.42.1] info: grad spike 131.02 at epoch 18 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=18 fog_w=0.60 sub_w=1.00 {"poly1": 0.5219458388478568, "subtype_asl": 0.27627316982335365, "walking_gate": 0.34327237034558356} grad_max=131.016 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.659 FARh=9.3/h (trigger=0.321). Max-sens point: sens=1.000 at FARh=47.9/h (trigger=0.003)
+[eval] epoch=18 thr=0.321(smooth=0.267) epF1=0.705 sens=0.659 FARh=9.33/h light=False rawFogF1@0.05=0.650 calibSubtypeMAP=0.2385 windowF1@thr=0.484 emaWF1=0.484 rawWF1=0.654 selWF1@grid=0.426 (blend 0.30) smoothed=0.3336 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=4.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.062 Turn=0.649 Walk=0.005 [NOT FINAL -- before early-stop floor]
+[time] epoch=18 train=41.7s eval=34.4s
+[grad v25.42.1] info: grad spike 41.69 at epoch 19 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=19 fog_w=0.60 sub_w=1.00 {"poly1": 0.506275442711423, "subtype_asl": 0.27026460309990785, "walking_gate": 0.35027978895755296} grad_max=41.687 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.652 FARh=9.3/h (trigger=0.254). Max-sens point: sens=1.000 at FARh=50.4/h (trigger=0.002)
+[eval] epoch=19 thr=0.254(smooth=0.254) epF1=0.707 sens=0.652 FARh=9.33/h light=False rawFogF1@0.05=0.697 calibSubtypeMAP=0.2742 windowF1@thr=0.554 emaWF1=0.554 rawWF1=0.676 selWF1@grid=0.495 (blend 0.30) smoothed=0.3756 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=3.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.081 Turn=0.727 Walk=0.015 [NOT FINAL -- before early-stop floor]
+[time] epoch=19 train=40.9s eval=34.6s
+[grad v25.42.1] info: grad spike 51.00 at epoch 20 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=20 fog_w=0.60 sub_w=1.00 {"poly1": 0.49851201279333024, "subtype_asl": 0.2511779750777541, "walking_gate": 0.34630826411399057} grad_max=50.999 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.667 FARh=8.7/h (trigger=0.391). Max-sens point: sens=1.000 at FARh=52.1/h (trigger=0.009)
+[eval] epoch=20 thr=0.391(smooth=0.254) epF1=0.719 sens=0.667 FARh=8.69/h light=False rawFogF1@0.05=0.594 calibSubtypeMAP=0.3104 windowF1@thr=0.680 emaWF1=0.680 rawWF1=0.597 selWF1@grid=0.562 (blend 0.30) smoothed=0.4283 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.3% shSel=26505 turnSel=326744 walkSel=3202 SH=0.107 Turn=0.781 Walk=0.043
+[time] epoch=20 train=42.3s eval=35.3s
+[grad v25.42.1] info: grad spike 75.40 at epoch 21 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=21 fog_w=0.60 sub_w=1.00 {"poly1": 0.5048529856772012, "subtype_asl": 0.2496973778424638, "walking_gate": 0.35505433285727483} grad_max=75.397 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.648 FARh=10.0/h (trigger=0.501). Max-sens point: sens=0.999 at FARh=61.5/h (trigger=0.008)
+[eval] epoch=21 thr=0.501(smooth=0.321) epF1=0.695 sens=0.648 FARh=9.96/h light=False rawFogF1@0.05=0.530 calibSubtypeMAP=0.3385 windowF1@thr=0.717 emaWF1=0.717 rawWF1=0.478 selWF1@grid=0.616 (blend 0.30) smoothed=0.4825 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=15.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.121 Turn=0.810 Walk=0.085
+[time] epoch=21 train=42.3s eval=35.2s
+[grad v25.42.1] info: grad spike 88.57 at epoch 22 (22/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=22 fog_w=0.60 sub_w=1.00 {"poly1": 0.4667645605204257, "subtype_asl": 0.23576965284872145, "walking_gate": 0.3366706936658545} grad_max=88.568 clip=22
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.685 FARh=8.1/h (trigger=0.364). Max-sens point: sens=1.000 at FARh=48.5/h (trigger=0.003)
+[eval] epoch=22 thr=0.364(smooth=0.364) epF1=0.693 sens=0.685 FARh=8.05/h light=False rawFogF1@0.05=0.629 calibSubtypeMAP=0.3500 windowF1@thr=0.730 emaWF1=0.730 rawWF1=0.607 selWF1@grid=0.643 (blend 0.30) smoothed=0.5247 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=8.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.124 Turn=0.818 Walk=0.108
+[time] epoch=22 train=42.1s eval=34.8s
+[grad v25.42.1] info: grad spike 77.19 at epoch 23 (36/267 batches clipped = 13%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=23 fog_w=0.60 sub_w=1.00 {"poly1": 0.4760843294390132, "subtype_asl": 0.23048033512263708, "walking_gate": 0.3434526884042368} grad_max=77.192 clip=36
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.683 FARh=9.3/h (trigger=0.399). Max-sens point: sens=0.999 at FARh=57.2/h (trigger=0.005)
+[eval] epoch=23 thr=0.399(smooth=0.391) epF1=0.715 sens=0.683 FARh=9.33/h light=False rawFogF1@0.05=0.624 calibSubtypeMAP=0.3601 windowF1@thr=0.738 emaWF1=0.738 rawWF1=0.595 selWF1@grid=0.667 (blend 0.30) smoothed=0.5541 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=9.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.138 Turn=0.828 Walk=0.114
+[time] epoch=23 train=42.0s eval=35.2s
+[grad v25.42.1] info: grad spike 71.22 at epoch 24 (22/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=24 fog_w=0.60 sub_w=1.00 {"poly1": 0.46499296445190236, "subtype_asl": 0.21600166458483047, "walking_gate": 0.33448985492468775} grad_max=71.223 clip=22
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.614 FARh=10.0/h (trigger=0.741). Max-sens point: sens=1.000 at FARh=46.4/h (trigger=0.007)
+[eval] epoch=24 thr=0.741(smooth=0.399) epF1=0.651 sens=0.614 FARh=9.96/h light=False rawFogF1@0.05=0.513 calibSubtypeMAP=0.3764 windowF1@thr=0.659 emaWF1=0.659 rawWF1=0.325 selWF1@grid=0.688 (blend 0.30) smoothed=0.5747 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=14.3% shSel=26505 turnSel=326744 walkSel=3202 SH=0.152 Turn=0.843 Walk=0.135
+[time] epoch=24 train=40.5s eval=35.2s
+[grad v25.42.1] info: grad spike 45.68 at epoch 25 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=25 fog_w=0.60 sub_w=1.00 {"poly1": 0.44590062600619784, "subtype_asl": 0.20489324375373147, "walking_gate": 0.3387829161315375} grad_max=45.675 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.437 FARh=8.5/h (trigger=0.427). Max-sens point: sens=1.000 at FARh=54.7/h (trigger=0.002)
+[eval] epoch=25 thr=0.427(smooth=0.427) epF1=0.573 sens=0.437 FARh=8.48/h light=False rawFogF1@0.05=0.639 calibSubtypeMAP=0.3949 windowF1@thr=0.736 emaWF1=0.736 rawWF1=0.354 selWF1@grid=0.693 (blend 0.30) smoothed=0.5909 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=7.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.163 Turn=0.850 Walk=0.172
+[time] epoch=25 train=42.9s eval=35.8s
+[grad v25.42.1] info: grad spike 54.62 at epoch 26 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=26 fog_w=0.60 sub_w=1.00 {"poly1": 0.43080209522099977, "subtype_asl": 0.19879305520363516, "walking_gate": 0.33797184151879855} grad_max=54.620 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.704 FARh=9.5/h (trigger=0.511). Max-sens point: sens=0.999 at FARh=57.6/h (trigger=0.008)
+[eval] epoch=26 thr=0.511(smooth=0.427) epF1=0.689 sens=0.704 FARh=9.54/h light=False rawFogF1@0.05=0.545 calibSubtypeMAP=0.4110 windowF1@thr=0.717 emaWF1=0.717 rawWF1=0.538 selWF1@grid=0.701 (blend 0.30) smoothed=0.6040 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=11.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.186 Turn=0.857 Walk=0.190
+[time] epoch=26 train=43.1s eval=34.4s
+[grad v25.42.1] info: grad spike 46.25 at epoch 27 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=27 fog_w=0.60 sub_w=1.00 {"poly1": 0.43250633784559334, "subtype_asl": 0.21491739058985693, "walking_gate": 0.3363717986961429} grad_max=46.246 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.444 FARh=9.5/h (trigger=0.291). Max-sens point: sens=1.000 at FARh=56.0/h (trigger=0.001)
+[eval] epoch=27 thr=0.291(smooth=0.427) epF1=0.571 sens=0.444 FARh=9.54/h light=False rawFogF1@0.05=0.670 calibSubtypeMAP=0.4223 windowF1@thr=0.753 emaWF1=0.753 rawWF1=0.440 selWF1@grid=0.711 (blend 0.30) smoothed=0.6141 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=5.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.210 Turn=0.859 Walk=0.198
+[time] epoch=27 train=42.4s eval=35.6s
+[grad v25.42.1] info: grad spike 44.74 at epoch 28 (21/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=28 fog_w=0.60 sub_w=1.00 {"poly1": 0.41828842865728705, "subtype_asl": 0.18477494981181755, "walking_gate": 0.335414453894458} grad_max=44.739 clip=21
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.698 FARh=10.0/h (trigger=0.442). Max-sens point: sens=1.000 at FARh=53.0/h (trigger=0.001)
+[eval] epoch=28 thr=0.442(smooth=0.442) epF1=0.743 sens=0.698 FARh=9.96/h light=False rawFogF1@0.05=0.671 calibSubtypeMAP=0.4439 windowF1@thr=0.726 emaWF1=0.726 rawWF1=0.578 selWF1@grid=0.722 (blend 0.30) smoothed=0.6259 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=9.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.264 Turn=0.860 Walk=0.208
+[time] epoch=28 train=42.2s eval=34.5s
+[grad v25.42.1] info: grad spike 115.25 at epoch 29 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=29 fog_w=0.60 sub_w=1.00 {"poly1": 0.4013493766219875, "subtype_asl": 0.18530012880650798, "walking_gate": 0.3241331229049168} grad_max=115.246 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.685 FARh=10.0/h (trigger=0.373). Max-sens point: sens=1.000 at FARh=52.8/h (trigger=0.001)
+[eval] epoch=29 thr=0.373(smooth=0.427) epF1=0.738 sens=0.685 FARh=9.96/h light=False rawFogF1@0.05=0.737 calibSubtypeMAP=0.4829 windowF1@thr=0.745 emaWF1=0.745 rawWF1=0.620 selWF1@grid=0.733 (blend 0.30) smoothed=0.6404 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.6% shSel=26505 turnSel=326744 walkSel=3202 SH=0.376 Turn=0.867 Walk=0.206
+[time] epoch=29 train=30.4s eval=29.4s
+[grad v25.42.1] info: grad spike 102.57 at epoch 30 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=30 fog_w=0.60 sub_w=1.00 {"poly1": 0.39471303961808313, "subtype_asl": 0.17787881944788975, "walking_gate": 0.3376184966457024} grad_max=102.567 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.722 FARh=10.0/h (trigger=0.293). Max-sens point: sens=1.000 at FARh=55.5/h (trigger=0.002)
+[eval] epoch=30 thr=0.293(smooth=0.373) epF1=0.766 sens=0.722 FARh=9.96/h light=False rawFogF1@0.05=0.741 calibSubtypeMAP=0.5107 windowF1@thr=0.764 emaWF1=0.764 rawWF1=0.673 selWF1@grid=0.741 (blend 0.30) smoothed=0.6562 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=6.2% shSel=26505 turnSel=326744 walkSel=3202 SH=0.452 Turn=0.871 Walk=0.209
+[time] epoch=30 train=27.0s eval=28.9s
+[grad v25.42.1] info: grad spike 89.37 at epoch 31 (32/267 batches clipped = 12%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=31 fog_w=0.60 sub_w=1.00 {"poly1": 0.4051238829165362, "subtype_asl": 0.17863997348238914, "walking_gate": 0.33508560502350554} grad_max=89.371 clip=32
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.684 FARh=7.4/h (trigger=0.512). Max-sens point: sens=1.000 at FARh=58.1/h (trigger=0.003)
+[eval] epoch=31 thr=0.512(smooth=0.373) epF1=0.742 sens=0.684 FARh=7.42/h light=False rawFogF1@0.05=0.648 calibSubtypeMAP=0.5257 windowF1@thr=0.711 emaWF1=0.711 rawWF1=0.402 selWF1@grid=0.744 (blend 0.30) smoothed=0.6695 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=13.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.492 Turn=0.872 Walk=0.213
+[time] epoch=31 train=28.2s eval=28.9s
+[grad v25.42.1] info: grad spike 53.43 at epoch 32 (26/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=32 fog_w=0.60 sub_w=1.00 {"poly1": 0.4045274429553457, "subtype_asl": 0.17186452872520974, "walking_gate": 0.3322982488946522} grad_max=53.432 clip=26
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.739 FARh=9.7/h (trigger=0.290). Max-sens point: sens=1.000 at FARh=56.2/h (trigger=0.001)
+[eval] epoch=32 thr=0.290(smooth=0.373) epF1=0.756 sens=0.739 FARh=9.75/h light=False rawFogF1@0.05=0.739 calibSubtypeMAP=0.5388 windowF1@thr=0.765 emaWF1=0.765 rawWF1=0.680 selWF1@grid=0.750 (blend 0.30) smoothed=0.6790 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=5.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.525 Turn=0.872 Walk=0.218
+[time] epoch=32 train=28.1s eval=28.6s
+[grad v25.42.1] info: grad spike 60.49 at epoch 33 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=33 fog_w=0.60 sub_w=1.00 {"poly1": 0.3997929861092389, "subtype_asl": 0.18387281008706557, "walking_gate": 0.3434692615092024} grad_max=60.486 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.593 FARh=7.8/h (trigger=0.604). Max-sens point: sens=0.997 at FARh=88.2/h (trigger=0.023)
+[eval] epoch=33 thr=0.604(smooth=0.373) epF1=0.673 sens=0.593 FARh=7.84/h light=False rawFogF1@0.05=0.464 calibSubtypeMAP=0.5670 windowF1@thr=0.669 emaWF1=0.669 rawWF1=0.322 selWF1@grid=0.754 (blend 0.30) smoothed=0.6876 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=17.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.590 Turn=0.876 Walk=0.236
+[time] epoch=33 train=28.2s eval=27.9s
+[grad v25.42.1] info: grad spike 48.16 at epoch 34 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=34 fog_w=0.60 sub_w=1.00 {"poly1": 0.37537710636519317, "subtype_asl": 0.1400143106638939, "walking_gate": 0.3425819263252873} grad_max=48.162 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.628 FARh=10.0/h (trigger=0.527). Max-sens point: sens=1.000 at FARh=59.1/h (trigger=0.001)
+[eval] epoch=34 thr=0.527(smooth=0.512) epF1=0.708 sens=0.628 FARh=9.96/h light=False rawFogF1@0.05=0.688 calibSubtypeMAP=0.5723 windowF1@thr=0.690 emaWF1=0.690 rawWF1=0.435 selWF1@grid=0.747 (blend 0.30) smoothed=0.6928 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=10.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.586 Turn=0.872 Walk=0.259
+[time] epoch=34 train=27.4s eval=29.4s
+[grad v25.42.1] info: grad spike 94.92 at epoch 35 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=35 fog_w=0.60 sub_w=1.00 {"poly1": 0.35597410407405666, "subtype_asl": 0.16500493372033598, "walking_gate": 0.33592675520239695} grad_max=94.919 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.568 FARh=10.0/h (trigger=0.247). Max-sens point: sens=1.000 at FARh=64.2/h (trigger=0.000)
+[eval] epoch=35 thr=0.247(smooth=0.512) epF1=0.670 sens=0.568 FARh=9.96/h light=False rawFogF1@0.05=0.699 calibSubtypeMAP=0.5608 windowF1@thr=0.747 emaWF1=0.747 rawWF1=0.547 selWF1@grid=0.724 (blend 0.30) smoothed=0.6889 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=5.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.559 Turn=0.855 Walk=0.268
+[time] epoch=35 train=37.6s eval=35.1s
+[grad v25.42.1] info: grad spike 177.29 at epoch 36 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=36 fog_w=0.60 sub_w=1.00 {"poly1": 0.3532952976863036, "subtype_asl": 0.15760386429643364, "walking_gate": 0.3410092070977786} grad_max=177.294 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.647 FARh=8.3/h (trigger=0.685). Max-sens point: sens=0.999 at FARh=74.4/h (trigger=0.005)
+[eval] epoch=36 thr=0.685(smooth=0.527) epF1=0.715 sens=0.647 FARh=8.27/h light=False rawFogF1@0.05=0.550 calibSubtypeMAP=0.5964 windowF1@thr=0.638 emaWF1=0.638 rawWF1=0.342 selWF1@grid=0.752 (blend 0.30) smoothed=0.6914 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=16.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.651 Turn=0.874 Walk=0.264
+[time] epoch=36 train=42.3s eval=34.8s
+[grad v25.42.1] info: grad spike 119.32 at epoch 37 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=37 fog_w=0.60 sub_w=1.00 {"poly1": 0.3556319796497679, "subtype_asl": 0.1418825388652332, "walking_gate": 0.33423020699050987} grad_max=119.322 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.607 FARh=10.0/h (trigger=0.571). Max-sens point: sens=1.000 at FARh=61.7/h (trigger=0.001)
+[eval] epoch=37 thr=0.571(smooth=0.571) epF1=0.656 sens=0.607 FARh=9.96/h light=False rawFogF1@0.05=0.611 calibSubtypeMAP=0.6151 windowF1@thr=0.686 emaWF1=0.686 rawWF1=0.362 selWF1@grid=0.759 (blend 0.30) smoothed=0.6986 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=14.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.696 Turn=0.880 Walk=0.269
+[time] epoch=37 train=42.7s eval=35.3s
+[grad v25.42.1] info: grad spike 42.44 at epoch 38 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=38 fog_w=0.60 sub_w=1.00 {"poly1": 0.34885068967491945, "subtype_asl": 0.13184644516962074, "walking_gate": 0.3378656500399336} grad_max=42.438 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.706 FARh=9.7/h (trigger=0.542). Max-sens point: sens=1.000 at FARh=81.6/h (trigger=0.001)
+[eval] epoch=38 thr=0.542(smooth=0.542) epF1=0.777 sens=0.706 FARh=9.75/h light=False rawFogF1@0.05=0.708 calibSubtypeMAP=0.6290 windowF1@thr=0.706 emaWF1=0.706 rawWF1=0.442 selWF1@grid=0.765 (blend 0.30) smoothed=0.7152 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=11.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.721 Turn=0.884 Walk=0.282
+[time] epoch=38 train=42.8s eval=35.8s
+[grad v25.42.1] info: grad spike 67.82 at epoch 39 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=39 fog_w=0.60 sub_w=1.00 {"poly1": 0.33864762084314437, "subtype_asl": 0.141358286414421, "walking_gate": 0.3421303452400679} grad_max=67.824 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.786 FARh=9.7/h (trigger=0.548). Max-sens point: sens=1.000 at FARh=69.5/h (trigger=0.001)
+[eval] epoch=39 thr=0.548(smooth=0.548) epF1=0.765 sens=0.786 FARh=9.75/h light=False rawFogF1@0.05=0.660 calibSubtypeMAP=0.6283 windowF1@thr=0.707 emaWF1=0.707 rawWF1=0.537 selWF1@grid=0.767 (blend 0.30) smoothed=0.7218 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=12.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.714 Turn=0.882 Walk=0.289
+[time] epoch=39 train=40.2s eval=29.4s
+[grad v25.42.1] info: grad spike 131.65 at epoch 40 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=40 fog_w=0.60 sub_w=1.00 {"poly1": 0.3359895767399881, "subtype_asl": 0.13322329848362935, "walking_gate": 0.3288884723231141} grad_max=131.650 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.706 FARh=9.7/h (trigger=0.538). Max-sens point: sens=1.000 at FARh=75.0/h (trigger=0.001)
+[eval] epoch=40 thr=0.538(smooth=0.548) epF1=0.769 sens=0.706 FARh=9.75/h light=False rawFogF1@0.05=0.724 calibSubtypeMAP=0.6334 windowF1@thr=0.716 emaWF1=0.716 rawWF1=0.528 selWF1@grid=0.760 (blend 0.30) smoothed=0.7239 sel=windowF1+mAP gated=True gateMean=0.64 gateFlip=9.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.730 Turn=0.879 Walk=0.291
+[time] epoch=40 train=28.6s eval=28.9s
+[grad v25.42.1] info: grad spike 110.11 at epoch 41 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=41 fog_w=0.60 sub_w=1.00 {"poly1": 0.3047565402888627, "subtype_asl": 0.11706465042513631, "walking_gate": 0.32300552011429146} grad_max=110.113 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.439 FARh=9.1/h (trigger=0.315). Max-sens point: sens=1.000 at FARh=75.9/h (trigger=0.001)
+[eval] epoch=41 thr=0.315(smooth=0.542) epF1=0.574 sens=0.439 FARh=9.11/h light=False rawFogF1@0.05=0.690 calibSubtypeMAP=0.6524 windowF1@thr=0.781 emaWF1=0.781 rawWF1=0.379 selWF1@grid=0.774 (blend 0.30) smoothed=0.7283 sel=windowF1+mAP gated=True gateMean=0.60 gateFlip=6.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.776 Turn=0.890 Walk=0.291
+[time] epoch=41 train=27.6s eval=29.8s
+[grad v25.42.1] info: grad spike 83.02 at epoch 42 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=42 fog_w=0.60 sub_w=1.00 {"poly1": 0.31325222069069686, "subtype_asl": 0.13265102834541923, "walking_gate": 0.3250547183140387} grad_max=83.021 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.697 FARh=9.3/h (trigger=0.265). Max-sens point: sens=1.000 at FARh=59.8/h (trigger=0.000)
+[eval] epoch=42 thr=0.265(smooth=0.538) epF1=0.767 sens=0.697 FARh=9.33/h light=False rawFogF1@0.05=0.775 calibSubtypeMAP=0.6595 windowF1@thr=0.793 emaWF1=0.793 rawWF1=0.660 selWF1@grid=0.772 (blend 0.30) smoothed=0.7327 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=5.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.794 Turn=0.890 Walk=0.294
+[time] epoch=42 train=26.5s eval=28.7s
+[grad v25.42.1] info: grad spike 142.68 at epoch 43 (21/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=43 fog_w=0.60 sub_w=1.00 {"poly1": 0.3130178373404656, "subtype_asl": 0.11455674136008663, "walking_gate": 0.3343917638733146} grad_max=142.677 clip=21
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.619 FARh=9.5/h (trigger=0.438). Max-sens point: sens=1.000 at FARh=67.4/h (trigger=0.000)
+[eval] epoch=43 thr=0.438(smooth=0.438) epF1=0.722 sens=0.619 FARh=9.54/h light=False rawFogF1@0.05=0.754 calibSubtypeMAP=0.6630 windowF1@thr=0.743 emaWF1=0.743 rawWF1=0.518 selWF1@grid=0.765 (blend 0.30) smoothed=0.7368 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=7.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.812 Turn=0.890 Walk=0.287
+[time] epoch=43 train=26.9s eval=29.1s
+[grad v25.42.1] info: grad spike 196.81 at epoch 44 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=44 fog_w=0.60 sub_w=1.00 {"poly1": 0.32350689072287486, "subtype_asl": 0.12452094128515837, "walking_gate": 0.3288521550121379} grad_max=196.813 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.775 FARh=9.3/h (trigger=0.503). Max-sens point: sens=1.000 at FARh=68.5/h (trigger=0.000)
+[eval] epoch=44 thr=0.503(smooth=0.438) epF1=0.786 sens=0.775 FARh=9.33/h light=False rawFogF1@0.05=0.688 calibSubtypeMAP=0.6737 windowF1@thr=0.714 emaWF1=0.714 rawWF1=0.509 selWF1@grid=0.773 (blend 0.30) smoothed=0.7386 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=12.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.827 Turn=0.895 Walk=0.299
+[time] epoch=44 train=27.8s eval=29.0s
+[grad v25.42.1] info: grad spike 68.08 at epoch 45 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=45 fog_w=0.60 sub_w=1.00 {"poly1": 0.310547419924861, "subtype_asl": 0.11251707448299682, "walking_gate": 0.3327328201648448} grad_max=68.084 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.492 FARh=9.1/h (trigger=0.335). Max-sens point: sens=1.000 at FARh=72.5/h (trigger=0.000)
+[eval] epoch=45 thr=0.335(smooth=0.335) epF1=0.624 sens=0.492 FARh=9.11/h light=False rawFogF1@0.05=0.735 calibSubtypeMAP=0.6790 windowF1@thr=0.766 emaWF1=0.766 rawWF1=0.491 selWF1@grid=0.777 (blend 0.30) smoothed=0.7418 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=5.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.839 Turn=0.898 Walk=0.300
+[time] epoch=45 train=26.7s eval=29.1s
+[grad v25.42.1] info: grad spike 103.41 at epoch 46 (20/267 batches clipped = 7%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=46 fog_w=0.60 sub_w=1.00 {"poly1": 0.29426404472426526, "subtype_asl": 0.10599268525699328, "walking_gate": 0.3208130994316344} grad_max=103.410 clip=20
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.741 FARh=9.5/h (trigger=0.361). Max-sens point: sens=1.000 at FARh=90.1/h (trigger=0.001)
+[eval] epoch=46 thr=0.361(smooth=0.361) epF1=0.791 sens=0.741 FARh=9.54/h light=False rawFogF1@0.05=0.754 calibSubtypeMAP=0.6885 windowF1@thr=0.752 emaWF1=0.752 rawWF1=0.628 selWF1@grid=0.778 (blend 0.30) smoothed=0.7474 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=8.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.848 Turn=0.902 Walk=0.316
+[time] epoch=46 train=26.0s eval=29.3s
+[grad v25.42.1] info: grad spike 34.75 at epoch 47 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=47 fog_w=0.60 sub_w=1.00 {"poly1": 0.29115359105644156, "subtype_asl": 0.10659151573836358, "walking_gate": 0.334404111634033} grad_max=34.748 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.805 FARh=9.5/h (trigger=0.454). Max-sens point: sens=1.000 at FARh=73.3/h (trigger=0.001)
+[eval] epoch=47 thr=0.454(smooth=0.438) epF1=0.815 sens=0.805 FARh=9.54/h light=False rawFogF1@0.05=0.731 calibSubtypeMAP=0.6985 windowF1@thr=0.722 emaWF1=0.722 rawWF1=0.607 selWF1@grid=0.783 (blend 0.30) smoothed=0.7522 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=9.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.867 Turn=0.906 Walk=0.322
+[time] epoch=47 train=29.5s eval=32.0s
+[grad v25.42.1] info: grad spike 145.18 at epoch 48 (26/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=48 fog_w=0.60 sub_w=1.00 {"poly1": 0.2606437100648657, "subtype_asl": 0.10429540295363142, "walking_gate": 0.32354518430733054} grad_max=145.177 clip=26
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.782 FARh=10.0/h (trigger=0.413). Max-sens point: sens=1.000 at FARh=70.8/h (trigger=0.000)
+[eval] epoch=48 thr=0.413(smooth=0.413) epF1=0.813 sens=0.782 FARh=9.96/h light=False rawFogF1@0.05=0.751 calibSubtypeMAP=0.7046 windowF1@thr=0.741 emaWF1=0.741 rawWF1=0.615 selWF1@grid=0.790 (blend 0.30) smoothed=0.7578 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.881 Turn=0.910 Walk=0.323
+[time] epoch=48 train=41.3s eval=35.1s
+[grad v25.42.1] info: grad spike 102.46 at epoch 49 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=49 fog_w=0.60 sub_w=1.00 {"poly1": 0.26317007365298184, "subtype_asl": 0.09611777318746187, "walking_gate": 0.31897836672456076} grad_max=102.458 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.760 FARh=9.5/h (trigger=0.374). Max-sens point: sens=0.999 at FARh=94.7/h (trigger=0.000)
+[eval] epoch=49 thr=0.374(smooth=0.374) epF1=0.806 sens=0.760 FARh=9.54/h light=False rawFogF1@0.05=0.772 calibSubtypeMAP=0.7123 windowF1@thr=0.757 emaWF1=0.757 rawWF1=0.654 selWF1@grid=0.791 (blend 0.30) smoothed=0.7632 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=8.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.891 Turn=0.912 Walk=0.334
+[time] epoch=49 train=41.3s eval=34.9s
+[grad v25.42.1] info: grad spike 64.24 at epoch 50 (31/267 batches clipped = 12%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=50 fog_w=0.60 sub_w=1.00 {"poly1": 0.2812370798700534, "subtype_asl": 0.10514778819646728, "walking_gate": 0.32598191706205576} grad_max=64.239 clip=31
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.684 FARh=9.1/h (trigger=0.596). Max-sens point: sens=1.000 at FARh=76.9/h (trigger=0.000)
+[eval] epoch=50 thr=0.596(smooth=0.413) epF1=0.764 sens=0.684 FARh=9.11/h light=False rawFogF1@0.05=0.710 calibSubtypeMAP=0.7148 windowF1@thr=0.673 emaWF1=0.673 rawWF1=0.415 selWF1@grid=0.794 (blend 0.30) smoothed=0.7675 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=11.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.898 Turn=0.914 Walk=0.332
+[time] epoch=50 train=41.1s eval=35.2s
+[grad v25.42.1] info: grad spike 64.48 at epoch 51 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['tdcsfog']
+[loss] epoch=51 fog_w=0.60 sub_w=1.00 {"poly1": 0.2695158114203353, "subtype_asl": 0.09109208975963937, "walking_gate": 0.3199869723020868} grad_max=64.479 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.777 FARh=10.0/h (trigger=0.343). Max-sens point: sens=1.000 at FARh=99.4/h (trigger=0.000)
+[eval] epoch=51 thr=0.343(smooth=0.413) epF1=0.808 sens=0.777 FARh=9.96/h light=False rawFogF1@0.05=0.772 calibSubtypeMAP=0.7149 windowF1@thr=0.768 emaWF1=0.768 rawWF1=0.670 selWF1@grid=0.792 (blend 0.30) smoothed=0.7689 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=7.2% shSel=26505 turnSel=326744 walkSel=3202 SH=0.901 Turn=0.914 Walk=0.330
+[time] epoch=51 train=41.4s eval=35.5s
+[grad v25.42.1] info: grad spike 45.80 at epoch 52 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=52 fog_w=0.60 sub_w=1.00 {"poly1": 0.26750297374214127, "subtype_asl": 0.08479896489851707, "walking_gate": 0.32653015868717367} grad_max=45.797 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.787 FARh=8.9/h (trigger=0.350). Max-sens point: sens=1.000 at FARh=75.7/h (trigger=0.000)
+[eval] epoch=52 thr=0.350(smooth=0.374) epF1=0.806 sens=0.787 FARh=8.90/h light=False rawFogF1@0.05=0.763 calibSubtypeMAP=0.7121 windowF1@thr=0.761 emaWF1=0.761 rawWF1=0.697 selWF1@grid=0.790 (blend 0.30) smoothed=0.7686 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=6.7% shSel=26505 turnSel=326744 walkSel=3202 SH=0.897 Turn=0.914 Walk=0.326
+[time] epoch=52 train=41.0s eval=35.5s
+[grad-guard v25.52] ABORT batch: grad_norm=9.046e+02 > ceiling=7.000e+02 (1/12072 batches aborted so far)
+[grad v25.42.1] info: grad spike 904.58 at epoch 53 (23/266 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=53 fog_w=0.60 sub_w=1.00 {"poly1": 0.24596810674196795, "subtype_asl": 0.09483416146542736, "walking_gate": 0.3215151734482077} grad_max=904.579 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.796 FARh=9.7/h (trigger=0.521). Max-sens point: sens=1.000 at FARh=78.8/h (trigger=0.000)
+[eval] epoch=53 thr=0.521(smooth=0.374) epF1=0.803 sens=0.796 FARh=9.75/h light=False rawFogF1@0.05=0.695 calibSubtypeMAP=0.7128 windowF1@thr=0.684 emaWF1=0.684 rawWF1=0.538 selWF1@grid=0.790 (blend 0.30) smoothed=0.7674 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=13.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.897 Turn=0.913 Walk=0.328
+[time] epoch=53 train=41.5s eval=34.8s
+[grad v25.42.1] info: grad spike 72.27 at epoch 54 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=54 fog_w=0.60 sub_w=1.00 {"poly1": 0.24725519251845748, "subtype_asl": 0.0844011004658395, "walking_gate": 0.3310712870029028} grad_max=72.268 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.816 FARh=9.5/h (trigger=0.402). Max-sens point: sens=0.999 at FARh=119.1/h (trigger=0.000)
+[eval] epoch=54 thr=0.402(smooth=0.402) epF1=0.833 sens=0.816 FARh=9.54/h light=False rawFogF1@0.05=0.760 calibSubtypeMAP=0.7028 windowF1@thr=0.724 emaWF1=0.724 rawWF1=0.694 selWF1@grid=0.779 (blend 0.30) smoothed=0.7632 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.883 Turn=0.909 Walk=0.317
+[time] epoch=54 train=42.0s eval=35.2s
+[grad v25.42.1] info: grad spike 128.93 at epoch 55 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=55 fog_w=0.60 sub_w=1.00 {"poly1": 0.23956708184509687, "subtype_asl": 0.08516859865576475, "walking_gate": 0.3181896530063858} grad_max=128.928 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.771 FARh=10.0/h (trigger=0.394). Max-sens point: sens=1.000 at FARh=93.5/h (trigger=0.000)
+[eval] epoch=55 thr=0.394(smooth=0.394) epF1=0.816 sens=0.771 FARh=9.96/h light=False rawFogF1@0.05=0.785 calibSubtypeMAP=0.6938 windowF1@thr=0.714 emaWF1=0.714 rawWF1=0.674 selWF1@grid=0.775 (blend 0.30) smoothed=0.7577 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=6.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.873 Turn=0.906 Walk=0.302
+[time] epoch=55 train=41.5s eval=35.7s
+[grad v25.42.1] info: grad spike 265.64 at epoch 56 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=56 fog_w=0.60 sub_w=1.00 {"poly1": 0.25424805233317815, "subtype_asl": 0.08815760551934385, "walking_gate": 0.3287367821297842} grad_max=265.637 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.762 FARh=9.5/h (trigger=0.444). Max-sens point: sens=1.000 at FARh=83.5/h (trigger=0.000)
+[eval] epoch=56 thr=0.444(smooth=0.402) epF1=0.806 sens=0.762 FARh=9.54/h light=False rawFogF1@0.05=0.760 calibSubtypeMAP=0.7054 windowF1@thr=0.690 emaWF1=0.690 rawWF1=0.592 selWF1@grid=0.785 (blend 0.30) smoothed=0.7558 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=9.3% shSel=26505 turnSel=326744 walkSel=3202 SH=0.893 Turn=0.911 Walk=0.312
+[time] epoch=56 train=40.6s eval=35.4s
+[grad v25.42.1] info: grad spike 138.72 at epoch 57 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=57 fog_w=0.60 sub_w=1.00 {"poly1": 0.25663976629407664, "subtype_asl": 0.0878101751619901, "walking_gate": 0.3335808522803953} grad_max=138.715 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.761 FARh=9.1/h (trigger=0.440). Max-sens point: sens=0.999 at FARh=101.7/h (trigger=0.000)
+[eval] epoch=57 thr=0.440(smooth=0.440) epF1=0.817 sens=0.761 FARh=9.11/h light=False rawFogF1@0.05=0.779 calibSubtypeMAP=0.7158 windowF1@thr=0.703 emaWF1=0.703 rawWF1=0.612 selWF1@grid=0.796 (blend 0.30) smoothed=0.7611 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=8.2% shSel=26505 turnSel=326744 walkSel=3202 SH=0.912 Turn=0.917 Walk=0.319
+[time] epoch=57 train=40.6s eval=35.6s
+[grad v25.42.1] info: grad spike 63.99 at epoch 58 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=58 fog_w=0.60 sub_w=1.00 {"poly1": 0.24368157960502396, "subtype_asl": 0.07702561340570338, "walking_gate": 0.32395245201801987} grad_max=63.986 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.753 FARh=9.3/h (trigger=0.468). Max-sens point: sens=1.000 at FARh=80.1/h (trigger=0.000)
+[eval] epoch=58 thr=0.468(smooth=0.440) epF1=0.820 sens=0.753 FARh=9.33/h light=False rawFogF1@0.05=0.773 calibSubtypeMAP=0.7227 windowF1@thr=0.696 emaWF1=0.696 rawWF1=0.564 selWF1@grid=0.803 (blend 0.30) smoothed=0.7705 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.924 Turn=0.921 Walk=0.324
+[time] epoch=58 train=40.6s eval=35.2s
+[grad v25.42.1] info: grad spike 53.79 at epoch 59 (27/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=59 fog_w=0.60 sub_w=1.00 {"poly1": 0.23200472590796065, "subtype_asl": 0.07355521988012036, "walking_gate": 0.32732253273328143} grad_max=53.789 clip=27
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.761 FARh=10.0/h (trigger=0.447). Max-sens point: sens=1.000 at FARh=100.2/h (trigger=0.000)
+[eval] epoch=59 thr=0.447(smooth=0.444) epF1=0.798 sens=0.761 FARh=9.96/h light=False rawFogF1@0.05=0.759 calibSubtypeMAP=0.7247 windowF1@thr=0.718 emaWF1=0.718 rawWF1=0.582 selWF1@grid=0.807 (blend 0.30) smoothed=0.7776 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=10.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.931 Turn=0.923 Walk=0.321
+[time] epoch=59 train=41.8s eval=35.7s
+[grad v25.42.1] info: grad spike 51.28 at epoch 60 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=60 fog_w=0.60 sub_w=1.00 {"poly1": 0.23599837778994207, "subtype_asl": 0.08328993416876158, "walking_gate": 0.32893143359864696} grad_max=51.284 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.738 FARh=8.9/h (trigger=0.452). Max-sens point: sens=1.000 at FARh=98.3/h (trigger=0.000)
+[eval] epoch=60 thr=0.452(smooth=0.447) epF1=0.777 sens=0.738 FARh=8.90/h light=False rawFogF1@0.05=0.745 calibSubtypeMAP=0.7236 windowF1@thr=0.724 emaWF1=0.724 rawWF1=0.567 selWF1@grid=0.809 (blend 0.30) smoothed=0.7815 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=9.4% shSel=26505 turnSel=326744 walkSel=3202 SH=0.936 Turn=0.924 Walk=0.311
+[time] epoch=60 train=40.7s eval=35.2s
+[grad v25.42.1] info: grad spike 46.11 at epoch 61 (22/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=61 fog_w=0.60 sub_w=1.00 {"poly1": 0.2128410159648581, "subtype_asl": 0.06846092913774181, "walking_gate": 0.32717869333113625} grad_max=46.115 clip=22
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.689 FARh=10.0/h (trigger=0.511). Max-sens point: sens=1.000 at FARh=94.9/h (trigger=0.000)
+[eval] epoch=61 thr=0.511(smooth=0.452) epF1=0.774 sens=0.689 FARh=9.96/h light=False rawFogF1@0.05=0.770 calibSubtypeMAP=0.7262 windowF1@thr=0.692 emaWF1=0.692 rawWF1=0.483 selWF1@grid=0.811 (blend 0.30) smoothed=0.7837 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=10.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.938 Turn=0.925 Walk=0.316
+[time] epoch=61 train=40.5s eval=35.8s
+[grad v25.42.1] info: grad spike 50.01 at epoch 62 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=62 fog_w=0.60 sub_w=1.00 {"poly1": 0.21592721631855108, "subtype_asl": 0.07870055986603212, "walking_gate": 0.3292480544204569} grad_max=50.007 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.715 FARh=9.5/h (trigger=0.492). Max-sens point: sens=1.000 at FARh=102.2/h (trigger=0.000)
+[eval] epoch=62 thr=0.492(smooth=0.468) epF1=0.785 sens=0.715 FARh=9.54/h light=False rawFogF1@0.05=0.781 calibSubtypeMAP=0.7340 windowF1@thr=0.701 emaWF1=0.701 rawWF1=0.510 selWF1@grid=0.812 (blend 0.30) smoothed=0.7858 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.942 Turn=0.926 Walk=0.334
+[time] epoch=62 train=41.1s eval=35.9s
+[grad v25.42.1] info: grad spike 81.29 at epoch 63 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=63 fog_w=0.60 sub_w=1.00 {"poly1": 0.2292656751649545, "subtype_asl": 0.07282800489359915, "walking_gate": 0.32165840016991903} grad_max=81.291 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.613 FARh=9.1/h (trigger=0.415). Max-sens point: sens=1.000 at FARh=112.1/h (trigger=0.000)
+[eval] epoch=63 thr=0.415(smooth=0.452) epF1=0.724 sens=0.613 FARh=9.11/h light=False rawFogF1@0.05=0.788 calibSubtypeMAP=0.7359 windowF1@thr=0.740 emaWF1=0.740 rawWF1=0.525 selWF1@grid=0.811 (blend 0.30) smoothed=0.7875 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.0% shSel=26505 turnSel=326744 walkSel=3202 SH=0.944 Turn=0.926 Walk=0.338
+[time] epoch=63 train=42.5s eval=35.8s
+[grad v25.42.1] info: grad spike 53.49 at epoch 64 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=64 fog_w=0.60 sub_w=1.00 {"poly1": 0.22141468789330807, "subtype_asl": 0.06757871567337924, "walking_gate": 0.33016133090753236} grad_max=53.486 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.777 FARh=9.5/h (trigger=0.445). Max-sens point: sens=1.000 at FARh=94.5/h (trigger=0.000)
+[eval] epoch=64 thr=0.445(smooth=0.452) epF1=0.819 sens=0.777 FARh=9.54/h light=False rawFogF1@0.05=0.779 calibSubtypeMAP=0.7364 windowF1@thr=0.727 emaWF1=0.727 rawWF1=0.629 selWF1@grid=0.812 (blend 0.30) smoothed=0.7888 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=8.2% shSel=26505 turnSel=326744 walkSel=3202 SH=0.944 Turn=0.926 Walk=0.339
+[time] epoch=64 train=41.8s eval=35.5s
+[grad v25.42.1] info: grad spike 57.18 at epoch 65 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=65 fog_w=0.60 sub_w=1.00 {"poly1": 0.21050625133994366, "subtype_asl": 0.06219249942482969, "walking_gate": 0.32902435255184603} grad_max=57.178 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.694 FARh=9.7/h (trigger=0.393). Max-sens point: sens=1.000 at FARh=104.7/h (trigger=0.000)
+[eval] epoch=65 thr=0.393(smooth=0.445) epF1=0.779 sens=0.694 FARh=9.75/h light=False rawFogF1@0.05=0.803 calibSubtypeMAP=0.7373 windowF1@thr=0.755 emaWF1=0.755 rawWF1=0.585 selWF1@grid=0.814 (blend 0.30) smoothed=0.7897 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.3% shSel=26505 turnSel=326744 walkSel=3202 SH=0.945 Turn=0.926 Walk=0.341
+[time] epoch=65 train=41.2s eval=35.6s
+[grad v25.42.1] info: grad spike 32.75 at epoch 66 (32/267 batches clipped = 12%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=66 fog_w=0.60 sub_w=1.00 {"poly1": 0.20920914885926337, "subtype_asl": 0.05937665127120103, "walking_gate": 0.32702837142158536} grad_max=32.749 clip=32
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.667 FARh=9.7/h (trigger=0.379). Max-sens point: sens=1.000 at FARh=107.7/h (trigger=0.000)
+[eval] epoch=66 thr=0.379(smooth=0.415) epF1=0.757 sens=0.667 FARh=9.75/h light=False rawFogF1@0.05=0.805 calibSubtypeMAP=0.7420 windowF1@thr=0.761 emaWF1=0.761 rawWF1=0.576 selWF1@grid=0.814 (blend 0.30) smoothed=0.7909 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=7.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.948 Turn=0.926 Walk=0.352
+[time] epoch=66 train=40.9s eval=36.1s
+[grad v25.42.1] info: grad spike 34.80 at epoch 67 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=67 fog_w=0.60 sub_w=1.00 {"poly1": 0.20850122393517012, "subtype_asl": 0.06470949413805976, "walking_gate": 0.318034107207359} grad_max=34.799 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.815 FARh=9.5/h (trigger=0.395). Max-sens point: sens=0.999 at FARh=105.1/h (trigger=0.000)
+[eval] epoch=67 thr=0.395(smooth=0.395) epF1=0.834 sens=0.815 FARh=9.54/h light=False rawFogF1@0.05=0.787 calibSubtypeMAP=0.7442 windowF1@thr=0.749 emaWF1=0.749 rawWF1=0.696 selWF1@grid=0.814 (blend 0.30) smoothed=0.7921 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=7.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.947 Turn=0.926 Walk=0.360
+[time] epoch=67 train=42.0s eval=35.4s
+[grad v25.42.1] info: grad spike 40.50 at epoch 68 (24/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=68 fog_w=0.60 sub_w=1.00 {"poly1": 0.20160235648744562, "subtype_asl": 0.05612979624211119, "walking_gate": 0.3183588352654311} grad_max=40.503 clip=24
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.778 FARh=9.3/h (trigger=0.416). Max-sens point: sens=1.000 at FARh=108.1/h (trigger=0.000)
+[eval] epoch=68 thr=0.416(smooth=0.395) epF1=0.822 sens=0.778 FARh=9.33/h light=False rawFogF1@0.05=0.787 calibSubtypeMAP=0.7472 windowF1@thr=0.735 emaWF1=0.735 rawWF1=0.627 selWF1@grid=0.815 (blend 0.30) smoothed=0.7934 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=8.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.948 Turn=0.927 Walk=0.367
+[time] epoch=68 train=41.2s eval=36.0s
+[grad v25.42.1] info: grad spike 51.69 at epoch 69 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=69 fog_w=0.60 sub_w=1.00 {"poly1": 0.18706420375110952, "subtype_asl": 0.06192825809958276, "walking_gate": 0.3253814694140288} grad_max=51.686 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.704 FARh=9.1/h (trigger=0.454). Max-sens point: sens=1.000 at FARh=104.3/h (trigger=0.000)
+[eval] epoch=69 thr=0.454(smooth=0.395) epF1=0.793 sens=0.704 FARh=9.11/h light=False rawFogF1@0.05=0.795 calibSubtypeMAP=0.7491 windowF1@thr=0.709 emaWF1=0.709 rawWF1=0.565 selWF1@grid=0.816 (blend 0.30) smoothed=0.7947 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=7.6% shSel=26505 turnSel=326744 walkSel=3202 SH=0.950 Turn=0.928 Walk=0.369
+[time] epoch=69 train=41.7s eval=35.6s
+[grad v25.42.1] info: grad spike 34.04 at epoch 70 (30/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=70 fog_w=0.60 sub_w=1.00 {"poly1": 0.20009815519891874, "subtype_asl": 0.06008217584913813, "walking_gate": 0.3287397428844752} grad_max=34.039 clip=30
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.747 FARh=9.5/h (trigger=0.457). Max-sens point: sens=1.000 at FARh=110.4/h (trigger=0.000)
+[eval] epoch=70 thr=0.457(smooth=0.416) epF1=0.815 sens=0.747 FARh=9.54/h light=False rawFogF1@0.05=0.796 calibSubtypeMAP=0.7485 windowF1@thr=0.707 emaWF1=0.707 rawWF1=0.583 selWF1@grid=0.817 (blend 0.30) smoothed=0.7958 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=8.5% shSel=26505 turnSel=326744 walkSel=3202 SH=0.952 Turn=0.928 Walk=0.366
+[time] epoch=70 train=42.2s eval=35.8s
+[grad v25.42.1] info: grad spike 47.04 at epoch 71 (25/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=71 fog_w=0.60 sub_w=1.00 {"poly1": 0.20161121377672594, "subtype_asl": 0.06689183665299962, "walking_gate": 0.3360856192165546} grad_max=47.041 clip=25
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.739 FARh=9.1/h (trigger=0.544). Max-sens point: sens=1.000 at FARh=110.6/h (trigger=0.000)
+[eval] epoch=71 thr=0.544(smooth=0.454) epF1=0.809 sens=0.739 FARh=9.11/h light=False rawFogF1@0.05=0.770 calibSubtypeMAP=0.7498 windowF1@thr=0.643 emaWF1=0.643 rawWF1=0.492 selWF1@grid=0.817 (blend 0.30) smoothed=0.7964 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=10.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.954 Turn=0.928 Walk=0.367
+[time] epoch=71 train=41.8s eval=35.7s
+[grad v25.42.1] info: grad spike 66.46 at epoch 72 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=72 fog_w=0.60 sub_w=1.00 {"poly1": 0.19354128204844195, "subtype_asl": 0.05945057243331988, "walking_gate": 0.32508543474174173} grad_max=66.462 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.801 FARh=9.5/h (trigger=0.477). Max-sens point: sens=0.999 at FARh=116.1/h (trigger=0.000)
+[eval] epoch=72 thr=0.477(smooth=0.457) epF1=0.834 sens=0.801 FARh=9.54/h light=False rawFogF1@0.05=0.751 calibSubtypeMAP=0.7500 windowF1@thr=0.693 emaWF1=0.693 rawWF1=0.626 selWF1@grid=0.815 (blend 0.30) smoothed=0.7962 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=8.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.956 Turn=0.927 Walk=0.367
+[time] epoch=72 train=41.1s eval=35.3s
+[grad v25.42.1] info: grad spike 26.62 at epoch 73 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=73 fog_w=0.60 sub_w=1.00 {"poly1": 0.18115847139908803, "subtype_asl": 0.06053854978193393, "walking_gate": 0.31662085484922603} grad_max=26.624 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.758 FARh=9.7/h (trigger=0.512). Max-sens point: sens=1.000 at FARh=116.4/h (trigger=0.000)
+[eval] epoch=73 thr=0.512(smooth=0.477) epF1=0.815 sens=0.758 FARh=9.75/h light=False rawFogF1@0.05=0.772 calibSubtypeMAP=0.7517 windowF1@thr=0.667 emaWF1=0.667 rawWF1=0.547 selWF1@grid=0.815 (blend 0.30) smoothed=0.7961 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.9% shSel=26505 turnSel=326744 walkSel=3202 SH=0.957 Turn=0.927 Walk=0.371
+[time] epoch=73 train=41.5s eval=35.6s
+[grad v25.42.1] info: grad spike 36.24 at epoch 74 (29/267 batches clipped = 11%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=74 fog_w=0.60 sub_w=1.00 {"poly1": 0.187318524220184, "subtype_asl": 0.05951237834097071, "walking_gate": 0.3142909890926733} grad_max=36.236 clip=29
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.784 FARh=9.1/h (trigger=0.465). Max-sens point: sens=0.999 at FARh=111.1/h (trigger=0.000)
+[eval] epoch=74 thr=0.465(smooth=0.477) epF1=0.829 sens=0.784 FARh=9.11/h light=False rawFogF1@0.05=0.779 calibSubtypeMAP=0.7531 windowF1@thr=0.705 emaWF1=0.705 rawWF1=0.628 selWF1@grid=0.816 (blend 0.30) smoothed=0.7963 sel=windowF1+mAP gated=True gateMean=0.63 gateFlip=8.2% shSel=26505 turnSel=326744 walkSel=3202 SH=0.958 Turn=0.927 Walk=0.375
+[time] epoch=74 train=41.4s eval=35.8s
+[grad v25.42.1] info: grad spike 67.93 at epoch 75 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=75 fog_w=0.60 sub_w=1.00 {"poly1": 0.19067418266938868, "subtype_asl": 0.05876338626310397, "walking_gate": 0.32797918086418054} grad_max=67.927 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.774 FARh=10.0/h (trigger=0.419). Max-sens point: sens=1.000 at FARh=112.1/h (trigger=0.000)
+[eval] epoch=75 thr=0.419(smooth=0.477) epF1=0.828 sens=0.774 FARh=9.96/h light=False rawFogF1@0.05=0.802 calibSubtypeMAP=0.7516 windowF1@thr=0.734 emaWF1=0.734 rawWF1=0.658 selWF1@grid=0.816 (blend 0.30) smoothed=0.7966 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.1% shSel=26505 turnSel=326744 walkSel=3202 SH=0.958 Turn=0.927 Walk=0.370
+[time] epoch=75 train=42.1s eval=35.9s
+[grad v25.42.1] info: grad spike 53.00 at epoch 76 (21/267 batches clipped = 8%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=76 fog_w=0.60 sub_w=1.00 {"poly1": 0.18583126008259446, "subtype_asl": 0.0543448193912649, "walking_gate": 0.3267011024643866} grad_max=52.998 clip=21
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.755 FARh=10.0/h (trigger=0.514). Max-sens point: sens=1.000 at FARh=101.1/h (trigger=0.000)
+[eval] epoch=76 thr=0.514(smooth=0.477) epF1=0.816 sens=0.755 FARh=9.96/h light=False rawFogF1@0.05=0.786 calibSubtypeMAP=0.7501 windowF1@thr=0.673 emaWF1=0.673 rawWF1=0.518 selWF1@grid=0.817 (blend 0.30) smoothed=0.7969 sel=windowF1+mAP gated=True gateMean=0.61 gateFlip=9.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.959 Turn=0.927 Walk=0.364
+[time] epoch=76 train=40.7s eval=35.7s
+[grad v25.42.1] info: grad spike 57.06 at epoch 77 (23/267 batches clipped = 9%) -- benign outlier, adaptive clip active src=['defog', 'tdcsfog']
+[loss] epoch=77 fog_w=0.60 sub_w=1.00 {"poly1": 0.17256934116925862, "subtype_asl": 0.054182920720051514, "walking_gate": 0.3088436723313528} grad_max=57.058 clip=23
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.738 FARh=9.5/h (trigger=0.462). Max-sens point: sens=1.000 at FARh=112.8/h (trigger=0.000)
+[eval] epoch=77 thr=0.462(smooth=0.465) epF1=0.812 sens=0.738 FARh=9.54/h light=False rawFogF1@0.05=0.799 calibSubtypeMAP=0.7476 windowF1@thr=0.708 emaWF1=0.708 rawWF1=0.559 selWF1@grid=0.817 (blend 0.30) smoothed=0.7967 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=8.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.959 Turn=0.927 Walk=0.356
+[time] epoch=77 train=41.4s eval=35.8s
+[grad v25.42.1] info: grad spike 60.88 at epoch 78 (28/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=78 fog_w=0.60 sub_w=1.00 {"poly1": 0.1880203391728776, "subtype_asl": 0.05528420838788989, "walking_gate": 0.33460892664359304} grad_max=60.882 clip=28
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.734 FARh=9.7/h (trigger=0.494). Max-sens point: sens=1.000 at FARh=117.2/h (trigger=0.000)
+[eval] epoch=78 thr=0.494(smooth=0.465) epF1=0.811 sens=0.734 FARh=9.75/h light=False rawFogF1@0.05=0.801 calibSubtypeMAP=0.7452 windowF1@thr=0.679 emaWF1=0.679 rawWF1=0.525 selWF1@grid=0.818 (blend 0.30) smoothed=0.7964 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=9.3% shSel=26505 turnSel=326744 walkSel=3202 SH=0.959 Turn=0.928 Walk=0.349
+[time] epoch=78 train=41.4s eval=35.7s
+[grad v25.42.1] info: grad spike 91.25 at epoch 79 (26/267 batches clipped = 10%) -- benign outlier, adaptive clip active src=['defog', 'notype', 'tdcsfog']
+[loss] epoch=79 fog_w=0.60 sub_w=1.00 {"poly1": 0.19023626668148497, "subtype_asl": 0.05679401887183109, "walking_gate": 0.3263789853464798} grad_max=91.254 clip=26
+  [threshold] clinical target (sens>=0.85 & FARh<=10.0) NOT met. Fallback=max_sens_under_budget: sens=0.738 FARh=8.9/h (trigger=0.457). Max-sens point: sens=1.000 at FARh=108.1/h (trigger=0.000)
+[eval] epoch=79 thr=0.457(smooth=0.462) epF1=0.814 sens=0.738 FARh=8.90/h light=False rawFogF1@0.05=0.808 calibSubtypeMAP=0.7446 windowF1@thr=0.706 emaWF1=0.706 rawWF1=0.588 selWF1@grid=0.818 (blend 0.30) smoothed=0.7963 sel=windowF1+mAP gated=True gateMean=0.62 gateFlip=7.8% shSel=26505 turnSel=326744 walkSel=3202 SH=0.960 Turn=0.927 Walk=0.347
+[time] epoch=79 train=41.2s eval=35.8s
+[aswa v25.31] swa folded 41 score-improving checkpoint(s) since epoch 25 (best folded score 0.7969)
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.8183 per-thr=[0.794, 0.817, 0.833, 0.829]
+[variant] raw calibWindowF1=0.8183
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.8201 per-thr=[0.796, 0.819, 0.833, 0.833]
+[variant] ema calibWindowF1=0.8201
+[variant-grid v25.43] grid=[0.05, 0.1, 0.2, 0.3] meanWF1=0.7661 per-thr=[0.736, 0.773, 0.784, 0.773]
+[variant] swa calibWindowF1=0.7661
+[variant] selected=ema calibWindowF1=0.8201
+[calib v25.51.2] NEUROMAMBA_SUBTYPE_TEMPERATURE=0 -> per-subtype temperatures DISABLED (T=1.0 shipped)
+[gate v25.57] EFFECTIVE: mode=multiply floor=0.250 SH_COND=True eta=0.20 sh_probs=NOT provided (exemption inert)
+[calib v25.51.2] per-epoch diagnostic T frozen at 1.0 (fold-end deployed T=1.712 fitted normally)
+[calib] binary T(gated)=1.712 ECE 0.0956 -> 0.0742
+[pareto] trigger | sens | FARh/h (5 frontier pts, 7 dup/dominated)
+[pareto] 0.005  1.000  66.8
+[pareto] 0.271  0.904  31.6
+[pareto] 0.410  0.844  10.8
+[pareto] 0.533  0.750  5.7
+[pareto] 0.912  0.098  0.0
+[pareto] max-sens point: sens=1.000 at FARh=66.8/h (trigger=0.005); clinical-feasible points: 0
+[inner-cv] triggers=[0.388, 0.028, 0.488] -> median=0.388
+[postproc] tuned {"trigger": 0.3883272147605333, "confirm_n": 1, "cooldown_n": 10, "sustain": 0.15533088590421332, "merge_gap_n": 400, "sensitivity": 0.8640547504505444, "farh": 9.973507869721054, "event_sensitivity": 0.38095238095238093, "event_f1": 0.4878048780487805, "sensitivity_level": "frame+event", "inner_cv_triggers": [0.3883272147605333, 0.027792585672390794, 0.4878920282958908]}
+[postproc v25.27] full-calib verified: trigger=0.388 sens=0.86 FARh=10.8/h
+[joint-certify v25.44] 0/24 certified operating points at alpha=0.10 (sens_target=0.85, FARh budget=10/h) -- no trigger carries the joint guarantee on this calib split
+[calib] T=1.712 ECE(calib)=0.0742 ECE(thresh)=0.0121
+[thresh-split] thr=0.388 frameF1=0.575 eventF1=0.394 FARh=16.18/h walking_gate=ON (scored on the THRESH split, NOT val -- the fold [VAL] line is the reportable operating point)
+[thresh-split v25.11] window-F1@frozenThr=0.558 (contest ceiling 0.73-0.81) | best sens@FARh<=10: 0.75 | best FARh@sens>=0.85: 31.6/h
+[thresh-split v25.15] coverage->FARh curve: cov 1.00: sens 0.71, FARh 16.2/h | cov 0.95: sens 0.53, FARh 16.0/h | cov 0.90: sens 0.43, FARh 11.8/h
+[per-subtype-threshold] StartHesitation: trigger=0.890 sens=0.854 FARh=1.02/h
+[per-subtype-threshold] Turn: trigger=0.096 sens=0.986 FARh=89.43/h
+[per-subtype-threshold] Walking: trigger=0.073 sens=0.973 FARh=171.54/h
+[internal] subtype mAP={"mAP": 0.5909725490025555, "comparable": true, "StartHesitation": 0.9212511310262376, "Turn": 0.6394846022301149, "Walking": 0.21218191375131382} [scored on the selection split; use the fold [VAL] mAP for the honest number]
+[external v25.11] subject-overlap screen: 0/22 external subjects also in train (expected 0)
+[external v25.54] daphnet: gated eF1=0.371 FARh=32.4/h | ungated eF1=0.360 FARh=36.0/h | pass=False mode=none
+[external v25.54] weargait: gated eF1=0.406 FARh=26.0/h | ungated eF1=0.404 FARh=25.2/h | pass=True mode=gated
+[external] criteria={'min_event_f1': 0.3, 'max_farh': 30.0} passed=False
+[external] daphnet: eventF1=0.371 FARh=32.44/h ECE=0.0908 ECE_ungated=0.0990 n_subj=10 per-subject FARh p95=39.56 ICC(%TF)=0.309 ICC(#ep)=0.416 ICC(dur)=0.310 passed=False
+[external v25.27] daphnet gate cost: windowF1 0.453 -> ungated 0.398; eventF1 0.371 -> ungated 0.360; AUC 0.909 -> ungated 0.900
+[external mlls v25.59g] daphnet: EM prior 0.0136 CLAMPED to 0.1137 (source 0.2637 +/- 0.15)
+[external mlls v25.31] daphnet: est. fog prior=0.1137 (source 0.2637) -> FARh=13.70/h sens=0.46 eventF1=0.47 at frozen thr=0.388
+[external v25.58] daphnet: PRIOR-MATCHED DEPLOYED (label-free) -> eF1=0.473 FARh=13.70/h pass=True mode=prior_matched
+[external] weargait: eventF1=0.406 FARh=26.03/h ECE=0.0480 ECE_ungated=0.0969 n_subj=12 per-subject FARh p95=58.85 ICC(%TF)=0.437 ICC(#ep)=0.123 ICC(dur)=0.545 passed=True
+[external v25.27] weargait gate cost: windowF1 0.480 -> ungated 0.529; eventF1 0.406 -> ungated 0.404; AUC 0.826 -> ungated 0.827
+[external mlls v25.59g] weargait: EM prior 0.0396 CLAMPED to 0.1137 (source 0.2637 +/- 0.15)
+[external mlls v25.31] weargait: est. fog prior=0.1137 (source 0.2637) -> FARh=12.20/h sens=0.22 eventF1=0.33 at frozen thr=0.388
+[external v25.58] weargait: PRIOR-MATCHED DEPLOYED (label-free) -> eF1=0.327 FARh=12.20/h pass=True mode=prior_matched
+[conformal v25.31] alpha=0.10 trigger=0.135 (fit on 13129 calib neg-windows) -> THRESH alarm FARh=64.90/h sens=0.38 (guarantee: neg-window alarm rate <= 0.10 + 1/13130)
+[baseline v25.42.8] comparator seed=7000 (base=7000+repeat*10000+fold); full RNG reset before training
+[baseline] fold=0 epoch=0
+[baseline] fold=0 epoch=1
+[baseline] fold=0 epoch=2
+[baseline] fold=0 epoch=3
+[baseline] fold=0 epoch=4
+[baseline] fold=0 epoch=5
+[baseline] fold=0 epoch=6
+[baseline] fold=0 epoch=7
+[baseline] fold=0 epoch=8
+[baseline] fold=0 epoch=9
+[baseline] fold=0 epoch=10
+[baseline] fold=0 epoch=11
+[baseline] fold=0 epoch=12
+[baseline] fold=0 epoch=13
+[baseline] fold=0 epoch=14
+[baseline] fold=0 epoch=15
+[baseline] fold=0 epoch=16
+[baseline] fold=0 epoch=17
+[baseline] fold=0 epoch=18
+[baseline] fold=0 epoch=19
+[baseline] fold=0 epoch=20
+[baseline] fold=0 epoch=21
+[baseline] fold=0 epoch=22
+[baseline] fold=0 epoch=23
+[baseline] fold=0 epoch=24
+[baseline] fold=0 epoch=25
+[baseline] fold=0 epoch=26
+[baseline] fold=0 epoch=27
+[baseline] fold=0 epoch=28
+[baseline] fold=0 epoch=29
+[baseline] fold=0 epoch=30
+[baseline] fold=0 epoch=31
+[baseline] fold=0 epoch=32
+[baseline] fold=0 epoch=33
+[baseline] fold=0 epoch=34
+[baseline] fold=0 epoch=35
+[baseline] fold=0 epoch=36
+[baseline] fold=0 epoch=37
+[baseline] fold=0 epoch=38
+[baseline] fold=0 epoch=39
+[baseline] fold=0 resnet1d kaggle_map={"mAP": 0.0, "comparable": false, "StartHesitation": 0.0, "Turn": 0.0, "Walking": 0.0}
+  [icc v25.21] %TF ICC=0.338 #episodes ICC=0.3367833780933893 duration ICC=0.34163736299446884 (n_rec=320) [contest refs: %TF 0.877-0.949, #episodes <0.6]
+[VAL] frameF1=0.397 eventF1=0.381 FARh=31.61/h ECE=0.0788 windowF1=0.459 (contest ceiling 0.73-0.81) train=5787s
+  cueing: detected 73% of 442 events, median onset->alarm -0.50s, within-1s 93% [v25.42 caveat: bidirectional inference -- negative latency is NOT a causal early-warning claim; use the causal/window-roll path for that]  [NON-DEPLOYABLE: negative latency is an artifact, not a real cueing latency]
+  mAP(internal)=0.0000  SH=0.000 Turn=0.000 Walk=0.000
+  [sel-ensemble v25.60] Selection-split mAP: main=0.5910 baseline=0.0988 blend0.35=0.5838 blend0.5=0.5684 (report-only -- never selects or deploys)
+  [sel-ensemble v25.60] per-cohort (main): defog: mAP=0.1736 (SH=0.000 Turn=0.483 Walk=0.038) | tdcsfog: mAP=0.8032 (SH=0.948 Turn=0.778 Walk=0.684)
+  [FARh envelope v25.42.2] per-subject FARh/h: Q25=0.00 med=28.10 Q75=34.69 Q90=40.44 Q95=40.72 (mean=23.60, n_subj=22)
+  [med-subgroup v25.15] unknown: eventF1=0.381 FARh=31.61/h windowF1=0.459 (n_frames=3439192)
+[checkpoint] fold 1 results saved to neuromamba_v25_fold1_lodo_daphnet_weargait_checkpoint.json
+[kaggle-track] Fold-ensemble (pooled OOF) mAP=0.0000 (internal diagnostic, NOT a journal claim)
+[bootstrap v25.34] WARNING: 0/50 bootstrap samples were comparable (22 subjects) -- CI and gate_2 (beats baseline) are NON-COMPUTABLE, not zero
+[kaggle-track] bootstrap 95% CI [0.0000,0.0000] (unit=subject)
+[kaggle-track] baseline-diff bootstrap starting (NEUROMAMBA_BOOTSTRAP_N boots; minutes on 4.6M-frame pooled OOF -- progress prints every 50 boots)
+[kaggle-track] baseline-diff bootstrap: 50/50 boots (0 comparable)
+[bootstrap v25.34] WARNING: 0/50 baseline-diff samples were comparable -- gate_2 (beats baseline) is NON-COMPUTABLE, not zero
+[kaggle-track] vs frozen ResNet1D baseline: diff_mean=nan CI=[nan,nan] non_overlapping=False
+[calib v25.26] gate ECE (mean per-cohort gated) = 0.0555 (per-cohort [0.022, 0.089])
+----------------------------------------------------------------------------
+[journal-metrics v25.59f] FAMILY lodo_daphnet_weargait (fold-level, manuscript set):
+  subtype mAP = 0.0  (SH=0.0000 Turn=0.0000 Walking=0.0000)
+  event F1 = 0.3813559322033898 | episode-F1(frame) = 0.3965215012262685
+  FARh = 31.612076324904223 /h (budget 10) | sens@FARh<=10 = 0.7496093432196852
+  window F1 = 0.45853537237349246 | frame F1 = 0.3965215012262685
+  ECE = 0.07881741169979298 | Brier = 0.06981638352125186 | temperature = 1.712059674818059
+  ICC = {"icc_percent_time_frozen": 0.3380283864415804, "icc_n_episodes": 0.3367833780933893, "icc_duration_s": 0.34163736299446884, "n_recordings": 320}
+  bootstrap main-vs-baseline diff = {"diff_mean": NaN, "ci_lo": NaN, "ci_hi": NaN, "non_overlapping_zero": false, "n_valid_boot": 0}
+----------------------------------------------------------------------------
+============================================================================
+[journal-track] FAMILY lodo_daphnet_weargait SUMMARY (manuscript metrics)
+{
+  "n_folds_completed": 1,
+  "event_f1_mean": 0.3813559322033898,
+  "event_f1_n_evaluable": 1,
+  "event_f1_n_not_evaluable": 0,
+  "worst_fold_collapse_check": {
+    "collapsed": false,
+    "worst_f1": 0.3813559322033898,
+    "min_threshold": 0.05
+  },
+  "ece_max": 0.055498480129985595
+}
+[kaggle-track] FAMILY lodo_daphnet_weargait SUMMARY (internal leaderboard-mimic diagnostics ONLY — not part of the journal claim)
+{
+  "kaggle_map_mean": 0.0,
+  "kaggle_map_std": 0.0,
+  "fold_ensemble_map": {
+    "mAP": 0.0,
+    "comparable": false,
+    "StartHesitation": 0.0,
+    "Turn": 0.0,
+    "Walking": 0.0
+  },
+  "bootstrap_ci": {
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "mean": 0.0,
+    "n_valid_boot": 0,
+    "unit": "subject"
+  },
+  "baseline_ci_diff": {
+    "diff_mean": NaN,
+    "ci_lo": NaN,
+    "ci_hi": NaN,
+    "non_overlapping_zero": false,
+    "n_valid_boot": 0
+  }
+}
+============================================================================
+[external] cross-fold cohort summary:
+[external] daphnet: eventF1=0.473 FARh=13.70/h over 1 folds passed=True
+[external] weargait: eventF1=0.327 FARh=12.20/h over 1 folds passed=True
+[sota_claim_status] REFUSED gates={'gate_1_comparable': True, 'gate_2_beats_baseline': False, 'gate_2_reason': 'ok', 'gate_3_no_collapse': True, 'gate_4_external': True, 'gate_5_calibration': True}
+============================================================================
+[journal-track] Final gate (external cohorts required for a full SOTA claim)
+{"status": "REFUSED", "gates": {"gate_1_comparable": true, "gate_2_beats_baseline": false, "gate_2_reason": "ok", "gate_3_no_collapse": true, "gate_4_external": true, "gate_5_calibration": true}, "failed_gates": ["gate_2_beats_baseline"]}
+============================================================================
+[pool] repeat r4: all subjects already pooled -- dropped
+[pool] repeat r6: all subjects already pooled -- dropped
+[mono-gate] per-subject ok=True failing=0/57
+[output] Results written to results_gen_B2_holdDW_28cr.json
+[clinical-s4 v25.43] 21 clinical rows -> results_gen_B2_holdDW_28cr_clinical_s4.csv

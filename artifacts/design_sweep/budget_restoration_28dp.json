@@ -1,0 +1,583 @@
+{
+  "generated": "2026-09-13 15:40:12",
+  "cap": 5.0,
+  "splits": 5,
+  "cells": {
+    "daphnet/frozen": {
+      "stored_trigger": 0.8534,
+      "stored_farh_eval_mean": 22.35087528632547,
+      "refit_farh_eval_mean": 6.71399124074357,
+      "refit_ef1_eval_mean": 0.17708947991673205,
+      "splits_cap_attainable": 0,
+      "splits_restored": 4,
+      "oracle_ef1_mean": 0.35292109383180104,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 14.288513307910533,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 41.12361990025607,
+          "farh_refit_eval": 18.901539581484155,
+          "ef1_refit_eval": 0.257386724440626,
+          "oracle_in_budget": null,
+          "oracle_farh": null
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 31.619483587471137,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 9.865236755405842,
+          "farh_refit_eval": 1.2331545944257303,
+          "ef1_refit_eval": 0.18431342482557694,
+          "oracle_in_budget": 0.5161513314227285,
+          "oracle_farh": 8.878713079865259
+        },
+        {
+          "split": 2,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 25.373309655262958,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 17.424885834729476,
+          "farh_refit_eval": 3.9496407892053482,
+          "ef1_refit_eval": 0.17976012100467967,
+          "oracle_in_budget": 0.3627597517782056,
+          "oracle_farh": 9.990267878578234
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 31.74556517393924,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 17.605224839505148,
+          "farh_refit_eval": 3.7411102783948436,
+          "ef1_refit_eval": 0.10420926202679037,
+          "oracle_in_budget": 0.28915306582340206,
+          "oracle_farh": 9.68287366172783
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 27.69259817410672,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 25.73540910173082,
+          "farh_refit_eval": 5.744510960207773,
+          "ef1_refit_eval": 0.1597778672859873,
+          "oracle_in_budget": 0.2436202263028679,
+          "oracle_farh": 9.420997974740747
+        }
+      ]
+    },
+    "daphnet/ws": {
+      "stored_trigger": 0.5308002878469101,
+      "stored_farh_eval_mean": 33.652341301139764,
+      "refit_farh_eval_mean": 3.1978715331207,
+      "refit_ef1_eval_mean": 0.053384430486216626,
+      "splits_cap_attainable": 0,
+      "splits_restored": 5,
+      "oracle_ef1_mean": 0.3664344470864179,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 9.072071941530497,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 44.95501305866502,
+          "farh_refit_eval": 4.5976717900907405,
+          "ef1_refit_eval": 0.05400591680251163,
+          "oracle_in_budget": 0.12934785475066585,
+          "oracle_farh": 9.96162221186327
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 11.710919847211532,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 24.416460969629462,
+          "farh_refit_eval": 0.7398927566554382,
+          "ef1_refit_eval": 0.04169018796127872,
+          "oracle_in_budget": 0.569174465630772,
+          "oracle_farh": 9.371974917635551
+        },
+        {
+          "split": 2,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 5.223916693730609,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 31.364794502513057,
+          "farh_refit_eval": 5.1112998448539795,
+          "ef1_refit_eval": 0.07095268275339692,
+          "oracle_in_budget": 0.47467205697927306,
+          "oracle_farh": 9.757936067448506
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 7.142752164136329,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 31.909470021603077,
+          "farh_refit_eval": 4.621371520370101,
+          "ef1_refit_eval": 0.0693618327641122,
+          "oracle_in_budget": 0.4250213553994927,
+          "oracle_farh": 9.462808351234017
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 12.587544624593964,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 35.61596795328819,
+          "farh_refit_eval": 0.9191217536332437,
+          "ef1_refit_eval": 0.030911532149783677,
+          "oracle_in_budget": 0.23395650267188592,
+          "oracle_farh": 8.731656659515814
+        }
+      ]
+    },
+    "xuanwu/frozen": {
+      "stored_trigger": 0.8534,
+      "stored_farh_eval_mean": 23.970465413472805,
+      "refit_farh_eval_mean": 3.7044466349372756,
+      "refit_ef1_eval_mean": 0.32585343994349053,
+      "splits_cap_attainable": 0,
+      "splits_restored": 5,
+      "oracle_ef1_mean": 0.46415006391806013,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 88.80767473732297,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 25.82408198121264,
+          "farh_refit_eval": 5.533731853116994,
+          "ef1_refit_eval": 0.21235754035327029,
+          "oracle_in_budget": 0.35240850545474084,
+          "oracle_farh": 8.60802732707088
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 57.27986050566695,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 20.219555782486598,
+          "farh_refit_eval": 2.7572121521572632,
+          "ef1_refit_eval": 0.48720403644074267,
+          "oracle_in_budget": 0.5648710912044643,
+          "oracle_farh": 8.731171815164666
+        },
+        {
+          "split": 2,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 24.75728155339806,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 29.847552821610055,
+          "farh_refit_eval": 3.851297138272265,
+          "ef1_refit_eval": 0.5423760493445914,
+          "oracle_in_budget": 0.612567946728236,
+          "oracle_farh": 9.14683070339663
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 72.53190060443251,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 13.743218806509946,
+          "farh_refit_eval": 2.8933092224231465,
+          "ef1_refit_eval": 0.2142804005296752,
+          "oracle_in_budget": 0.4898638463115495,
+          "oracle_farh": 8.679927667269439
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 82.09410631122532,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 30.217917675544793,
+          "farh_refit_eval": 3.486682808716707,
+          "ef1_refit_eval": 0.17304917304917306,
+          "oracle_in_budget": 0.30103892989131026,
+          "oracle_farh": 8.135593220338983
+        }
+      ]
+    },
+    "xuanwu/ws": {
+      "stored_trigger": 0.5479125438114831,
+      "stored_farh_eval_mean": 52.718273433096286,
+      "refit_farh_eval_mean": 2.920854734912971,
+      "refit_ef1_eval_mean": 0.1907579705076988,
+      "splits_cap_attainable": 0,
+      "splits_restored": 5,
+      "oracle_ef1_mean": 0.3959449255729242,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 77.84376427592508,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 68.86421861656704,
+          "farh_refit_eval": 2.4594363791631086,
+          "ef1_refit_eval": 0.05207948218493238,
+          "oracle_in_budget": 0.2266868279900901,
+          "oracle_farh": 7.9931682322801025
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 20.40104620749782,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 53.30610160837376,
+          "farh_refit_eval": 2.297676793464386,
+          "ef1_refit_eval": 0.3790740693599437,
+          "oracle_in_budget": 0.5264539248234049,
+          "oracle_farh": 8.27163645647179
+        },
+        {
+          "split": 2,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 5.097087378640777,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 49.585450655255414,
+          "farh_refit_eval": 4.332709280556299,
+          "ef1_refit_eval": 0.41726757387404145,
+          "oracle_in_budget": 0.5585074965005542,
+          "oracle_farh": 7.70259427654453
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 79.3015446608462,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 29.65641952983725,
+          "farh_refit_eval": 1.4466546112115732,
+          "ef1_refit_eval": 0.058834154351395725,
+          "oracle_in_budget": 0.5136413457872665,
+          "oracle_farh": 7.956600361663653
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 78.62534125582143,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 62.17917675544794,
+          "farh_refit_eval": 4.067796610169491,
+          "ef1_refit_eval": 0.046534572768180786,
+          "oracle_in_budget": 0.15443503276330509,
+          "oracle_farh": 8.716707021791766
+        }
+      ]
+    },
+    "weargait/frozen": {
+      "stored_trigger": 0.8534,
+      "stored_farh_eval_mean": 16.01368610291498,
+      "refit_farh_eval_mean": 15.253514279651204,
+      "refit_ef1_eval_mean": 0.1161345151533418,
+      "splits_cap_attainable": 2,
+      "splits_restored": 3,
+      "oracle_ef1_mean": 0.06477946528517624,
+      "verdict": "NOT-RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": 0.85,
+          "cap_attainable": true,
+          "min_fit_rate": 4.008395361395812,
+          "eval_tau": 0.85,
+          "farh_stored_eval": 36.97631157487893,
+          "farh_refit_eval": 36.97631157487893,
+          "ef1_refit_eval": 0.29871971264428177,
+          "oracle_in_budget": null,
+          "oracle_farh": null
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 33.41955465911632,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 8.758825733430003,
+          "farh_refit_eval": 1.7517651466860007,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.07416983113840186,
+          "oracle_farh": 8.758825733430003
+        },
+        {
+          "split": 2,
+          "tau_star": 0.92,
+          "cap_attainable": true,
+          "min_fit_rate": 4.651252931258358,
+          "eval_tau": 0.92,
+          "farh_stored_eval": 32.53422871979895,
+          "farh_refit_eval": 37.539494676691106,
+          "ef1_refit_eval": 0.28195286312242734,
+          "oracle_in_budget": null,
+          "oracle_farh": null
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 34.159825075291884,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 1.799064486467037,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.022045416873860434,
+          "oracle_farh": 8.995322432335184
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 21.59325914779647,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 0.0,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.09812314784326638,
+          "oracle_farh": 6.097457698887214
+        }
+      ]
+    },
+    "weargait/ws": {
+      "stored_trigger": 0.5399316553238651,
+      "stored_farh_eval_mean": 32.79502361035428,
+      "refit_farh_eval_mean": 11.734554531282432,
+      "refit_ef1_eval_mean": 0.10833680810267934,
+      "splits_cap_attainable": 2,
+      "splits_restored": 3,
+      "oracle_ef1_mean": 0.16387427927170187,
+      "verdict": "NOT-RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": 0.78,
+          "cap_attainable": true,
+          "min_fit_rate": 4.008395361395812,
+          "eval_tau": 0.78,
+          "farh_stored_eval": 69.84414408588242,
+          "farh_refit_eval": 27.389860425836243,
+          "ef1_refit_eval": 0.22990037884102707,
+          "oracle_in_budget": 0.08972770573497425,
+          "oracle_farh": 9.586451149042686
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 12.152565330587754,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 24.52471205360401,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.13223397635345363,
+          "oracle_farh": 8.758825733430003
+        },
+        {
+          "split": 2,
+          "tau_star": 0.79,
+          "cap_attainable": true,
+          "min_fit_rate": 4.651252931258358,
+          "eval_tau": 0.79,
+          "farh_stored_eval": 58.81187499348273,
+          "farh_refit_eval": 31.28291223057592,
+          "ef1_refit_eval": 0.31178366167236965,
+          "oracle_in_budget": 0.13464994732166835,
+          "oracle_farh": 8.759215424561258
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 11.881678287058046,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 10.794386918802223,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.3256728636436395,
+          "oracle_farh": 8.995322432335184
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 7.510698834016163,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 0.0,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.13708690330477355,
+          "oracle_farh": 0.0
+        }
+      ]
+    },
+    "fogstar/frozen": {
+      "stored_trigger": 0.8534,
+      "stored_farh_eval_mean": 14.820486074725423,
+      "refit_farh_eval_mean": 0.5227508881392381,
+      "refit_ef1_eval_mean": 0.00779219898410777,
+      "splits_cap_attainable": 4,
+      "splits_restored": 5,
+      "oracle_ef1_mean": 0.05584918712524175,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": 0.98,
+          "cap_attainable": true,
+          "min_fit_rate": 4.317685720453836,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 12.070613086556355,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.012647293707319459,
+          "oracle_in_budget": 0.07885227829495346,
+          "oracle_farh": 8.449429160589448
+        },
+        {
+          "split": 1,
+          "tau_star": 0.98,
+          "cap_attainable": true,
+          "min_fit_rate": 1.239323742344594,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 23.73031198380755,
+          "farh_refit_eval": 1.395900704929856,
+          "ef1_refit_eval": 0.011669588424605562,
+          "oracle_in_budget": 0.06776284266007615,
+          "oracle_farh": 9.771304934508992
+        },
+        {
+          "split": 2,
+          "tau_star": 0.98,
+          "cap_attainable": true,
+          "min_fit_rate": 3.9930491366879877,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 14.249268645491869,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.012689276253393073,
+          "oracle_in_budget": 0.0646062565728547,
+          "oracle_farh": 9.067716410767552
+        },
+        {
+          "split": 3,
+          "tau_star": 0.98,
+          "cap_attainable": true,
+          "min_fit_rate": 4.2725406188063,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 19.48565977226135,
+          "farh_refit_eval": 1.2178537357663344,
+          "ef1_refit_eval": 0.0019548365352207615,
+          "oracle_in_budget": 0.05175028230359736,
+          "oracle_farh": 9.742829886130675
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 5.771487568857053,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 4.566576885509997,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.016274275794727136,
+          "oracle_farh": 9.133153771019995
+        }
+      ]
+    },
+    "fogstar/ws": {
+      "stored_trigger": 0.5467599515721968,
+      "stored_farh_eval_mean": 26.992167250776117,
+      "refit_farh_eval_mean": 0.0,
+      "refit_ef1_eval_mean": 0.01125784503888104,
+      "splits_cap_attainable": 0,
+      "splits_restored": 5,
+      "oracle_ef1_mean": 0.14639707701416194,
+      "verdict": "RESTORED",
+      "splits": [
+        {
+          "split": 0,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 15.831514308330734,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 21.72710355580144,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0008853039543576629,
+          "oracle_in_budget": 0.15753414522262832,
+          "oracle_farh": 8.449429160589448
+        },
+        {
+          "split": 1,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 7.435942454067564,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 22.334411278877695,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.024313254897868678,
+          "oracle_in_budget": 0.1972412345650222,
+          "oracle_farh": 8.375404229579136
+        },
+        {
+          "split": 2,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 14.641180167855955,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 18.135432821535105,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0008882601615317553,
+          "oracle_in_budget": 0.18386162086223548,
+          "oracle_farh": 7.772328352086474
+        },
+        {
+          "split": 3,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 11.393441650150132,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 37.75346580875637,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.030202406180647103,
+          "oracle_in_budget": 0.1643473103070676,
+          "oracle_farh": 7.307122414598006
+        },
+        {
+          "split": 4,
+          "tau_star": null,
+          "cap_attainable": false,
+          "min_fit_rate": 13.851570165256927,
+          "eval_tau": 0.98,
+          "farh_stored_eval": 35.010422788909985,
+          "farh_refit_eval": 0.0,
+          "ef1_refit_eval": 0.0,
+          "oracle_in_budget": 0.02900107411385607,
+          "oracle_farh": 9.133153771019995
+        }
+      ]
+    }
+  }
+}

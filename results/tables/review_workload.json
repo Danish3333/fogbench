@@ -1,0 +1,84 @@
+{
+  "broader_v32": {
+    "arm": "broader_v32",
+    "trigger": 0.5,
+    "iou_q": 0.1,
+    "pooled": {
+      "frames": 48014856,
+      "hours": 133.37
+    },
+    "false_alarms": {
+      "n": 2890,
+      "farh": 21.67,
+      "duration_s_median": 2.95,
+      "duration_s_mean": 6.2,
+      "duration_s_p90": 12.48,
+      "total_minutes": 298.4,
+      "minutes_per_scored_hour": 2.24,
+      "share_of_scored_time_pct": 0.04
+    },
+    "alarms_all": {
+      "n": 6174,
+      "duration_s_median": 4.54,
+      "duration_s_mean": 11.5
+    },
+    "sensitivity_by_labeled_duration": {
+      "<5s": {
+        "n_labeled": 5362,
+        "sensitivity": 0.257,
+        "mean_match_iou": 0.499
+      },
+      "5-10s": {
+        "n_labeled": 1357,
+        "sensitivity": 0.587,
+        "mean_match_iou": 0.556
+      },
+      ">=10s": {
+        "n_labeled": 1467,
+        "sensitivity": 0.757,
+        "mean_match_iou": 0.656
+      }
+    }
+  },
+  "nested_v43": {
+    "arm": "nested_v43",
+    "trigger": 0.5,
+    "iou_q": 0.1,
+    "pooled": {
+      "frames": 48014856,
+      "hours": 133.37
+    },
+    "false_alarms": {
+      "n": 2937,
+      "farh": 22.02,
+      "duration_s_median": 3.08,
+      "duration_s_mean": 6.44,
+      "duration_s_p90": 13.63,
+      "total_minutes": 315.2,
+      "minutes_per_scored_hour": 2.36,
+      "share_of_scored_time_pct": 0.04
+    },
+    "alarms_all": {
+      "n": 5549,
+      "duration_s_median": 4.79,
+      "duration_s_mean": 11.22
+    },
+    "sensitivity_by_labeled_duration": {
+      "<5s": {
+        "n_labeled": 5362,
+        "sensitivity": 0.188,
+        "mean_match_iou": 0.394
+      },
+      "5-10s": {
+        "n_labeled": 1357,
+        "sensitivity": 0.492,
+        "mean_match_iou": 0.505
+      },
+      ">=10s": {
+        "n_labeled": 1467,
+        "sensitivity": 0.637,
+        "mean_match_iou": 0.594
+      }
+    }
+  }
+}

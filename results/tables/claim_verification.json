@@ -1,0 +1,66 @@
+{
+  "n_pass": 10,
+  "n_total": 10,
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "defog member mean mAP == 0.5676 (+/-0.002)",
+      "pass": true,
+      "detail": "stored=0.5675622950578582"
+    },
+    {
+      "id": "C2",
+      "claim": "between-repeat mAP SD <= 0.03",
+      "pass": true,
+      "detail": "sd=0.006349068869460223"
+    },
+    {
+      "id": "C3",
+      "claim": "subject-bootstrap 95% CI lo > 0.40 and covers mean",
+      "pass": true,
+      "detail": "CI=[0.4417132079669735,0.6316193610191315] mean=0.56064857230114 (n_boot=50)"
+    },
+    {
+      "id": "C4",
+      "claim": "beats frozen ResNet1D baseline, 95% CI non-overlapping with 0",
+      "pass": true,
+      "detail": "delta=0.438 CI=[0.33699659739515414,0.4884962709411359]"
+    },
+    {
+      "id": "C5",
+      "claim": "per-repeat mAPs == [0.5752, 0.5597, 0.5678] (+/-0.0005)",
+      "pass": true,
+      "detail": "stored=[0.5752299598853942, 0.5596823286456728, 0.5677745966425075]"
+    },
+    {
+      "id": "C6",
+      "claim": "per-class APs: SH >= 0.87, Turn >= 0.64, Walk >= 0.10",
+      "pass": true,
+      "detail": "SH repeat-min=0.8756922730961849, fold-level SH max=0.9341467102123794, Turn max=0.7219097454018837, Walk max=0.14303245243135118"
+    },
+    {
+      "id": "C7",
+      "claim": "frozen externals: daphnet PASS (eF1>=0.39) and xuanwu PASS (eF1>=0.48)",
+      "pass": true,
+      "detail": "daphnet=0.398@8.33/h, xuanwu=0.482@7.63/h (3-fold means)"
+    },
+    {
+      "id": "C8",
+      "claim": "independently recomputed pooled-OOF mAP from frozen npz arrays",
+      "pass": true,
+      "detail": "recomputed mAP=0.5651 (SH=0.9001 Turn=0.6882 Walk=0.1071); trainer-stored fold_ensemble_map=0.5651345646433317"
+    },
+    {
+      "id": "C9",
+      "claim": "submission.csv: 286,370 rows, Id set == official sample_submission",
+      "pass": true,
+      "detail": "rows=286370, Id match=True"
+    },
+    {
+      "id": "C10",
+      "claim": "our mean mAP 0.5675622950578582 > every published TLVMC score",
+      "pass": true,
+      "detail": "Salomon 2024 Nat Commun (contest winner, private LB)=0.514; Salomon 2024 (top-5 range max, non-winner)=0.451; Mo & Chan 2023 KDD WS (TransBiLSTM)=0.427; Brederecke 2023 (8th place)=0.356"
+    }
+  ]
+}

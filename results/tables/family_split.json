@@ -1,0 +1,64 @@
+{
+  "broader_v32": {
+    "arm": "broader_v32",
+    "n_repeats": 10,
+    "fam_count_scored_unknown_vs": {
+      "lab": 60,
+      "home": 37,
+      "unknown": 0
+    },
+    "home": {
+      "patients_scored": 37,
+      "ptf_icc_2_1": 0.6967,
+      "label_mean_pct": 6.21,
+      "pred_mean_pct": 5.57,
+      "sh_positive_patients": 5,
+      "sh_positive_frames": 1333,
+      "sh_events_all_repeats": 1333,
+      "sh_pooled_ap": 0.0014,
+      "sh_per_patient_ap_median": 0.0015
+    },
+    "lab": {
+      "patients_scored": 60,
+      "ptf_icc_2_1": 0.9022,
+      "label_mean_pct": 15.96,
+      "pred_mean_pct": 12.0,
+      "sh_positive_patients": 27,
+      "sh_positive_frames": 248089,
+      "sh_events_all_repeats": 248089,
+      "sh_pooled_ap": 0.865,
+      "sh_per_patient_ap_median": 0.8415
+    }
+  },
+  "nested_v43": {
+    "arm": "nested_v43",
+    "n_repeats": 10,
+    "fam_count_scored_unknown_vs": {
+      "lab": 60,
+      "home": 37,
+      "unknown": 0
+    },
+    "home": {
+      "patients_scored": 37,
+      "ptf_icc_2_1": 0.6499,
+      "label_mean_pct": 6.21,
+      "pred_mean_pct": 5.46,
+      "sh_positive_patients": 5,
+      "sh_positive_frames": 1333,
+      "sh_events_all_repeats": 1333,
+      "sh_pooled_ap": 0.0037,
+      "sh_per_patient_ap_median": 0.0038
+    },
+    "lab": {
+      "patients_scored": 60,
+      "ptf_icc_2_1": 0.7481,
+      "label_mean_pct": 15.96,
+      "pred_mean_pct": 10.15,
+      "sh_positive_patients": 27,
+      "sh_positive_frames": 248089,
+      "sh_events_all_repeats": 248089,
+      "sh_pooled_ap": 0.0547,
+      "sh_per_patient_ap_median": 0.0341
+    }
+  }
+}

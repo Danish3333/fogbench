@@ -1,0 +1,21 @@
+{
+  "device": "cuda",
+  "torch": "2.6.0+cu124",
+  "window_frames": 12000,
+  "channels": 13,
+  "primary_ConvBiGRUModel": {
+    "n_params": 2957383,
+    "ms_per_120s_window": 23.95,
+    "gmacs_per_120s_window": 10.68
+  },
+  "comparator_TransformerBiLSTMWinner": {
+    "n_params": 2178316,
+    "ms_per_120s_window": 18.76,
+    "gmacs_per_120s_window": 2.2
+  },
+  "walking_gate": {
+    "n_params": 40193,
+    "ms_per_120s_window": 0.78,
+    "gmacs_per_120s_window": 0.02
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "family": "defog",
+  "npz": [
+    "_nested_v43/defog_fold1_r10_ens.npz",
+    "_nested_v43/defog_fold1_r1_ens.npz",
+    "_nested_v43/defog_fold1_r2_ens.npz",
+    "_nested_v43/defog_fold1_r3_ens.npz",
+    "_nested_v43/defog_fold1_r4_ens.npz",
+    "_nested_v43/defog_fold1_r5_ens.npz",
+    "_nested_v43/defog_fold1_r6_ens.npz",
+    "_nested_v43/defog_fold1_r7_ens.npz",
+    "_nested_v43/defog_fold1_r8_ens.npz",
+    "_nested_v43/defog_fold1_r9_ens.npz"
+  ],
+  "dedup": 1,
+  "pool": {
+    "frames": 14650427,
+    "hours": 40.696,
+    "subjects": 97,
+    "events": 2368
+  },
+  "note": "REPORT-ONLY lowmem variant: causal per-record postprocess run in complete-record chunks (boot-time self-check verifies chunked == full); deep per-subject monotonicity pass not run (fast report-only mode).",
+  "operating_curve": [
+    {
+      "trigger": 0.0,
+      "event_f1": 0.1424,
+      "farh": 32.63,
+      "n_false_events": 1328,
+      "frame_sens": 1.0,
+      "ep_f1": 0.1976
+    },
+    {
+      "trigger": 0.0001,
+      "event_f1": 0.1394,
+      "farh": 39.51,
+      "n_false_events": 1608,
+      "frame_sens": 1.0,
+      "ep_f1": 0.2005
+    },
+    {
+      "trigger": 0.0002,
+      "event_f1": 0.1377,
+      "farh": 48.24,
+      "n_false_events": 1963,
+      "frame_sens": 1.0,
+      "ep_f1": 0.2037
+    },
+    {
+      "trigger": 0.0002,
+      "event_f1": 0.1385,
+      "farh": 54.45,
+      "n_false_events": 2216,
+      "frame_sens": 0.9999,
+      "ep_f1": 0.2066
+    },
+    {
+      "trigger": 0.0003,
+      "event_f1": 0.1367,
+      "farh": 62.68,
+      "n_false_events": 2551,
+      "frame_sens": 0.9998,
+      "ep_f1": 0.2103
+    },
+    {
+      "trigger": 0.0004,
+      "event_f1": 0.1364,
+      "farh": 70.94,
+      "n_false_events": 2887,
+      "frame_sens": 0.9996,
+      "ep_f1": 0.2147
+    },
+    {
+      "trigger": 0.0005,
+      "event_f1": 0.1375,
+      "farh": 78.85,
+      "n_false_events": 3209,
+      "frame_sens": 0.9995,
+      "ep_f1": 0.2191
+    },
+    {
+      "trigger": 0.0006,
+      "event_f1": 0.1411,
+      "farh": 85.64,
+      "n_false_events": 3485,
+      "frame_sens": 0.9993,
+      "ep_f1": 0.2232
+    },
+    {
+      "trigger": 0.0008,
+      "event_f1": 0.142,
+      "farh": 92.17,
+      "n_false_events": 3751,
+      "frame_sens": 0.9991,
+      "ep_f1": 0.2274
+    },
+    {
+      "trigger": 0.0009,
+      "event_f1": 0.142,
+      "farh": 99.1,
+      "n_false_events": 4033,
+      "frame_sens": 0.9989,
+      "ep_f1": 0.2321
+    },
+    {
+      "trigger": 0.0011,
+      "event_f1": 0.1432,
+      "farh": 107.01,
+      "n_false_events": 4355,
+      "frame_sens": 0.998,
+      "ep_f1": 0.2375
+    },
+    {
+      "trigger": 0.0014,
+      "event_f1": 0.1473,
+      "farh": 115.98,
+      "n_false_events": 4720,
+      "frame_sens": 0.9974,
+      "ep_f1": 0.2442
+    },
+    {
+      "trigger": 0.0016,
+      "event_f1": 0.1478,
+      "farh": 125.89,
+      "n_false_events": 5123,
+      "frame_sens": 0.9965,
+      "ep_f1": 0.2514
+    },
+    {
+      "trigger": 0.002,
+      "event_f1": 0.1485,
+      "farh": 135.94,
+      "n_false_events": 5532,
+      "frame_sens": 0.9955,
+      "ep_f1": 0.2593
+    },
+    {
+      "trigger": 0.0024,
+      "event_f1": 0.1504,
+      "farh": 143.97,
+      "n_false_events": 5859,
+      "frame_sens": 0.9939,
+      "ep_f1": 0.2677
+    },
+    {
+      "trigger": 0.0029,
+      "event_f1": 0.1544,
+      "farh": 150.58,
+      "n_false_events": 6128,
+      "frame_sens": 0.9922,
+      "ep_f1": 0.2761
+    },
+    {
+      "trigger": 0.0035,
+      "event_f1": 0.1592,
+      "farh": 156.43,
+      "n_false_events": 6366,
+      "frame_sens": 0.9895,
+      "ep_f1": 0.2848
+    },
+    {
+      "trigger": 0.0043,
+      "event_f1": 0.1597,
+      "farh": 161.59,
+      "n_false_events": 6576,
+      "frame_sens": 0.9869,
+      "ep_f1": 0.2944
+    },
+    {
+      "trigger": 0.0051,
+      "event_f1": 0.1636,
+      "farh": 165.96,
+      "n_false_events": 6754,
+      "frame_sens": 0.9842,
+      "ep_f1": 0.3044
+    },
+    {
+      "trigger": 0.0063,
+      "event_f1": 0.1688,
+      "farh": 167.81,
+      "n_false_events": 6829,
+      "frame_sens": 0.9813,
+      "ep_f1": 0.3157
+    },
+    {
+      "trigger": 0.0076,
+      "event_f1": 0.1731,
+      "farh": 167.66,
+      "n_false_events": 6823,
+      "frame_sens": 0.9772,
+      "ep_f1": 0.3277
+    },
+    {
+      "trigger": 0.0093,
+      "event_f1": 0.1812,
+      "farh": 165.45,
+      "n_false_events": 6733,
+      "frame_sens": 0.9735,
+      "ep_f1": 0.3405
+    },
+    {
+      "trigger": 0.0115,
+      "event_f1": 0.1881,
+      "farh": 160.73,
+      "n_false_events": 6541,
+      "frame_sens": 0.9691,
+      "ep_f1": 0.3547
+    },
+    {
+      "trigger": 0.0142,
+      "event_f1": 0.1962,
+      "farh": 154.27,
+      "n_false_events": 6278,
+      "frame_sens": 0.963,
+      "ep_f1": 0.37
+    },
+    {
+      "trigger": 0.0177,
+      "event_f1": 0.2063,
+      "farh": 146.72,
+      "n_false_events": 5971,
+      "frame_sens": 0.9574,
+      "ep_f1": 0.3863
+    },
+    {
+      "trigger": 0.0223,
+      "event_f1": 0.2181,
+      "farh": 138.27,
+      "n_false_events": 5627,
+      "frame_sens": 0.9487,
+      "ep_f1": 0.4035
+    },
+    {
+      "trigger": 0.0283,
+      "event_f1": 0.2302,
+      "farh": 129.67,
+      "n_false_events": 5277,
+      "frame_sens": 0.9369,
+      "ep_f1": 0.4214
+    },
+    {
+      "trigger": 0.0364,
+      "event_f1": 0.2463,
+      "farh": 120.87,
+      "n_false_events": 4919,
+      "frame_sens": 0.925,
+      "ep_f1": 0.4402
+    },
+    {
+      "trigger": 0.0471,
+      "event_f1": 0.2642,
+      "farh": 109.57,
+      "n_false_events": 4459,
+      "frame_sens": 0.9076,
+      "ep_f1": 0.4599
+    },
+    {
+      "trigger": 0.0616,
+      "event_f1": 0.2822,
+      "farh": 100.23,
+      "n_false_events": 4079,
+      "frame_sens": 0.8837,
+      "ep_f1": 0.4781
+    },
+    {
+      "trigger": 0.0817,
+      "event_f1": 0.3025,
+      "farh": 88.39,
+      "n_false_events": 3597,
+      "frame_sens": 0.8572,
+      "ep_f1": 0.4977
+    },
+    {
+      "trigger": 0.1099,
+      "event_f1": 0.3267,
+      "farh": 75.93,
+      "n_false_events": 3090,
+      "frame_sens": 0.8256,
+      "ep_f1": 0.5173
+    },
+    {
+      "trigger": 0.1486,
+      "event_f1": 0.349,
+      "farh": 62.41,
+      "n_false_events": 2540,
+      "frame_sens": 0.794,
+      "ep_f1": 0.5376
+    },
+    {
+      "trigger": 0.201,
+      "event_f1": 0.3718,
+      "farh": 50.35,
+      "n_false_events": 2049,
+      "frame_sens": 0.7504,
+      "ep_f1": 0.5515
+    },
+    {
+      "trigger": 0.2668,
+      "event_f1": 0.3852,
+      "farh": 40.47,
+      "n_false_events": 1647,
+      "frame_sens": 0.6964,
+      "ep_f1": 0.5589
+    },
+    {
+      "trigger": 0.3488,
+      "event_f1": 0.393,
+      "farh": 31.45,
+      "n_false_events": 1280,
+      "frame_sens": 0.6411,
+      "ep_f1": 0.5638
+    },
+    {
+      "trigger": 0.4601,
+      "event_f1": 0.3805,
+      "farh": 21.67,
+      "n_false_events": 882,
+      "frame_sens": 0.5629,
+      "ep_f1": 0.5547
+    },
+    {
+      "trigger": 0.6233,
+      "event_f1": 0.3321,
+      "farh": 13.12,
+      "n_false_events": 534,
+      "frame_sens": 0.4485,
+      "ep_f1": 0.5131
+    },
+    {
+      "trigger": 0.8128,
+      "event_f1": 0.254,
+      "farh": 5.85,
+      "n_false_events": 238,
+      "frame_sens": 0.3131,
+      "ep_f1": 0.4246
+    },
+    {
+      "trigger": 0.9794,
+      "event_f1": 0.0709,
+      "farh": 0.79,
+      "n_false_events": 32,
+      "frame_sens": 0.1028,
+      "ep_f1": 0.1802
+    }
+  ],
+  "monotonicity": {
+    "ok": 1,
+    "n_sens_increases": 0,
+    "max_sens_increase": 0.0,
+    "worst_pair": null,
+    "n_farh_increases": 19,
+    "note": "frame_sens must be non-increasing in trigger; a violation means the post-processor's fired set is non-monotone and every operating point below the violating trigger is untrustworthy (see research/event_matching_artifact_28bw.md)"
+  },
+  "selected_points": {
+    "clinical_target": null,
+    "max_sens_at_budget": {
+      "trigger": 0.8128,
+      "event_f1": 0.254,
+      "farh": 5.85,
+      "n_false_events": 238,
+      "frame_sens": 0.3131,
+      "ep_f1": 0.4246
+    },
+    "deploy_rule_epf1_at_safety": {
+      "trigger": 0.8128,
+      "event_f1": 0.254,
+      "farh": 5.85,
+      "n_false_events": 238,
+      "frame_sens": 0.3131,
+      "ep_f1": 0.4246
+    },
+    "max_epf1_unconstrained": {
+      "trigger": 0.3488,
+      "event_f1": 0.393,
+      "farh": 31.45,
+      "n_false_events": 1280,
+      "frame_sens": 0.6411,
+      "ep_f1": 0.5638
+    }
+  }
+}

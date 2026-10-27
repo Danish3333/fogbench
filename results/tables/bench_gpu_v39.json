@@ -1,0 +1,133 @@
+{
+  "device": "NVIDIA GeForce RTX 3060",
+  "torch": "2.6.0+cu124",
+  "window_frames": 12000,
+  "channels": 13,
+  "reps": 20,
+  "batch": 1,
+  "timing": "cuda-synchronized median",
+  "rows": [
+    {
+      "component": "Conv stem (k7, s1)",
+      "params": null,
+      "macs": 72960000,
+      "gpu_ms": 0.146,
+      "windows_per_s": 6865.8,
+      "note": ""
+    },
+    {
+      "component": "Residual block 1 (64->128, s2)",
+      "params": null,
+      "macs": 1090560000,
+      "gpu_ms": 0.805,
+      "windows_per_s": 1242.1,
+      "note": ""
+    },
+    {
+      "component": "Residual block 2 (128->128, s1)",
+      "params": null,
+      "macs": 1382400000,
+      "gpu_ms": 0.502,
+      "windows_per_s": 1993.8,
+      "note": ""
+    },
+    {
+      "component": "Residual block 3 (128->256, s2)",
+      "params": null,
+      "macs": 2171904000,
+      "gpu_ms": 0.708,
+      "windows_per_s": 1412.3,
+      "note": ""
+    },
+    {
+      "component": "Residual block 4 (256->256, s1)",
+      "params": null,
+      "macs": 2758656000,
+      "gpu_ms": 0.772,
+      "windows_per_s": 1296.0,
+      "note": ""
+    },
+    {
+      "component": "Projection + LayerNorm",
+      "params": null,
+      "macs": 99840000,
+      "gpu_ms": 0.218,
+      "windows_per_s": 4579.8,
+      "note": ""
+    },
+    {
+      "component": "2x BiGRU (128, bidir) + LayerNorm",
+      "params": null,
+      "macs": 1497600000,
+      "gpu_ms": 9.624,
+      "windows_per_s": 103.9,
+      "note": ""
+    },
+    {
+      "component": "Local-window attention (win 128)",
+      "params": null,
+      "macs": 789504000,
+      "gpu_ms": 0.774,
+      "windows_per_s": 1291.9,
+      "note": ""
+    },
+    {
+      "component": "FoG head (1x1 conv x2)",
+      "params": null,
+      "macs": 394752000,
+      "gpu_ms": 0.245,
+      "windows_per_s": 4081.6,
+      "note": ""
+    },
+    {
+      "component": "Subtype head (1x1 conv x2)",
+      "params": null,
+      "macs": 399360000,
+      "gpu_ms": 0.253,
+      "windows_per_s": 3949.4,
+      "note": ""
+    },
+    {
+      "component": "Walking gate (strided Conv1d k25 x3)",
+      "params": null,
+      "macs": 19908864,
+      "gpu_ms": 0.651,
+      "windows_per_s": 1536.1,
+      "note": ""
+    },
+    {
+      "component": "Linear upsample x4 (interpolate)",
+      "params": 0,
+      "macs": 0,
+      "gpu_ms": 0.164,
+      "windows_per_s": null,
+      "note": "parameter-free"
+    },
+    {
+      "component": "Medication FiLM",
+      "params": null,
+      "macs": null,
+      "gpu_ms": 0.0719,
+      "windows_per_s": null,
+      "note": "linear 1->512 + elementwise modulation"
+    },
+    {
+      "component": "Full CNN-BiGRU detector (GPU)",
+      "params": 2957383,
+      "macs": -1,
+      "gpu_ms": 13.17,
+      "windows_per_s": 75.9,
+      "note": "includes gate+FiLM+heads"
+    },
+    {
+      "component": "Transformer-BiLSTM comparator (GPU)",
+      "params": 2178316,
+      "macs": -1,
+      "gpu_ms": 10.6,
+      "windows_per_s": 94.4,
+      "note": ""
+    }
+  ],
+  "full_params": 2957383,
+  "comparator_params": 2178316
+}

@@ -1,0 +1,945 @@
+{
+  "config": {
+    "mode": "cv",
+    "audit_only": false,
+    "model": "sequence",
+    "datasets": [
+      "xuanwu",
+      "fogstar"
+    ],
+    "external": [
+      "daphnet",
+      "weargait"
+    ],
+    "domain_split": false,
+    "families": null,
+    "family_shared_val": false,
+    "split_mode": null,
+    "no_rare_split": true,
+    "n_splits": 1,
+    "epochs": 80,
+    "lr": 0.0003,
+    "batch_size": 8,
+    "seed": 42,
+    "device": "cuda",
+    "n_seeds": 1,
+    "n_repeats": 1,
+    "run_baseline_comparator": true,
+    "resume": true,
+    "output": "results_gen_E6_trainXF_29aj.json",
+    "journal_report": false,
+    "benchmark_on": null
+  },
+  "families": {
+    "all": {
+      "n_folds_completed": 1,
+      "kaggle_map_mean": 0.0,
+      "kaggle_map_std": 0.0,
+      "event_f1_mean": 0.3356643356643356,
+      "event_f1_n_evaluable": 1,
+      "event_f1_n_not_evaluable": 0,
+      "worst_fold_collapse_check": {
+        "collapsed": false,
+        "worst_f1": 0.3356643356643356,
+        "min_threshold": 0.05
+      },
+      "fold_results": [
+        {
+          "code_version": "v25.57.0",
+          "training_identity": "79e1e08f444d606aede56befaaca28ffb7d5290f27f7ddd5b44832f0f7f073c5",
+          "sel_best_epoch": -1,
+          "evaluation_identity": "fd2741b74ec8bd27a69d0e7f5b00f44ce367d1eabead5c740415186656326a5f",
+          "protocol_hash": "fd5cb16da4b61a0ee9e9412b98f39c323b757c0ac45b52c6d72c5d51244e9610",
+          "split_mode": "pure_family",
+          "repeat": 0,
+          "split_seed": 42,
+          "fold": 1,
+          "train_time_s": 283.2418460845947,
+          "model_type": "sequence",
+          "use_walking_gate": true,
+          "use_rare_split": false,
+          "hetero_blend_weight": 1.0,
+          "notype_pseudo_used": 0,
+          "n_seeds_finalized": 1,
+          "n_seeds_excluded_not_final": 0,
+          "seed_finalized_epochs": [
+            34
+          ],
+          "main_map": 0.0,
+          "baseline_map": 0.0,
+          "held_sh_positive_subjects": null,
+          "held_sh_events": null,
+          "held_sh_max_subject_event_fraction": null,
+          "clinical_op_points": {
+            "window_f1": 0.27766990291262134,
+            "window_sens": 0.3294930875576037,
+            "window_spec": 0.5863013698630137,
+            "sens_at_farh10": 0.0,
+            "farh_at_sens85": 16.5429772763826,
+            "coverage_farh": [
+              {
+                "coverage": 1.0,
+                "abstain_threshold": 0.0,
+                "sensitivity": 0.5930940460240227,
+                "farh": 9.408505550364906
+              },
+              {
+                "coverage": 0.95,
+                "abstain_threshold": 0.0067613684479035235,
+                "sensitivity": 0.28126836377312364,
+                "farh": 30.577643038685945
+              },
+              {
+                "coverage": 0.9,
+                "abstain_threshold": 0.014510386681658705,
+                "sensitivity": 0.21378370119643655,
+                "farh": 28.22551665109472
+              }
+            ]
+          },
+          "subtype_prior_train": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "logit_adjust_tau": 0.0,
+          "joint_certified_ops": {
+            "alpha": 0.1,
+            "delta": 0.0020833333333333333,
+            "n_triggers": 24,
+            "rows": [
+              {
+                "trigger": 0.2653352238408459,
+                "tp_events": 6,
+                "n_events": 37,
+                "sens_point": 0.16216216216216217,
+                "sens_lower_bound": 0.036531865283598225,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.25824636077225693,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 1,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9178181582301319,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.25479777568447654,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 1,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9178181582301319,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.25222121158489236,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.25028046164747986,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.24860497568023993,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.2468861564406068,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.2454054114748213,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.24420314557070952,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.24313646913222545,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.24207795254766723,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.24102033154025462,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.23982665274884854,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.23852818645271687,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.2373125493569642,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.23597912133322008,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.23448388278003557,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.23270118844140666,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.2308762084398257,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.22847171749408968,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.22624204259993977,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.22275437993220562,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.2197731691791963,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              },
+              {
+                "trigger": 0.21583078436315478,
+                "tp_events": 10,
+                "n_events": 37,
+                "sens_point": 0.2702702702702703,
+                "sens_lower_bound": 0.09635076040749754,
+                "farh_budget_violations": 2,
+                "n_subjects": 4,
+                "violation_rate_upper_bound": 0.9811288763706305,
+                "sens_certified": false,
+                "farh_certified": false,
+                "joint_certified": false
+              }
+            ],
+            "certified": [],
+            "note": "Clopper-Pearson exact bounds, Bonferroni delta=alpha/(2m) across 24 triggers x 2 risk families; exchangeability required; report-only (never selects/deploys). Ref: Learn-then-Test (arXiv:2110.01052); Conformal Risk Control (arXiv:2208.02814)"
+          },
+          "episode_f1_frame": 0.6290151871250198,
+          "event_f1": 0.3356643356643356,
+          "farh": {
+            "farh_events_per_hour": 5.892920719754789,
+            "n_false_events": 12,
+            "total_hours": 2.0363416666666665,
+            "overlap_rule": "any",
+            "n_pred_events": 70
+          },
+          "ece": 0.23416498434266855,
+          "brier": 0.2635785344095014,
+          "reliability_diagram_slope": 1.2308730104063397,
+          "reliability_diagram_intercept": -4.045985673727519,
+          "logistic_calib_slope": -0.3914166902433366,
+          "logistic_calib_intercept": -0.5945260193898084,
+          "window_f1": 0.5542784163473818,
+          "window_metrics": {
+            "sensitivity": 0.7712439418416801,
+            "specificity": 0.2605101558809636,
+            "precision": 0.43258426966292135,
+            "f1": 0.5542784163473818,
+            "auc": 0.3494488420914468,
+            "pr_auc": 0.320513014164668,
+            "n_windows": 7329
+          },
+          "event_metrics": {
+            "sensitivity": 0.2222222222222222,
+            "precision": 0.6857142857142857,
+            "f1": 0.3356643356643356,
+            "episode_detection_rate": 0.2222222222222222,
+            "empty": false,
+            "n_true_events": 216,
+            "n_pred_events": 70,
+            "tp": 48,
+            "fp": 22,
+            "fn": 168
+          },
+          "icc": {
+            "icc_percent_time_frozen": 0.1949191222658682,
+            "icc_n_episodes": 0.06296503390033142,
+            "icc_duration_s": 0.37129935498062744,
+            "n_recordings": 90
+          },
+          "per_source": {
+            "fogstar": {
+              "episode_f1_frame": 0.0,
+              "event_f1": 0.0,
+              "farh": {
+                "farh_events_per_hour": 8.707956895613366,
+                "n_false_events": 2,
+                "total_hours": 0.22967500000000002,
+                "overlap_rule": "any",
+                "n_pred_events": 2
+              }
+            },
+            "xuanwu": {
+              "episode_f1_frame": 0.6359531581420751,
+              "event_f1": 0.36226415094339626,
+              "farh": {
+                "farh_events_per_hour": 5.535055350553505,
+                "n_false_events": 10,
+                "total_hours": 1.8066666666666666,
+                "overlap_rule": "any",
+                "n_pred_events": 68
+              }
+            }
+          },
+          "per_subject_farh": {
+            "per_subject": {
+              "002": 33.5195530726257,
+              "003": 0.0,
+              "008/OFF_1": 0.0,
+              "009": 0.0,
+              "011": 0.0,
+              "012": 6.936416184971098,
+              "fogstar_16": 16.184139543247618,
+              "fogstar_20": 0.0,
+              "fogstar_8": 29.022895840051593,
+              "fogstar_9": 0.0
+            },
+            "p50": 0.0,
+            "p95": 31.496057317967345,
+            "worst_subject": "002"
+          },
+          "cueing_latency": {
+            "n_events": 216,
+            "detected": 195,
+            "missed": 21,
+            "detected_frac": 0.9027777777777778,
+            "median_latency_s": -0.5,
+            "mean_latency_s": -0.42846153846153845,
+            "p90_latency_s": -0.5,
+            "within_1s_frac": 1.0,
+            "prewindow_allowance_s": 0.5,
+            "deployable": false,
+            "artifact_note": "NON-DEPLOYABLE: median onset latency is negative, which indicates the detector is using future (look-ahead) information via its non-causal receptive field. A real-time cueing device must fire AFTER onset (latency >= 0). Make the model causal (remove the future window) before reporting this as a deployable cueing latency."
+          },
+          "kaggle_map": {
+            "mAP": 0.0,
+            "comparable": false,
+            "StartHesitation": 0.0,
+            "Turn": 0.0,
+            "Walking": 0.0
+          },
+          "seed_val_maps": null,
+          "abstention_frac": 0.0,
+          "abstention_pos_frac": 0.0,
+          "per_medication": {
+            "OFF": {
+              "event_f1": 0.0,
+              "farh": 8.707956895613366,
+              "window_f1": 0.0,
+              "sensitivity": 0.0,
+              "n_frames": 82683
+            },
+            "unknown": {
+              "event_f1": 0.36226415094339626,
+              "farh": 5.535055350553505,
+              "window_f1": 0.5596061423045364,
+              "sensitivity": 0.791445623342175,
+              "n_frames": 650400
+            }
+          },
+          "sh_event_recall": NaN,
+          "sh_subject_coverage": NaN,
+          "sh_positive_subjects_val": 0,
+          "selection_split_ensemble": {
+            "main": {
+              "mAP": 0.0,
+              "comparable": false,
+              "StartHesitation": 0.0,
+              "Turn": 0.0,
+              "Walking": 0.0
+            },
+            "baseline": {
+              "mAP": 0.0,
+              "comparable": false,
+              "StartHesitation": 0.0,
+              "Turn": 0.0,
+              "Walking": 0.0
+            },
+            "blend_0.35": {
+              "mAP": 0.0,
+              "comparable": false,
+              "StartHesitation": 0.0,
+              "Turn": 0.0,
+              "Walking": 0.0
+            },
+            "blend_0.5": {
+              "mAP": 0.0,
+              "comparable": false,
+              "StartHesitation": 0.0,
+              "Turn": 0.0,
+              "Walking": 0.0
+            },
+            "per_cohort_main": {
+              "fogstar": {
+                "mAP": 0.0,
+                "comparable": false,
+                "StartHesitation": 0.0,
+                "Turn": 0.0,
+                "Walking": 0.0
+              },
+              "xuanwu": {
+                "mAP": 0.0,
+                "comparable": false,
+                "StartHesitation": 0.0,
+                "Turn": 0.0,
+                "Walking": 0.0
+              }
+            },
+            "n_frames": 153053,
+            "note": "report-only: never selects, deploys, or gates"
+          },
+          "frozen_threshold": 0.29610764582770466,
+          "temperature": 0.6035957548473996,
+          "tripod_external_validation": {
+            "cohorts": {
+              "daphnet": {
+                "event_f1": 0.07456140350877193,
+                "episode_f1_frame": 0.14825390546728634,
+                "farh": 21.62380059652324,
+                "event_f1_ungated": 0.10176125244618395,
+                "farh_ungated": 21.743932822059477,
+                "ece": 0.0844218898327096,
+                "ece_ungated": 0.5715674151433101,
+                "window_f1": 0.24337277220308523,
+                "window_metrics": {
+                  "sensitivity": 0.8248730964467005,
+                  "specificity": 0.6514144877839692,
+                  "precision": 0.14274420238931834,
+                  "f1": 0.24337277220308523,
+                  "auc": 0.7346581056176988,
+                  "pr_auc": 0.10606407415411448,
+                  "n_windows": 29966
+                },
+                "event_metrics": {
+                  "sensitivity": 0.13043478260869565,
+                  "precision": 0.12941176470588237,
+                  "f1": 0.12992125984251968,
+                  "episode_detection_rate": 0.13043478260869565,
+                  "empty": false,
+                  "n_true_events": 253,
+                  "n_pred_events": 255,
+                  "tp": 33,
+                  "fp": 222,
+                  "fn": 220
+                },
+                "window_metrics_ungated": {
+                  "sensitivity": 1.0,
+                  "specificity": 0.0,
+                  "precision": 0.06574117332977375,
+                  "f1": 0.12337174348697397,
+                  "auc": 0.6730716425769308,
+                  "pr_auc": 0.08721501634876583,
+                  "n_windows": 29966
+                },
+                "event_metrics_ungated": {
+                  "sensitivity": 0.10276679841897234,
+                  "precision": 0.10077519379844961,
+                  "f1": 0.10176125244618395,
+                  "episode_detection_rate": 0.10276679841897234,
+                  "empty": false,
+                  "n_true_events": 253,
+                  "n_pred_events": 258,
+                  "tp": 26,
+                  "fp": 232,
+                  "fn": 227
+                },
+                "n_sequences": 258,
+                "n_subjects": 10,
+                "n_frames": 2996698,
+                "icc": {
+                  "icc_percent_time_frozen": 0.026439533233842422,
+                  "icc_n_episodes": 0.03566530762366316,
+                  "icc_duration_s": 0.027966615082940693,
+                  "n_recordings": 258
+                },
+                "per_subject_farh": {
+                  "per_subject": {
+                    "S01": 15.805417745971813,
+                    "S02": 17.044983763863847,
+                    "S03": 14.55736511691384,
+                    "S04": 16.479258694934263,
+                    "S05": 14.220039925496714,
+                    "S06": 18.856559201738996,
+                    "S07": 29.841073675802356,
+                    "S08": 20.241776778183862,
+                    "S09": 9.359818152104472,
+                    "S10": 17.878663470579667
+                  },
+                  "p50": 16.762121229399057,
+                  "p95": 25.521390071874023,
+                  "worst_subject": "S07"
+                },
+                "passed": false,
+                "pass_mode": "prior_matched",
+                "mlls_target_prior": 0.1880563244145688,
+                "mlls_farh": 21.62380059652324,
+                "mlls_sens": 0.06719367588932806,
+                "event_f1_frozen": 0.12992125984251968,
+                "farh_frozen": 21.263403919914516
+              },
+              "weargait": {
+                "event_f1": 0.13545816733067728,
+                "episode_f1_frame": 0.31922934572521283,
+                "farh": 3.2542814139852743,
+                "event_f1_ungated": 0.13545816733067728,
+                "farh_ungated": 3.2542814139852743,
+                "ece": 0.32105959471532214,
+                "ece_ungated": 0.5631229201383098,
+                "window_f1": 0.3854710556186152,
+                "window_metrics": {
+                  "sensitivity": 0.8890052356020942,
+                  "specificity": 0.25107975813417793,
+                  "precision": 0.24608695652173912,
+                  "f1": 0.3854710556186152,
+                  "auc": 0.479206986430851,
+                  "pr_auc": 0.19415779411202957,
+                  "n_windows": 4428
+                },
+                "event_metrics": {
+                  "sensitivity": 0.09523809523809523,
+                  "precision": 0.29508196721311475,
+                  "f1": 0.144,
+                  "episode_detection_rate": 0.09523809523809523,
+                  "empty": false,
+                  "n_true_events": 189,
+                  "n_pred_events": 61,
+                  "tp": 18,
+                  "fp": 43,
+                  "fn": 171
+                },
+                "window_metrics_ungated": {
+                  "sensitivity": 1.0,
+                  "specificity": 0.0,
+                  "precision": 0.21567299006323395,
+                  "f1": 0.3548207319338659,
+                  "auc": 0.4536732881782125,
+                  "pr_auc": 0.1978107902830887,
+                  "n_windows": 4428
+                },
+                "event_metrics_ungated": {
+                  "sensitivity": 0.08994708994708994,
+                  "precision": 0.27419354838709675,
+                  "f1": 0.13545816733067728,
+                  "episode_detection_rate": 0.08994708994708994,
+                  "empty": false,
+                  "n_true_events": 189,
+                  "n_pred_events": 62,
+                  "tp": 17,
+                  "fp": 45,
+                  "fn": 172
+                },
+                "n_sequences": 62,
+                "n_subjects": 12,
+                "n_frames": 442494,
+                "icc": {
+                  "icc_percent_time_frozen": 0.006732463568409653,
+                  "icc_n_episodes": 0.005530541160479112,
+                  "icc_duration_s": 0.08905038260552016,
+                  "n_recordings": 62
+                },
+                "per_subject_farh": {
+                  "per_subject": {
+                    "NLS033": 0.0,
+                    "NLS036": 0.0,
+                    "NLS101": 0.0,
+                    "NLS124": 0.0,
+                    "NLS141": 0.0,
+                    "NLS153": 0.0,
+                    "NLS165": 0.0,
+                    "NLS166": 0.0,
+                    "NLS196": 0.0,
+                    "NLS201": 0.0,
+                    "NLS208": 0.0,
+                    "WPD025": 0.0
+                  },
+                  "p50": 0.0,
+                  "p95": 0.0,
+                  "worst_subject": "NLS033"
+                },
+                "passed": false,
+                "pass_mode": "prior_matched",
+                "mlls_target_prior": 0.4880563244145688,
+                "mlls_farh": 3.2542814139852743,
+                "mlls_sens": 0.08994708994708994,
+                "event_f1_frozen": 0.144,
+                "farh_frozen": 2.440711060488956
+              }
+            },
+            "event_f1": 0.1345646437994723,
+            "farh": {
+              "farh_events_per_hour": 18.84163489563828,
+              "n_false_events": 180,
+              "total_hours": 9.55331111111111,
+              "overlap_rule": "any",
+              "n_pred_events": 316
+            },
+            "window_f1": 0.2786192916267808,
+            "n_sequences": 320,
+            "n_subjects": 22,
+            "passed": false,
+            "criteria": {
+              "min_event_f1": 0.3,
+              "max_farh": 30.0
+            },
+            "abstention_frac": 0.0,
+            "abstention_pos_frac": 0.0,
+            "train_subject_overlap": 0,
+            "evaluation_rev": "v25.59"
+          },
+          "main_minus_baseline_map": 0.0,
+          "ens_arrays": {
+            "npz": "all_fold1_ens.npz",
+            "sub_probs_shape": [
+              733083,
+              3
+            ]
+          },
+          "postproc": {
+            "trigger": 0.29610764582770466,
+            "confirm_n": 3,
+            "cooldown_n": 30,
+            "sustain": 0.0967304683424215,
+            "merge_gap_n": 30,
+            "sensitivity": 0.0,
+            "farh": 5.5143257587942,
+            "note": "inner-CV median trigger over 3 subject folds",
+            "event_sensitivity": 0.2777777777777778,
+            "event_f1": 0.31250000000000006,
+            "sensitivity_level": "frame+event",
+            "inner_cv_triggers": [
+              0.2418261708560537,
+              0.22386772784749912,
+              0.17249599141336083
+            ],
+            "ssbc_alpha_effective": 0.4376586748096509,
+            "max_epf1_diagnostic_DO_NOT_DEPLOY": {
+              "trigger": 0.2620087993242286,
+              "ep_f1": 0.37665189443845576,
+              "sensitivity": 0.6950563618949385,
+              "farh": 13.7858143969855,
+              "note": "diagnostic only -- NOT the deployed operating point"
+            }
+          },
+          "eval_inputs_saved": true,
+          "phase1_manifest": {
+            "protocol_version": "P1.0",
+            "code_sha256": "5ffe795d7c9c4eb3e6b91d82b79ff5bce984958f4ac1b40e08dd8e36e3937a91",
+            "code_version": "v25.57.0",
+            "split_mode": "pure_family",
+            "repeat": 0,
+            "split_seed": 42,
+            "fold": 1,
+            "family": "all",
+            "n_seeds": 1,
+            "train_subjects": [
+              "001",
+              "004",
+              "005",
+              "006",
+              "007",
+              "008/OFF_2",
+              "010",
+              "fogstar_1",
+              "fogstar_10",
+              "fogstar_11",
+              "fogstar_12",
+              "fogstar_13",
+              "fogstar_14",
+              "fogstar_15",
+              "fogstar_17",
+              "fogstar_18",
+              "fogstar_19",
+              "fogstar_2",
+              "fogstar_21",
+              "fogstar_22",
+              "fogstar_3",
+              "fogstar_4",
+              "fogstar_5",
+              "fogstar_6",
+              "fogstar_7"
+            ],
+            "test_subjects": [
+              "002",
+              "003",
+              "008/OFF_1",
+              "009",
+              "011",
+              "012",
+              "fogstar_16",
+              "fogstar_20",
+              "fogstar_8",
+              "fogstar_9"
+            ],
+            "calib_subjects": null,
+            "threshold_subjects": null,
+            "main_identity": "79e1e08f444d606aede56befaaca28ffb7d5290f27f7ddd5b44832f0f7f073c5",
+            "baseline_identity": null,
+            "training_identity": "79e1e08f444d606aede56befaaca28ffb7d5290f27f7ddd5b44832f0f7f073c5",
+            "evaluation_identity": "fd2741b74ec8bd27a69d0e7f5b00f44ce367d1eabead5c740415186656326a5f",
+            "protocol_hash": "fd5cb16da4b61a0ee9e9412b98f39c323b757c0ac45b52c6d72c5d51244e9610"
+          },
+          "baseline_arrays": {
+            "npz": "all_fold1_baseline_ens.npz",
+            "sub_probs_shape": [
+              733083,
+              3
+            ],
+            "training_identity": "4828b562468825f654959d6e5dd93f56a09c0fb9e14f60a9ab2772d99ca85bd0",
+            "baseline_seed": 7000
+          },
+          "fold_json_path": "neuromamba_v25_fold1_all_checkpoint.json"
+        }
+      ],
+      "fold_ensemble_map": {
+        "mAP": 0.0,
+        "comparable": false,
+        "StartHesitation": 0.0,
+        "Turn": 0.0,
+        "Walking": 0.0
+      },
+      "bootstrap_ci": {
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "mean": 0.0,
+        "n_valid_boot": 0,
+        "unit": "subject"
+      },
+      "baseline_ci_diff": {
+        "diff_mean": NaN,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "non_overlapping_zero": false,
+        "n_valid_boot": 0
+      },
+      "ece_max": 0.20274074227401587
+    }
+  },
+  "external_validation": [
+    {
+      "cohort": "daphnet",
+      "event_f1": 0.07456140350877193,
+      "farh": 21.62380059652324,
+      "n_folds": 1,
+      "n_evaluable_event_f1": 1,
+      "passed": false
+    },
+    {
+      "cohort": "weargait",
+      "event_f1": 0.13545816733067728,
+      "farh": 3.2542814139852743,
+      "n_folds": 1,
+      "n_evaluable_event_f1": 1,
+      "passed": false
+    }
+  ]
+}

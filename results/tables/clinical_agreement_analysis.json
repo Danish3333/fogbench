@@ -1,0 +1,94 @@
+{
+  "primary_v32": {
+    "arm": "primary_v32",
+    "n_repeats": 10,
+    "ptf": {
+      "n_subjects": 97,
+      "icc_2_1": 0.8967,
+      "bias_pct_points": -2.697,
+      "loa_low_pct_points": -16.242,
+      "loa_high_pct_points": 10.847,
+      "label_mean_pct": 12.244,
+      "pred_mean_pct": 9.547
+    },
+    "episodes": {
+      "n_subjects": 97,
+      "mae": 16.08,
+      "spearman": 0.8569
+    },
+    "sh_pooled": {
+      "n_patients": 32,
+      "n_frames_observed": 10511698,
+      "n_event_instances_all_repeats": 313,
+      "n_events_unique_max_per_patient": 81,
+      "ap_pooled": 0.8603,
+      "bootstrap_ci95": [
+        0.7153,
+        0.9185
+      ],
+      "n_bootstrap": 500,
+      "per_patient_ap_median": 0.8092,
+      "n_patients_with_events": 32
+    },
+    "sh_events_detail": {
+      "n_events": 313,
+      "peak_prob_median": 0.1625,
+      "peak_prob_below_0p5": 280
+    },
+    "event_sensitivity": {
+      "event_f1_iou_0.1": 0.4575,
+      "event_f1_iou_0.3": 0.3638,
+      "event_f1_iou_0.5": 0.2547,
+      "farh_any": 18.94,
+      "n_false_any": 2526,
+      "farh_iou": 21.66,
+      "n_false_iou": 2889
+    }
+  },
+  "nested_v40": {
+    "arm": "nested_v40",
+    "n_repeats": 10,
+    "ptf": {
+      "n_subjects": 97,
+      "icc_2_1": 0.8962,
+      "bias_pct_points": -2.612,
+      "loa_low_pct_points": -16.201,
+      "loa_high_pct_points": 10.976,
+      "label_mean_pct": 12.244,
+      "pred_mean_pct": 9.632
+    },
+    "episodes": {
+      "n_subjects": 97,
+      "mae": 16.802,
+      "spearman": 0.8609
+    },
+    "sh_pooled": {
+      "n_patients": 32,
+      "n_frames_observed": 10511698,
+      "n_event_instances_all_repeats": 313,
+      "n_events_unique_max_per_patient": 81,
+      "ap_pooled": 0.8712,
+      "bootstrap_ci95": [
+        0.7366,
+        0.9193
+      ],
+      "n_bootstrap": 500,
+      "per_patient_ap_median": 0.7813,
+      "n_patients_with_events": 32
+    },
+    "sh_events_detail": {
+      "n_events": 313,
+      "peak_prob_median": 0.1498,
+      "peak_prob_below_0p5": 295
+    },
+    "event_sensitivity": {
+      "event_f1_iou_0.1": 0.463,
+      "event_f1_iou_0.3": 0.361,
+      "event_f1_iou_0.5": 0.2541,
+      "farh_any": 18.86,
+      "n_false_any": 2515,
+      "farh_iou": 21.43,
+      "n_false_iou": 2858
+    }
+  }
+}
