@@ -49,10 +49,6 @@ Every block of the framework figure anchors to code/neuromamba_v25_sota.py (line
 
 The released configuration matches the executed runs (scripts/ops_nested_v43.sh); two documented deviations from library defaults are disclosed in the paper: the event-assembly release point can be stale relative to the final trigger in 9 of 10 released checkpoints (deployed ratios 0.001-0.40), and the merge gap took its default of 30 frames in every released fold.
 
-## Verify the numbers yourself
-
-See [SELF_CHECK.md](SELF_CHECK.md): every headline claim mapped to the file that
-carries it and the one-command check that re-derives it.
 
 ## Environment
 
